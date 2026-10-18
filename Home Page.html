@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Livora Interior Design</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+/* =========================
+   GLOBAL STYLES
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    width: 100%;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: #ffffff;
+    color: #222222;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .logo {
+    font-family: 'Playfair Display', serif;
+}
+
+p {
+    color: #333333;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* =========================
+   HEADER AND NAVIGATION
+========================= */
+
+header {
+    width: 100%;
+    min-height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    padding: 12px 5%;
+    background: burlywood;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Main logo */
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    cursor: default;
+}
+
+.logo img {
+    display: block;
+    width: 130px;
+    height: 85px;
+    object-fit: contain;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation */
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+nav a {
+    text-decoration: none;
+    margin: 0 8px;
+    color: #222222;
+    font-family: Georgia, serif;
+    font-size: 16px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #8b5e20;
+}
+
+/* Buttons */
+
+.btn {
+    display: inline-block;
+    background: #d2a137;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 22px;
+    border-radius: 5px;
+    font-family: Georgia, serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background: #ad8127;
+    transform: translateY(-2px);
+}
+
+.consultation-btn {
+    flex-shrink: 0;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
+    padding: 65px 8%;
+}
+
+.hero-text {
+    width: 48%;
+    min-width: 0;
+}
+
+.hero-text h4 {
+    color: hsla(40, 61%, 45%, 0.9);
+    margin-bottom: 22px;
+    font-size: 20px;
+    line-height: 1.5;
+    font-family: 'Poppins', sans-serif;
+}
+
+.hero-text h1 {
+    font-size: clamp(32px, 3.2vw, 45px);
+    line-height: 1.3;
+    margin-bottom: 25px;
+    font-weight: 700;
+    overflow-wrap: break-word;
+}
+
+.hero-text span {
+    color: #b88a2d;
+    font-size: inherit;
+    font-style: italic;
+}
+
+.hero-text p {
+    font-family: Georgia, serif;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.hero-text .btn {
+    margin-top: 5px;
+}
+
+.hero > img {
+    display: block;
+    width: 52%;
+    height: auto;
+    max-height: 550px;
+    object-fit: cover;
+    object-position: center;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* =========================
+   GENERAL SECTIONS
+========================= */
+
+section {
+    width: 100%;
+    padding: 35px 8%;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.title img {
+    display: block;
+    width: 100%;
+    max-width: 470px;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto 25px;
+}
+
+.title p {
+    font-family: Georgia, serif;
+    font-size: 23px;
+    font-weight: bold;
+    line-height: 1.7;
+    text-align: center;
+}
+
+/* =========================
+   SECTION HEADINGS
+========================= */
+
+.service-heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 100%;
+    margin: 45px auto 30px;
+}
+
+.service-heading span {
+    flex: 1;
+    min-width: 10px;
+    height: 2px;
+    background: #b68b45;
+}
+
+.service-heading h2 {
+    margin: 0;
+    white-space: nowrap;
+    font-family: Georgia, serif;
+    font-size: 24px;
+    letter-spacing: 1px;
+    color: #1b1b1b;
+    text-align: center;
+}
+
+/* =========================
+   SERVICES
+========================= */
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+    width: 100%;
+}
+
+.card {
+    width: 100%;
+    min-width: 0;
+    background: #ffffff;
+    padding: 28px 20px;
+    text-align: center;
+    line-height: 1.5;
+    color: #000000;
+    margin-bottom: 20px;
+    border-radius: 9px;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.card h3 {
+    margin: 18px 0;
+    font-family: Georgia, serif;
+    font-size: 19px;
+}
+
+.card p {
+    width: 100%;
+    min-height: 80px;
+    margin-bottom: 0;
+    font-family: Georgia, serif;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.6;
+}
+
+.card a {
+    display: inline-block;
+    margin-top: auto;
+    padding-top: 22px;
+    color: #b88a2d;
+    font-family: Georgia, serif;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.card a:hover {
+    color: #76551b;
+}
+
+/* =========================
+   SERVICE ICONS
+========================= */
+
+.icon-circle,
+.icon-circle1 {
+    width: 85px;
+    height: 85px;
+    border: 3px solid #b79b5b;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.bedroom-icon,
+.floor-icon,
+.lighting-icon,
+.customer-icon {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #8b5e3c;
+    font-size: 30px;
+    transition: 0.3s ease;
+}
+
+.bedroom-icon:hover,
+.floor-icon:hover,
+.lighting-icon:hover,
+.customer-icon:hover {
+    background: #8b5e3c;
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+/* =========================
+   FEATURED PROJECTS
+========================= */
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.project {
+    min-width: 0;
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.project:hover {
+    transform: translateY(-4px);
+}
+
+.project img {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.project h4 {
+    padding: 15px 10px;
+    text-align: center;
+    font-size: 17px;
+}
+
+.project p {
+    padding: 0 8px 15px;
+    text-align: center;
+    font-family: Georgia, serif;
+    font-size: 15px;
+    font-weight: normal;
+}
+
+/* =========================
+   VIEW PROJECTS BUTTON
+========================= */
+
+.view-projects {
+    display: flex;
+    justify-content: center;
+    margin: 35px 0;
+}
+
+.view-projects .btn {
+    font-size: 16px;
+}
+
+/* =========================
+   FEATURES
+========================= */
+
+.features {
+    width: 100%;
+    max-width: 1200px;
+    margin: 45px auto;
+    padding: 30px 0;
+    border-top: 1px solid #dddddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 25px 15px;
+}
+
+.feature-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    width: calc(25% - 12px);
+    min-width: 0;
+}
+
+.feature-box i {
+    flex-shrink: 0;
+    font-size: 35px;
+    color: #b07a2b;
+    margin-top: 8px;
+}
+
+.feature-box h3 {
+    font-family: Georgia, serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+.feature-box p {
+    font-family: Georgia, serif;
+    font-size: 15px;
+    color: #555555;
+    font-weight: normal;
+    line-height: 1.6;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    width: 100%;
+    background: #222222;
+    color: #ffffff;
+    padding: 25px 15px;
+    line-height: 1.8;
+    text-align: center;
+}
+
+footer h4 {
+    color: #ffffff;
+    font-size: 21px;
+    margin-bottom: 8px;
+}
+
+footer h6 {
+    color: #eeeeee;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+}
+
+/* =========================
+   TABLET RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+
+    header {
+        gap: 15px;
+        padding: 12px 3%;
+    }
+
+    .logo img {
+        width: 105px;
+        height: 75px;
+    }
+
+    nav {
+        gap: 5px;
+    }
+
+    nav a {
+        margin: 0 5px;
+        font-size: 15px;
+    }
+
+    header > .btn {
+        padding: 10px 14px;
+        font-size: 14px;
+    }
+
+    .hero {
+        gap: 25px;
+        padding: 45px 5%;
+    }
+
+    .hero-text {
+        width: 48%;
+    }
+
+    .hero-text h1 {
+        font-size: 34px;
+    }
+
+    .hero-text p {
+        font-size: 18px;
+    }
+
+    .hero > img {
+        width: 50%;
+    }
+
+    section {
+        padding: 30px 5%;
+    }
+
+    .services,
+    .projects {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .feature-box {
+        width: calc(50% - 10px);
+    }
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+
+    body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    header {
+        position: relative;
+        width: 100%;
+        min-height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 10px 12px 15px;
+    }
+
+    .logo {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .logo img {
+        width: 105px;
+        height: 65px;
+        margin: 0;
+        padding: 0;
+        object-fit: contain;
+    }
+
+    nav {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 10px 16px;
+    }
+
+    nav a {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    header > .btn {
+        display: inline-block;
+        max-width: 100%;
+        padding: 10px 20px;
+        font-size: 14px;
+        white-space: normal;
+    }
+
+    /* Hero */
+
+    .hero {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 25px;
+        padding: 30px 20px;
+    }
+
+    .hero-text {
+        width: 100%;
+        min-width: 0;
+        line-height: 1.6;
+    }
+
+    .hero-text h4 {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 18px;
+    }
+
+    .hero-text h1 {
+        font-size: 31px;
+        line-height: 1.35;
+        margin-bottom: 20px;
+        overflow-wrap: break-word;
+    }
+
+    .hero-text span {
+        font-size: inherit;
+        display: inline;
+    }
+
+    .hero-text p {
+        font-size: 17px;
+        line-height: 1.7;
+        margin-bottom: 25px;
+    }
+
+    .hero-text .btn {
+        display: inline-block;
+        padding: 12px 18px;
+        font-size: 14px;
+    }
+
+    .hero > img {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        max-height: none;
+        object-fit: cover;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Sections */
+
+    section {
+        width: 100%;
+        padding: 25px 18px;
+    }
+
+    .title {
+        margin-bottom: 35px;
+    }
+
+    .title img {
+        display: block;
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        margin: 0 auto 20px;
+    }
+
+    .title p {
+        font-size: 17px;
+        line-height: 1.7;
+    }
+
+    /* Section headings */
+
+    .service-heading {
+        width: 100%;
+        gap: 9px;
+        margin: 30px auto 22px;
+    }
+
+    .service-heading span {
+        flex: 1;
+        min-width: 8px;
+    }
+
+    .service-heading h2 {
+        font-size: 17px;
+        letter-spacing: 0;
+    }
+
+    /* Services */
+
+    .services {
+        width: 100%;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 15px;
+    }
+
+    .card {
+        width: 100%;
+        padding: 25px 18px;
+        margin-bottom: 5px;
+    }
+
+    .card h3 {
+        font-size: 19px;
+        line-height: 1.5;
+    }
+
+    .card p {
+        min-height: auto;
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    .card a {
+        padding-top: 18px;
+        font-size: 14px;
+    }
+
+    .icon-circle,
+    .icon-circle1 {
+        width: 75px;
+        height: 75px;
+    }
+
+    .bedroom-icon,
+    .floor-icon,
+    .lighting-icon,
+    .customer-icon {
+        font-size: 26px;
+    }
+
+    /* Projects */
+
+    .projects {
+        width: 100%;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+    }
+
+    .project img {
+        width: 100%;
+        height: 230px;
+        object-fit: cover;
+    }
+
+    .project h4 {
+        padding: 15px 10px;
+        font-size: 17px;
+    }
+
+    .project p {
+        font-size: 15px;
+    }
+
+    /* View projects */
+
+    .view-projects {
+        width: 100%;
+        margin: 25px 0;
+    }
+
+    .view-projects .btn {
+        max-width: 100%;
+        padding: 12px 17px;
+        font-size: 14px;
+    }
+
+    /* Features */
+
+    .features {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 22px;
+        margin: 25px auto;
+        padding: 22px 0;
+    }
+
+    .feature-box {
+        width: 100%;
+        gap: 12px;
+        margin-bottom: 0;
+    }
+
+    .feature-box i {
+        font-size: 30px;
+        margin-top: 5px;
+    }
+
+    .feature-box h3 {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .feature-box p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    /* Footer */
+
+    footer {
+        padding: 22px 12px;
+    }
+
+    footer h4 {
+        font-size: 18px;
+    }
+
+    footer h6 {
+        font-size: 12px;
+        line-height: 1.8;
+    }
+}
+
+/* =========================
+   EXTRA SMALL PHONES
+========================= */
+
+@media (max-width: 360px) {
+
+    nav {
+        gap: 8px 12px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+    .hero {
+        padding: 25px 15px;
+    }
+
+    .hero-text h1 {
+        font-size: 27px;
+    }
+
+    .hero-text p {
+        font-size: 16px;
+    }
+
+    section {
+        padding: 22px 15px;
+    }
+
+    .service-heading h2 {
+        font-size: 15px;
+    }
+
+    .card {
+        padding: 22px 15px;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="logo" id="adminLogo">
+
+        <img src="logo.png" alt="Livora Interior Design Logo">
+
+    </div>
+
+    <nav>
+
+        <a href="Home Page.html">Home</a>
+
+        <a href="about.html">About</a>
+
+        <a href="Services.html">Services</a>
+
+        <a href="Reviews.html">Reviews</a>
+
+        <a href="contact.html">Contact</a>
+
+    </nav>
+
+    <a href="loginn.html" class="btn consultation-btn">
+        Book Consultation
+    </a>
+
+</header>
+
+
+<!-- =========================
+     HERO SECTION
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-text">
+
+        <h4>Designing spaces, Defining Lifestyles</h4>
+
+        <h1>
+            <i>Elevate Your</i>
+            <span>Living Experience</span>
+        </h1>
+
+        <p>
+            We create timeless interiors that blend beauty,
+            functionality, and your unique vision.
+        </p>
+
+        <a href="Explore our work.html" class="btn">
+            Explore Our Work
+        </a>
+
+    </div>
+
+    <img src="hero.jpeg" alt="Beautiful Livora living room interior">
+
+</section>
+
+
+<!-- =========================
+     ABOUT LIVORA
+========================= -->
+
+<section>
+
+    <div class="title">
+
+        <img src="logo1.png" alt="Livora Brand Logo">
+
+        <p>
+            At Livora, we transform ideas into inspiring spaces that
+            reflect your personality and elevate everyday living.
+        </p>
+
+    </div>
+
+
+    <!-- OUR SERVICES -->
+
+    <div class="title">
+
+        <div class="service-heading">
+
+            <span></span>
+
+            <h2>OUR SERVICES</h2>
+
+            <span></span>
+
+        </div>
+
+    </div>
+
+
+    <div class="services">
+
+        <!-- Bedroom -->
+
+        <div class="card">
+
+            <div class="icon-circle">
+
+                <div class="bedroom-icon">
+
+                    <i class="fa-solid fa-bed"></i>
+
+                </div>
+
+            </div>
+
+            <h3>BEDROOM DESIGN</h3>
+
+            <p>
+                Crafting beautiful functional interiors tailored to you.
+            </p>
+
+            <a href="bedroom Learn More.html">
+                <b>LEARN MORE</b>
+            </a>
+
+        </div>
+
+
+        <!-- Floor -->
+
+        <div class="card">
+
+            <div class="icon-circle1">
+
+                <div class="floor-icon">
+
+                    <i class="fa-solid fa-layer-group"></i>
+
+                </div>
+
+            </div>
+
+            <h3>FLOOR DESIGN</h3>
+
+            <p>
+                Smart layouts that maximize space and enhance flow.
+            </p>
+
+            <a href="Flooring Learn More.html">
+                <b>LEARN MORE</b>
+            </a>
+
+        </div>
+
+
+        <!-- Ceiling -->
+
+        <div class="card">
+
+            <div class="icon-circle">
+
+                <div class="lighting-icon">
+
+                    <i class="fa-solid fa-lightbulb"></i>
+
+                </div>
+
+            </div>
+
+            <h3>CEILING DESIGN</h3>
+
+            <p>
+                Thoughtful lighting to create the perfect ambience.
+            </p>
+
+            <a href="ceiling l.html">
+                <b>LEARN MORE</b>
+            </a>
+
+        </div>
+
+
+        <!-- Custom Solutions -->
+
+        <div class="card">
+
+            <div class="icon-circle">
+
+                <div class="customer-icon">
+
+                    <i class="fa-solid fa-headset"></i>
+
+                </div>
+
+            </div>
+
+            <h3>CUSTOM SOLUTIONS</h3>
+
+            <p>
+                Bespoke designs crafted around your lifestyle and needs.
+            </p>
+
+            <a href="custom.html">
+                <b>LEARN MORE</b>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FEATURED PROJECTS
+========================= -->
+
+<section>
+
+    <div class="title">
+
+        <div class="service-heading">
+
+            <span></span>
+
+            <h2>FEATURED PROJECTS</h2>
+
+            <span></span>
+
+        </div>
+
+    </div>
+
+
+    <div class="projects">
+
+        <div class="project">
+
+            <img src="project1.jpeg" alt="Modern Minimal Home">
+
+            <h4>MODERN MINIMAL HOME</h4>
+
+            <p>Madurai, Tamil Nadu</p>
+
+        </div>
+
+
+        <div class="project">
+
+            <img src="project2.jpeg" alt="Luxury Residence">
+
+            <h4>LUXURY RESIDENCE</h4>
+
+            <p>Coimbatore, Tamil Nadu</p>
+
+        </div>
+
+
+        <div class="project">
+
+            <img src="project3.jpeg" alt="Contemporary Apartment">
+
+            <h4>CONTEMPORARY APARTMENT</h4>
+
+            <p>Chennai, Tamil Nadu</p>
+
+        </div>
+
+
+        <div class="project">
+
+            <img src="project4.jpeg" alt="Elegant Villa">
+
+            <h4>ELEGANT VILLA</h4>
+
+            <p>Hyderabad, India</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FEATURES
+========================= -->
+
+<section>
+
+    <div class="view-projects">
+
+        <a href="Project.html" class="btn">
+            VIEW OUR PROJECTS
+        </a>
+
+    </div>
+
+
+    <div class="features">
+
+        <!-- Custom Solutions -->
+
+        <div class="feature-box">
+
+            <i class="fa-regular fa-handshake"></i>
+
+            <div>
+
+                <h3>CUSTOM SOLUTIONS</h3>
+
+                <p>Tailored to your needs</p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Quality -->
+
+        <div class="feature-box">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            <div>
+
+                <h3>QUALITY ASSURED</h3>
+
+                <p>
+                    Premium materials<br>
+                    &amp; craftsmanship
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Delivery -->
+
+        <div class="feature-box">
+
+            <i class="fa-regular fa-clock"></i>
+
+            <div>
+
+                <h3>ON-TIME DELIVERY</h3>
+
+                <p>
+                    Commitment you<br>
+                    can rely on
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Client Focused -->
+
+        <div class="feature-box">
+
+            <i class="fa-regular fa-heart"></i>
+
+            <div>
+
+                <h3>CLIENT FOCUSED</h3>
+
+                <p>
+                    Your satisfaction is<br>
+                    our priority
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <h4>Livora Interior Design</h4>
+
+    <h6>Creating elegant, functional and luxurious spaces.</h6>
+
+    <h6>© 2026 Livora. All Rights Reserved.</h6>
+
+</footer>
+
+
+<!-- =========================
+     HIDDEN ADMIN LOGIN
+     Logo 5 quick clicks
+========================= -->
+
+<script>
+
+let logoClicks = 0;
+let clickTimer;
+
+const adminLogo = document.getElementById("adminLogo");
+
+adminLogo.addEventListener("click", function () {
+
+    logoClicks++;
+
+    clearTimeout(clickTimer);
+
+    clickTimer = setTimeout(function () {
+
+        logoClicks = 0;
+
+    }, 1500);
+
+    if (logoClicks === 5) {
+
+        logoClicks = 0;
+
+        window.location.href = "admin.html";
+
+    }
+
+});
+
+</script>
+
+</body>
+
+</html>

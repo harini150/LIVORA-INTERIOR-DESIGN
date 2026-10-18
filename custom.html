@@ -1,0 +1,495 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Custom Interior Solutions</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#fef8ee;
+    color:#222;
+}
+
+/* TOP */
+
+.top{
+    text-align:center;
+    padding:18px;
+    background:#fff;
+    border-bottom:2px solid #f0d9a8;
+}
+
+.top h1{
+    font-size:22px;
+    font-weight:900;
+    color:#b88a2d;
+    letter-spacing:1px;
+}
+
+/* MAIN */
+
+.main{
+    max-width:1200px;
+    margin:25px auto;
+    display:flex;
+    gap:25px;
+    padding:15px;
+}
+
+/* LEFT */
+
+.left{
+    width:55%;
+    background:#fff;
+    border-radius:16px;
+    padding:28px;
+    border:2px solid #f0d9a8;
+    box-shadow:0 6px 20px rgba(0,0,0,0.06);
+}
+
+.badge{
+    background:#fff9ec;
+    color:#b88a2d;
+    border:1.5px solid #b88a2d;
+    padding:6px 14px;
+    border-radius:20px;
+    font-size:11px;
+    font-weight:800;
+    display:inline-block;
+    margin-bottom:14px;
+}
+
+.left h2{
+    font-size:28px;
+    font-weight:900;
+    color:#111;
+    line-height:1.3;
+}
+
+.gold{
+    color:#b88a2d;
+}
+
+.light{
+    color:#777;
+    font-weight:700;
+}
+
+.sub{
+    color:#b88a2d;
+    font-weight:800;
+    font-size:14px;
+    margin:12px 0 18px;
+}
+
+.desc{
+    font-size:13.5px;
+    font-weight:500;
+    color:#444;
+    line-height:1.9;
+    margin-bottom:18px;
+}
+
+ul{
+    margin:18px 0 10px;
+}
+
+ul li{
+    font-size:13px;
+    font-weight:600;
+    color:#333;
+    margin:10px 0;
+    list-style:none;
+    display:flex;
+    gap:8px;
+}
+
+ul li::before{
+    content:"✓";
+    background:#2e7d32;
+    color:#fff;
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:10px;
+    font-weight:900;
+    flex-shrink:0;
+    margin-top:1px;
+}
+
+/* RIGHT IMAGE */
+
+.right{
+    width:45%;
+}
+
+.right img{
+    width:100%;
+    height:520px;
+    object-fit:cover;
+    border-radius:16px;
+    border:2px solid #f0d9a8;
+    box-shadow:0 6px 20px rgba(0,0,0,0.08);
+}
+
+/* SERVICES */
+
+.services{
+    max-width:1170px;
+    margin:0 auto 40px;
+    padding:0 15px;
+}
+
+.services-title{
+    text-align:center;
+    color:#b88a2d;
+    font-size:18px;
+    font-weight:900;
+    margin-bottom:18px;
+}
+
+.service-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.service{
+    background:#fff;
+    border:1.5px solid #f0d9a8;
+    border-radius:14px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,0.05);
+    transition:0.3s;
+}
+
+.service:hover{
+    transform:translateY(-5px);
+    border-color:#b88a2d;
+}
+
+.icon{
+    font-size:30px;
+    margin-bottom:8px;
+}
+
+.service h3{
+    color:#b88a2d;
+    font-size:16px;
+    margin-bottom:7px;
+}
+
+.service p{
+    font-size:11.5px;
+    color:#555;
+    line-height:1.6;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    .main{
+        flex-direction:column;
+    }
+
+    .left,
+    .right{
+        width:100%;
+    }
+
+    .right img{
+        height:350px;
+    }
+
+    .service-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+
+<link rel="stylesheet" href="theme.css">
+</head>
+
+<body>
+
+
+<!-- TOP -->
+
+<div class="top">
+    <h1>CUSTOM INTERIOR SOLUTIONS</h1>
+</div>
+
+
+<!-- MAIN -->
+
+<div class="main">
+
+    <!-- LEFT -->
+
+    <div class="left">
+
+        <div class="badge">
+            ✦ CUSTOM SOLUTIONS
+        </div>
+
+        <h2>
+
+            <span>Creating</span>
+
+            <span class="gold">
+                Beautiful Personalized
+            </span>
+
+            <span>Interiors</span>
+
+            <br>
+
+            <span class="light">
+                Designed Around Your Lifestyle.
+            </span>
+
+        </h2>
+
+        <div class="sub">
+            Customized Interior Design Solutions
+        </div>
+
+        <p class="desc">
+
+            Every home has its own personality. At Livora, we create
+            customized interior solutions designed around your space,
+            lifestyle and personal taste.
+
+            <br><br>
+
+            From elegant bedrooms and comfortable living spaces to
+            functional kitchens, dining areas and relaxing bathrooms,
+            every element is carefully planned to create a
+            <b style="color:#b88a2d;">
+                beautiful, comfortable and personalized home.
+            </b>
+
+            <br><br>
+
+            We combine modern aesthetics with practical solutions,
+            premium materials and thoughtful space planning to make
+            every corner of your home feel unique.
+
+        </p>
+
+        <ul>
+
+            <li>Personalized Interior Design Planning</li>
+
+            <li>Living Room & Bedroom Design</li>
+
+            <li>Modern Kitchen & Dining Solutions</li>
+
+            <li>Elegant Bathroom Interior Design</li>
+
+            <li>Ceiling & Flooring Design Solutions</li>
+
+            <li>Complete Design Planning & Execution</li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- RIGHT -->
+
+    <div class="right">
+
+        <img
+        src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=900"
+        alt="Custom Interior Design">
+
+    </div>
+
+</div>
+
+
+<!-- REMAINING SERVICES -->
+
+<div class="services">
+
+    <div class="services-title">
+        ✦ OUR CUSTOM INTERIOR SERVICES ✦
+    </div>
+
+    <div class="service-grid">
+
+
+        <!-- BEDROOM -->
+
+        <div class="service">
+
+            <div class="icon">🛏️</div>
+
+            <h3>
+                Bedroom Design
+            </h3>
+
+            <p>
+                Comfortable and elegant bedroom interiors
+                designed around your lifestyle and needs.
+            </p>
+
+        </div>
+
+
+        <!-- LIVING ROOM -->
+
+        <div class="service">
+
+            <div class="icon">🛋️</div>
+
+            <h3>
+                Living Room
+            </h3>
+
+            <p>
+                Stylish and welcoming living spaces with
+                smart layouts and premium finishes.
+            </p>
+
+        </div>
+
+
+        <!-- KITCHEN -->
+
+        <div class="service">
+
+            <div class="icon">🍳</div>
+
+            <h3>
+                Kitchen Design
+            </h3>
+
+            <p>
+                Functional and modern kitchen solutions
+                designed for everyday convenience.
+            </p>
+
+        </div>
+
+
+        <!-- DINING -->
+
+        <div class="service">
+
+            <div class="icon">🍽️</div>
+
+            <h3>
+                Dining Design
+            </h3>
+
+            <p>
+                Elegant dining spaces designed for
+                comfortable family gatherings.
+            </p>
+
+        </div>
+
+
+        <!-- BATHROOM -->
+
+        <div class="service">
+
+            <div class="icon">🛁</div>
+
+            <h3>
+                Bathroom Design
+            </h3>
+
+            <p>
+                Modern and relaxing bathroom interiors
+                with practical and elegant finishes.
+            </p>
+
+        </div>
+
+
+        <!-- CEILING -->
+
+        <div class="service">
+
+            <div class="icon">✨</div>
+
+            <h3>
+                Ceiling Design
+            </h3>
+
+            <p>
+                Modern ceiling concepts that add depth,
+                character and elegance to your interiors.
+            </p>
+
+        </div>
+
+
+        <!-- FLOORING -->
+
+        <div class="service">
+
+            <div class="icon">🪵</div>
+
+            <h3>
+                Flooring Design
+            </h3>
+
+            <p>
+                Durable and stylish flooring solutions
+                selected to match your interior style.
+            </p>
+
+        </div>
+
+
+        <!-- KIDS BEDROOM -->
+
+        <div class="service">
+
+            <div class="icon">🧸</div>
+
+            <h3>
+                Kids Bedroom
+            </h3>
+
+            <p>
+                Fun, creative and comfortable rooms
+                designed specially for children.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+</body>
+</html>
+

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+    font-family:Arial, sans-serif;
+}
+
+.splash{
+    width:100%;
+    height:100vh;
+    background:#f3dfbd;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+.logo{
+    width:430px;
+    max-width:75%;
+    animation:logoAnimation 2s ease forwards;
+}
+
+.loader{
+    width:180px;
+    height:4px;
+    background:rgba(120,80,20,0.2);
+    border-radius:20px;
+    margin-top:30px;
+    overflow:hidden;
+}
+
+.loader span{
+    display:block;
+    height:100%;
+    width:0%;
+    background:#b47718;
+    border-radius:20px;
+    animation:loading 3s linear forwards;
+}
+
+@keyframes logoAnimation{
+
+    0%{
+        opacity:0;
+        transform:scale(0.85);
+    }
+
+    100%{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+@keyframes loading{
+
+    0%{
+        width:0%;
+    }
+
+    100%{
+        width:100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="splash">
+
+    <img src="logo.png" class="logo">
+
+    <div class="loader">
+        <span></span>
+    </div>
+
+</div>
+
+<script>
+
+setTimeout(function(){
+
+    window.location.href = "Home Page.html";
+
+},3000);
+
+</script>
+
+</body>
+</html>

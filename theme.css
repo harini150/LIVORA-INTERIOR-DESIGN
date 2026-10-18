@@ -1,0 +1,161 @@
+/* =====================================================
+   LIVORA SHARED THEME  (taken from Home Page.html)
+   Link this file LAST inside <head> of every page:
+   <link rel="stylesheet" href="theme.css">
+   Change a colour / font here -> every page updates.
+===================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --lv-header: burlywood;
+    --lv-gold: #d2a137;        /* buttons */
+    --lv-gold-dark: #ad8127;   /* button hover */
+    --lv-accent: #b88a2d;      /* gold text / borders */
+    --lv-brown: #8b5e3c;       /* icons / hover text */
+    --lv-dark: #222222;        /* text + footer */
+    --lv-body-font: 'Poppins', sans-serif;
+    --lv-heading-font: 'Playfair Display', serif;
+    --lv-accent-font: Georgia, serif;
+}
+
+/* ---------- FONTS ---------- */
+
+body,
+body p, body li, body span, body div, body a, body label,
+body input, body select, body textarea, body button,
+body td, body th, body small, body strong, body b {
+    font-family: var(--lv-body-font) !important;
+}
+
+body h1, body h2, body h3, body h4, body h5, body h6,
+body h1 *, body h2 *, body h3 *, body h4 *, body h5 *, body h6 * {
+    font-family: var(--lv-heading-font) !important;
+}
+
+/* ---------- PAGE ---------- */
+
+body {
+    background: #ffffff !important;
+    color: var(--lv-dark);
+}
+
+/* =====================================================
+   SHARED HEADER  (same as Home Page)
+===================================================== */
+
+.lv-header {
+    width: 100%;
+    min-height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    padding: 12px 5%;
+    background: var(--lv-header);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.lv-logo { display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+.lv-logo img {
+    display: block;
+    width: 130px;
+    height: 85px;
+    object-fit: contain;
+    margin: 0;
+    padding: 0;
+}
+
+.lv-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.lv-nav a {
+    text-decoration: none;
+    margin: 0 8px;
+    color: #222222;
+    font-family: var(--lv-accent-font) !important;
+    font-size: 16px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+.lv-nav a:hover,
+.lv-nav a.active { color: #8b5e20; }
+
+.lv-btn {
+    display: inline-block;
+    background: var(--lv-gold);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 22px;
+    border-radius: 5px;
+    font-family: var(--lv-accent-font) !important;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    flex-shrink: 0;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.lv-btn:hover { background: var(--lv-gold-dark); transform: translateY(-2px); }
+
+/* =====================================================
+   SHARED FOOTER  (same as Home Page)
+===================================================== */
+
+.lv-footer {
+    width: 100%;
+    background: #222222;
+    color: #ffffff;
+    padding: 25px 15px;
+    line-height: 1.8;
+    text-align: center;
+}
+
+.lv-footer h4 { color: #ffffff; font-size: 21px; margin-bottom: 8px; }
+
+.lv-footer h6 {
+    color: #eeeeee;
+    font-size: 13px;
+    font-weight: normal;
+    font-family: var(--lv-body-font) !important;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 1000px) {
+    .lv-header { gap: 15px; padding: 12px 3%; }
+    .lv-logo img { width: 105px; height: 75px; }
+    .lv-nav { gap: 5px; }
+    .lv-nav a { margin: 0 5px; font-size: 15px; }
+    .lv-btn { padding: 10px 14px; font-size: 14px; }
+}
+
+@media (max-width: 600px) {
+    .lv-header {
+        position: relative;
+        flex-direction: column;
+        min-height: auto;
+        gap: 10px;
+        padding: 10px 12px 15px;
+    }
+    .lv-nav { width: 100%; gap: 10px 16px; }
+    .lv-nav a { margin: 0; font-size: 14px; }
+    .lv-logo img { width: 105px; height: 65px; }
+    .lv-footer { padding: 22px 12px; }
+    .lv-footer h4 { font-size: 18px; }
+    .lv-footer h6 { font-size: 12px; }
+}

@@ -1,0 +1,355 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About Livora</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'DM Sans',sans-serif;
+    background:#fffdf9;
+    color:#222222;
+}
+
+/* NAVIGATION */
+
+nav{
+    height:78px;
+    background:#E0B985;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 8%;
+    box-shadow:0 3px 15px rgba(0,0,0,0.12);
+}
+
+.logo{
+    font-family:'Playfair Display',serif;
+    color:Black;
+    font-size:27px;
+    font-weight:700;
+    letter-spacing:4px;
+}
+
+.logo span{
+    display:block;
+    font-family:'DM Sans',sans-serif;
+    font-size:9px;
+    letter-spacing:4px;
+    text-align:center;
+    margin-top:3px;
+}
+
+.nav-links{
+    display:flex;
+    gap:35px;
+    list-style:none;
+}
+
+.nav-links a{
+    color:Black;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:600;
+    position:relative;
+    padding:28px 0;
+}
+
+.nav-links a::after{
+    content:"";
+    position:absolute;
+    bottom:18px;
+    left:0;
+    width:0;
+    height:2px;
+    background:Black;
+    transition:0.3s;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after{
+    width:100%;
+}
+
+
+/* ABOUT SECTION */
+
+.about-section{
+    min-height:calc(100vh - 78px);
+    display:flex;
+    align-items:center;
+    padding:75px 8%;
+    background:
+    radial-gradient(circle at top left,#f5ead9,transparent 30%),
+    #fffdf9;
+}
+
+.about-container{
+    width:100%;
+    max-width:1250px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:100px;
+    align-items:center;
+}
+
+
+/* LEFT CONTENT */
+
+.small-title{
+    color:#b88a2d;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.small-title::after{
+    content:"";
+    width:70px;
+    height:1px;
+    background:#d2a137;
+}
+
+.about-content h1{
+    font-family:'Playfair Display',serif;
+    font-size:46px;
+    line-height:1.2;
+    color:#222222;
+    margin-bottom:25px;
+}
+
+.about-content p{
+    color:#626b74;
+    font-size:14px;
+    line-height:1.9;
+    margin-bottom:15px;
+}
+
+
+/* RIGHT SIDE IMAGE */
+
+.about-image{
+    position:relative;
+    margin-left:25px;
+    padding:12px;
+}
+
+.about-image::before{
+    content:"";
+    position:absolute;
+    top:-10px;
+    left:-10px;
+    width:75%;
+    height:75%;
+    border:2px solid #b88a2d;
+    border-radius:55px 0 0 0;
+    z-index:0;
+}
+
+.about-image::after{
+    content:"";
+    position:absolute;
+    right:-10px;
+    bottom:-10px;
+    width:55%;
+    height:45%;
+    border-right:2px solid #b88a2d;
+    border-bottom:2px solid #b88a2d;
+    border-radius:0 0 55px 0;
+    z-index:0;
+}
+
+.about-image img{
+    position:relative;
+    z-index:1;
+    width:100%;
+    height:490px;
+    object-fit:cover;
+    display:block;
+    border-radius:45px 5px 45px 5px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.15);
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:1100px){
+
+    .about-container{
+        gap:60px;
+    }
+
+    .about-image{
+        margin-left:10px;
+    }
+
+    .about-content h1{
+        font-size:40px;
+    }
+
+}
+
+@media(max-width:950px){
+
+    nav{
+        padding:0 5%;
+    }
+
+    .nav-links{
+        gap:20px;
+    }
+
+    .about-section{
+        padding:60px 6%;
+    }
+
+    .about-container{
+        grid-template-columns:1fr;
+        gap:60px;
+    }
+
+    .about-image{
+        max-width:700px;
+        width:100%;
+        margin:0 auto;
+    }
+
+}
+
+@media(max-width:600px){
+
+    nav{
+        height:auto;
+        padding:20px 5%;
+        flex-direction:column;
+        gap:18px;
+    }
+
+    .nav-links{
+        gap:18px;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .nav-links a{
+        padding:5px 0;
+    }
+
+    .nav-links a::after{
+        bottom:0;
+    }
+
+    .about-section{
+        padding:50px 6%;
+    }
+
+    .about-content h1{
+        font-size:34px;
+    }
+
+    .about-image img{
+        height:350px;
+    }
+
+}
+
+</style>
+<link rel="stylesheet" href="theme.css">
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<!-- SHARED HEADER (same as Home Page) -->
+<div class="lv-header" role="banner">
+    <div class="lv-logo"><img src="logo.png" alt="Livora Interior Design Logo"></div>
+    <nav class="lv-nav" aria-label="Main navigation">
+        <a href="Home Page.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="Services.html">Services</a>
+        <a href="Reviews.html">Reviews</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <a href="loginn.html" class="lv-btn">Book Consultation</a>
+</div>
+
+
+
+<!-- ABOUT SECTION -->
+
+<section class="about-section">
+
+    <div class="about-container">
+
+        <!-- LEFT SIDE -->
+
+        <div class="about-content">
+
+            <div class="small-title">
+                About Livora
+            </div>
+
+            <h1>
+                Crafting Beautiful Interiors For
+                Modern Living
+            </h1>
+
+            <p>
+                Livora Interior Design creates elegant, functional and timeless
+                interiors that transform every space into a beautiful experience.
+            </p>
+
+            <p>
+                We combine creativity, quality materials and modern design to
+                build homes that reflect your lifestyle, personality and unique taste.
+            </p>
+
+            <p>
+                Our approach focuses on creating spaces that are not only visually
+                beautiful but also comfortable, practical and welcoming for everyday living.
+            </p>
+
+        </div>
+
+
+        <!-- RIGHT SIDE IMAGE -->
+
+        <div class="about-image">
+
+            <img src="project4.jpeg" alt="Livora Interior Design">
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SHARED FOOTER (same as Home Page) -->
+<div class="lv-footer" role="contentinfo">
+    <h4>Livora Interior Design</h4>
+    <h6>Creating elegant, functional and luxurious spaces.</h6>
+    <h6>&copy; 2026 Livora. All Rights Reserved.</h6>
+</div>
+
+</body>
+</html>

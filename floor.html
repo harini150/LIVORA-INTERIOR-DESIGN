@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Try New Floor Designs</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f4f4f4;
+padding:30px;
+}
+
+.container{
+max-width:1300px;
+margin:auto;
+}
+
+.heading{
+text-align:center;
+margin-bottom:30px;
+}
+
+.heading h1{
+font-size:60px;
+}
+
+.heading span{
+color:#b88a2d;
+}
+
+.heading p{
+font-size:20px;
+margin-top:10px;
+color:#666;
+}
+
+.preview{
+    position:relative;
+    overflow:hidden;
+    border-radius:20px;
+    height:650px;
+}
+
+.preview img{
+width:100%;
+height:650px;
+object-fit:cover;
+display:block;
+transition:.4s;
+}
+
+.label{
+position:absolute;
+bottom:25px;
+left:50%;
+transform:translateX(-50%);
+background:#111;
+color:white;
+padding:15px 45px;
+border-radius:8px;
+font-size:24px;
+}
+
+
+.cards{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+margin-top:30px;
+}
+
+.card{
+background:white;
+border-radius:15px;
+overflow:hidden;
+cursor:pointer;
+transition:.3s;
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.card img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
+
+.card h3{
+text-align:center;
+padding:15px;
+}
+
+.active{
+border:4px solid #b88a2d;
+}
+
+.size-price{
+background:white;
+border-radius:15px;
+padding:25px 30px;
+margin-top:25px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+text-align:center;
+}
+
+.size-price label{
+font-size:18px;
+margin-right:15px;
+font-weight:bold;
+}
+
+.size-price select{
+padding:10px 20px;
+font-size:16px;
+border-radius:8px;
+border:1px solid #ccc;
+cursor:pointer;
+}
+
+.price-display{
+margin-top:15px;
+font-size:22px;
+font-weight:bold;
+color:#b88a2d;
+min-height:30px;
+}
+
+.required-msg{
+display:none;
+color:#ff0000;
+background:#ffe6e6;
+border:1px solid #ff0000;
+padding:10px 15px;
+border-radius:6px;
+margin-top:15px;
+font-size:16px;
+font-weight:bold;
+text-align:center;
+}
+
+.book-btn-wrap{
+text-align:center;
+margin-top:35px;
+}
+
+.book-btn{
+background:#d2a137;
+color:white;
+border:none;
+padding:16px 55px;
+font-size:20px;
+border-radius:8px;
+cursor:pointer;
+transition:.3s;
+}
+
+.book-btn:hover{
+background:#ad8127;
+}
+
+.suggestion-wrap{
+text-align:center;
+margin-top:25px;
+}
+
+.suggest-btn{
+background:white;
+color:#b88a2d;
+border:2px solid #b88a2d;
+padding:14px 40px;
+font-size:18px;
+border-radius:8px;
+cursor:pointer;
+transition:.3s;
+}
+
+.suggest-btn:hover{
+background:#d2a137;
+color:white;
+}
+
+.suggestion-form{
+display:none;
+flex-direction:column;
+align-items:center;
+gap:15px;
+background:white;
+max-width:500px;
+margin:20px auto 0;
+padding:30px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.suggestion-form input{
+width:100%;
+padding:12px 15px;
+font-size:16px;
+border:1px solid #ccc;
+border-radius:8px;
+}
+
+.upload-box{
+width:100%;
+border:2px dashed #b88a2d;
+border-radius:10px;
+padding:25px 15px;
+text-align:center;
+cursor:pointer;
+color:#b88a2d;
+font-size:15px;
+background:#fdf6ee;
+}
+
+.upload-box:hover{
+background:#fbeedc;
+}
+
+.upload-preview{
+width:100%;
+max-height:220px;
+object-fit:cover;
+border-radius:10px;
+display:block;
+}
+
+.preview-wrap{
+position:relative;
+width:100%;
+border-radius:10px;
+overflow:hidden;
+}
+
+.preview-color-overlay{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:transparent;
+mix-blend-mode:multiply;
+opacity:0;
+transition:.3s;
+pointer-events:none;
+clip-path:polygon(0% 58%, 100% 58%, 100% 100%, 0% 100%);
+}
+
+.color-row{
+width:100%;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:15px;
+padding:10px 15px;
+border:1px solid #ccc;
+border-radius:8px;
+}
+
+.color-row label{
+font-size:16px;
+color:#333;
+}
+
+.color-row input[type="color"]{
+width:55px;
+height:40px;
+padding:0;
+border:none;
+cursor:pointer;
+background:none;
+}
+
+.floor-line-row{
+width:100%;
+display:flex;
+flex-direction:column;
+gap:8px;
+padding:10px 15px;
+border:1px solid #ccc;
+border-radius:8px;
+}
+
+.floor-line-row label{
+font-size:14px;
+color:#333;
+}
+
+.floor-line-row input[type="range"]{
+width:100%;
+cursor:pointer;
+}
+
+.color-name{
+font-size:14px;
+color:#777;
+}
+
+/* ---- popup added to match kitchen page behaviour ---- */
+.green-corner-popup{
+display:none;
+position:fixed;
+top:20px;
+right:20px;
+background:#d4edda;
+border:2px solid #28a745;
+border-left:8px solid #28a745;
+color:#155724;
+padding:30px;
+border-radius:14px;
+box-shadow:0 10px 30px rgba(0,0,0,.3);
+z-index:9999;
+max-width:430px;
+width:90%;
+}
+
+.green-corner-popup h3{
+font-size:26px;
+font-weight:800;
+margin-bottom:12px;
+}
+
+.green-corner-popup p{
+font-size:20px;
+font-weight:600;
+line-height:1.5;
+margin:8px 0;
+}
+
+.green-corner-popup #popupDesignName{
+font-size:22px;
+font-weight:800;
+color:#0f5132;
+}
+
+.extra-msg{
+font-size:18px;
+font-weight:600;
+color:#333;
+margin-top:14px;
+border-top:1px dashed #28a745;
+padding-top:12px;
+}
+
+.red-close-corner{
+position:absolute;
+top:-10px;
+right:-10px;
+background:#ff0000;
+color:white;
+border:2px solid white;
+width:34px;
+height:34px;
+border-radius:50%;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+}
+
+@media(max-width:900px){
+
+.cards{
+grid-template-columns:repeat(2,1fr);
+}
+
+.preview img{
+height:400px;
+}
+
+.heading h1{
+font-size:40px;
+}
+
+}
+.back-container {
+    text-align: center;
+    margin: 40px 0 50px;
+}
+
+.back-btn {
+    background: #d2a137;
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #ad8127;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+}
+
+</style>
+
+<link rel="stylesheet" href="theme.css">
+</head>
+
+<body>
+
+<!-- popup shown after adding a floor design to the cart -->
+<div class="green-corner-popup" id="greenPopup">
+<button class="red-close-corner" onclick="closePopup()">✕</button>
+<h3>✅ Your design is selected</h3>
+<p><strong id="popupDesignName">WOODEN FLOOR</strong> selected</p>
+<div class="extra-msg">Go to Home and 👉 Tap Book Consultation to confirm your booking</div>
+</div>
+
+<div class="container">
+
+<div class="heading">
+<h1>TRY NEW <span>FLOOR DESIGNS</span></h1>
+<p>Select a floor style to preview</p>
+</div>
+
+<div class="preview">
+
+    <!-- Background Room -->
+    <img id="roomImage" src="room.jpeg" class="room">
+    <div class="label" id="floorName">
+        WOODEN FLOOR
+    </div>
+
+</div>
+
+<div class="size-price">
+<label for="sqft">Select Square Feet Size:</label>
+<select id="sqft" onchange="calculatePrice()">
+<option value="">-- Select Size --</option>
+<option value="500">500 sqft</option>
+<option value="750">750 sqft</option>
+<option value="1000">1000 sqft</option>
+<option value="1500">1500 sqft</option>
+<option value="2000">2000 sqft</option>
+<option value="3000">3000 sqft</option>
+</select>
+<div class="price-display" id="priceDisplay"></div>
+<div class="required-msg" id="requiredMsg">⚠️ Please select size required</div>
+</div>
+
+<div class="cards">
+
+<div class="card active"
+onclick="changeFloor('Fwooden.jpeg','WOODEN FLOOR',this)">
+<img src="wooden.jpeg">
+
+
+<h3>WOODEN FLOOR</h3>
+
+</div>
+
+<div class="card"
+onclick="changeFloor('Fwhite.jpeg','WHITE MARBLE',this)">
+
+<img src="white.jpeg">
+
+<h3>WHITE MARBLE</h3>
+
+</div>
+
+<div class="card"
+onclick="changeFloor('Fdark.jpeg','DARK MARBLE',this)">
+<img src="dark.jpeg">
+
+<h3>DARK MARBLE</h3>
+
+</div>
+
+<div class="card"
+onclick="changeFloor('Fluxury.jpeg','LUXURY FLOOR',this)">
+
+<img src="luxury.jpeg">
+
+<h3>LUXURY FLOOR</h3>
+
+</div>
+<div class="card"
+onclick="changeFloor('Fporcelain.jpeg','PORCELAIN FLOOR',this)">
+
+<img src="porcelain.jpeg">
+
+<h3>PORCELAIN FLOOR</h3>
+
+</div>
+<div class="card"
+onclick="changeFloor('Fcarpet.jpeg','CARPET FLOOR',this)">
+<img src="carpet.jpeg">
+
+<h3>CARPET FLOOR</h3>
+
+</div>
+<div class="card"
+onclick="changeFloor('Fepoxy.jpeg','EPOXY FLOOR',this)">
+
+<img src="epoxy.jpeg">
+
+<h3>EPOXY FLOOR</h3>
+
+</div>
+<div class="card"
+onclick="changeFloor('Fterrazzo.jpeg','TERRAZZO FLOOR',this)">
+<img src="terrazzo.jpeg">
+
+<h3>TERRAZZO FLOOR</h3>
+
+</div>
+
+
+</div>
+
+<div class="book-btn-wrap">
+<button class="book-btn" onclick="bookFloor()">SELECT FLOOR DESIGNS</button>
+</div>
+
+<div class="suggestion-wrap">
+<button class="suggest-btn" onclick="toggleSuggestion()">✎ Suggest Your Own Design</button>
+
+<div class="suggestion-form" id="suggestionForm">
+
+<input type="text" id="customDesign" placeholder="Enter Design Name (e.g. Herringbone Pattern)">
+
+<div class="upload-box" onclick="document.getElementById('designImage').click()">
+    📤 Click to Upload Your Design Image
+</div>
+<input type="file" id="designImage" accept="image/*" style="display:none" onchange="previewImage(this)">
+
+<div class="preview-wrap" id="previewWrap" style="display:none;">
+    <img id="imagePreview" class="upload-preview">
+    <div class="preview-color-overlay" id="previewColorOverlay"></div>
+</div>
+
+<div class="floor-line-row" id="floorLineRow" style="display:none;">
+<label for="floorLine">Adjust Floor Line (match where the floor starts in your photo)</label>
+<input type="range" id="floorLine" min="20" max="90" value="58" oninput="updateFloorLine()">
+</div>
+
+<div class="color-row">
+<label for="designColor">Pick Floor Color</label>
+<input type="color" id="designColor" value="#b88a2d" oninput="updateColorName()">
+<span class="color-name" id="colorName">#b88a2d</span>
+</div>
+
+<select id="customSqft" onchange="calculateCustomPrice()">
+<option value="">-- Select Square Feet Size --</option>
+<option value="500">500 sqft</option>
+<option value="750">750 sqft</option>
+<option value="1000">1000 sqft</option>
+<option value="1500">1500 sqft</option>
+<option value="2000">2000 sqft</option>
+<option value="3000">3000 sqft</option>
+</select>
+
+<div class="price-display" id="customPriceDisplay"></div>
+<div class="required-msg" id="customRequiredMsg">⚠️ Please fill design name, image and size</div>
+
+<button class="book-btn" onclick="submitCustomDesign()">BOOK</button>
+</div>
+</div>
+
+</div>
+
+<script>
+
+var currentFloor = "WOODEN FLOOR";
+
+// price per square feet for each floor type (approx. 2026 Indian market rates, material + labour)
+var floorRates = {
+    "WOODEN FLOOR": 280,
+    "WHITE MARBLE": 280,
+    "DARK MARBLE": 320,
+    "LUXURY FLOOR": 450,
+    "PORCELAIN FLOOR": 220,
+    "CARPET FLOOR": 80,
+    "EPOXY FLOOR": 150,
+    "TERRAZZO FLOOR": 180
+};
+
+function changeFloor(image, title, card){
+
+    document.getElementById("roomImage").src = image;
+
+    document.getElementById("floorName").innerHTML = title;
+
+    document.querySelectorAll(".card").forEach(function(item){
+        item.classList.remove("active");
+    });
+
+    card.classList.add("active");
+
+    currentFloor = title;
+
+    // update price if a size is already selected
+    calculatePrice();
+}
+
+function calculatePrice(){
+
+    var sqft = document.getElementById("sqft").value;
+    var priceDisplay = document.getElementById("priceDisplay");
+    var req = document.getElementById("requiredMsg");
+
+    if(!sqft){
+        priceDisplay.innerHTML = "";
+        req.style.display = "none";
+        return;
+    }
+
+    var rate = floorRates[currentFloor];
+    var total = rate * sqft;
+
+    priceDisplay.innerHTML = currentFloor + " (" + sqft + " sqft) &nbsp; = &nbsp; ₹" + total.toLocaleString('en-IN');
+    req.style.display = "none";
+}
+
+function toggleSuggestion(){
+
+    var form = document.getElementById("suggestionForm");
+
+    if(form.style.display === "flex"){
+        form.style.display = "none";
+    } else {
+        form.style.display = "flex";
+    }
+}
+
+/* ===== NEW: booking now saves to the same "designCart" localStorage
+   key used on the kitchen page, so selections show up on login.html ===== */
+
+function addToDesignCart(item){
+
+    var cart = JSON.parse(localStorage.getItem("designCart") || "[]");
+
+    if(cart.length >= 10){
+        document.getElementById("popupDesignName").innerHTML = "MAX 10 DESIGNS ONLY!";
+        document.getElementById("greenPopup").style.display = "block";
+        return false;
+    }
+
+    item.id = Date.now();
+    cart.push(item);
+    localStorage.setItem("designCart", JSON.stringify(cart));
+
+    // also keep the single "last selected" keys, same as kitchen page
+    localStorage.setItem("selectedType", item.type);
+    localStorage.setItem("selectedSize", item.size);
+    localStorage.setItem("selectedPrice", item.price);
+    localStorage.setItem("selectedImage", item.image);
+
+    document.getElementById("popupDesignName").innerHTML = item.type + " (" + cart.length + "/10)";
+    document.getElementById("greenPopup").style.display = "block";
+    return true;
+}
+
+function bookFloor(){
+
+    var sqft = document.getElementById("sqft").value;
+    var req = document.getElementById("requiredMsg");
+
+    if(!sqft){
+        req.style.display = "block";
+        document.getElementById("sqft").style.border = "2px solid red";
+        setTimeout(function(){ req.style.display = "none"; }, 3000);
+        return;
+    }
+
+    req.style.display = "none";
+    document.getElementById("sqft").style.border = "1px solid #ccc";
+
+    var total = floorRates[currentFloor] * Number(sqft);
+
+    addToDesignCart({
+        type: currentFloor,
+        size: sqft,
+        price: total,
+        image: document.getElementById("roomImage").src
+    });
+}
+
+function submitCustomDesign(){
+
+    var design = document.getElementById("customDesign").value.trim();
+    var color = document.getElementById("designColor").value;
+    var imageFile = document.getElementById("designImage").files[0];
+    var sqft = document.getElementById("customSqft").value;
+    var req = document.getElementById("customRequiredMsg");
+
+    if(!design || !imageFile || !sqft){
+        req.style.display = "block";
+        setTimeout(function(){ req.style.display = "none"; }, 3000);
+        return;
+    }
+
+    req.style.display = "none";
+
+    var customRate = 300;
+    var total = customRate * sqft;
+
+    // use the uploaded image preview (already read as base64) as the cart image
+    var preview = document.getElementById("imagePreview");
+    var imageData = preview && preview.src ? preview.src : "";
+
+    addToDesignCart({
+        type: design + " (Custom, " + color + ")",
+        size: sqft,
+        price: total,
+        image: imageData
+    });
+}
+
+function closePopup(){
+    document.getElementById("greenPopup").style.display = "none";
+}
+
+function previewImage(input){
+
+    var preview = document.getElementById("imagePreview");
+    var previewWrap = document.getElementById("previewWrap");
+    var floorLineRow = document.getElementById("floorLineRow");
+
+    if(input.files && input.files[0]){
+        var reader = new FileReader();
+
+        reader.onload = function(e){
+            preview.src = e.target.result;
+
+            // show the preview box and floor-line slider only inside the suggestion box
+            previewWrap.style.display = "block";
+            floorLineRow.style.display = "flex";
+
+            // re-apply current color tint on the new image, inside this box only
+            updateColorName();
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+function updateColorName(){
+
+    var color = document.getElementById("designColor").value;
+    document.getElementById("colorName").innerHTML = color;
+
+    // live-tint only the uploaded design preview inside the suggestion box
+    // (this never touches the main floor preview above, so nothing splits there)
+    var overlay = document.getElementById("previewColorOverlay");
+    overlay.style.background = color;
+    overlay.style.opacity = 0.45;
+}
+
+function updateFloorLine(){
+
+    var line = document.getElementById("floorLine").value;
+    var overlay = document.getElementById("previewColorOverlay");
+
+    overlay.style.clipPath = "polygon(0% " + line + "%, 100% " + line + "%, 100% 100%, 0% 100%)";
+}
+
+function calculateCustomPrice(){
+
+    var sqft = document.getElementById("customSqft").value;
+    var priceDisplay = document.getElementById("customPriceDisplay");
+
+    if(!sqft){
+        priceDisplay.innerHTML = "";
+        return;
+    }
+
+    // average custom-design rate (material + labour), since it's a user-uploaded design
+    var customRate = 300;
+    var total = customRate * sqft;
+
+    priceDisplay.innerHTML = "Custom Design (" + sqft + " sqft) &nbsp; = &nbsp; ₹" + total.toLocaleString('en-IN');
+}
+function goBackToServices() {
+    window.location.href = "services.html";
+}
+</script>
+<div class="back-container">
+    <button class="back-btn" onclick="goBackToServices()">
+        ← Back to Services
+    </button>
+</div>
+</body>
+</html>

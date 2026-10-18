@@ -1,0 +1,1916 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Livora Admin - Reviews & Bookings</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f5f1eb;
+    color:#333;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+    background:burlywood;
+    color:#222;
+    padding:24px 20px;
+    text-align:center;
+    box-shadow:0 4px 15px rgba(0,0,0,.12);
+}
+
+.header-content{
+    max-width:1150px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.header-text{
+    text-align:left;
+}
+
+header h1{
+    margin-bottom:6px;
+    color:#222222;
+    letter-spacing:1px;
+}
+
+header p{
+    color:#333333;
+    font-size:14px;
+}
+
+
+/* =====================================================
+   BACK TO HOME BUTTON
+===================================================== */
+
+.back-home-btn{
+    background:#d2a137;
+    color:white;
+    border:none;
+    padding:11px 20px;
+    border-radius:8px;
+    font-size:14px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.back-home-btn:hover{
+    background:#a87f2d;
+    transform:translateY(-2px);
+}
+
+
+/* =====================================================
+   MAIN CONTAINER
+===================================================== */
+
+.container{
+    width:90%;
+    max-width:1150px;
+    margin:35px auto;
+}
+
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
+.login-box{
+    background:white;
+    padding:35px;
+    width:90%;
+    max-width:420px;
+    margin:80px auto;
+    border-radius:16px;
+    box-shadow:0 8px 30px rgba(0,0,0,.10);
+}
+
+.login-box h2{
+    text-align:center;
+    color:#222222;
+    margin-bottom:25px;
+}
+
+.login-box input{
+    width:100%;
+    padding:13px;
+    margin:8px 0;
+    border:1px solid #ddd;
+    border-radius:8px;
+    font-size:15px;
+    outline:none;
+}
+
+.login-box input:focus{
+    border-color:#b88a2d;
+}
+
+.login-btn{
+    width:100%;
+    margin-top:12px;
+    background:#d2a137;
+    color:white;
+    border:none;
+    padding:13px;
+    border-radius:8px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.login-btn:hover{
+    background:#a87f2d;
+}
+
+.error{
+    color:#c0392b;
+    margin-top:12px;
+    font-size:14px;
+}
+
+
+/* =====================================================
+   ADMIN PANEL
+===================================================== */
+
+#adminPanel{
+    display:none;
+}
+
+
+/* =====================================================
+   ADMIN TOP
+===================================================== */
+
+.admin-top{
+    background:white;
+    padding:22px 25px;
+    border-radius:15px;
+    margin-bottom:25px;
+    box-shadow:0 5px 20px rgba(0,0,0,.07);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.admin-top h2{
+    color:#222222;
+}
+
+.admin-top p{
+    color:#777;
+    margin-top:5px;
+    font-size:14px;
+}
+
+.logout-btn{
+    background:#222222;
+    color:white;
+    border:none;
+    padding:10px 18px;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+.logout-btn:hover{
+    background:#c0392b;
+}
+
+
+/* =====================================================
+   TABS
+===================================================== */
+
+.tabs{
+    display:flex;
+    gap:12px;
+    margin-bottom:25px;
+}
+
+.tab-btn{
+    background:#ddd;
+    color:#333;
+    border:none;
+    padding:12px 25px;
+    border-radius:8px;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.tab-btn:hover{
+    background:#d0c4ae;
+}
+
+.tab-btn.active{
+    background:#d2a137;
+    color:white;
+}
+
+
+/* =====================================================
+   SECTIONS
+===================================================== */
+
+.section{
+    display:none;
+}
+
+.section.active{
+    display:block;
+}
+
+.section-heading{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:20px;
+    gap:15px;
+}
+
+.section-heading h2{
+    color:#222222;
+}
+
+
+/* =====================================================
+   REFRESH BUTTON
+===================================================== */
+
+.refresh-btn{
+    background:#222222;
+    color:white;
+    border:none;
+    padding:10px 18px;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+.refresh-btn:hover{
+    background:#d2a137;
+}
+
+
+/* =====================================================
+   REVIEW CARD
+===================================================== */
+
+.card{
+    background:white;
+    padding:23px;
+    margin-bottom:20px;
+    border-radius:14px;
+    box-shadow:0 5px 18px rgba(0,0,0,.07);
+    border-left:5px solid #b88a2d;
+}
+
+.card:hover{
+    box-shadow:0 8px 25px rgba(0,0,0,.10);
+}
+
+.card h3{
+    color:#222222;
+    margin-bottom:12px;
+    font-size:20px;
+}
+
+.card p{
+    margin:7px 0;
+    line-height:1.5;
+}
+
+.label{
+    font-weight:bold;
+    color:#555;
+}
+
+
+/* =====================================================
+   REVIEW META
+===================================================== */
+
+.review-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:12px 0;
+}
+
+.meta-item{
+    background:#f8f4ee;
+    padding:7px 12px;
+    border-radius:20px;
+    font-size:13px;
+    color:#555;
+}
+
+.rating{
+    color:#b88a2d;
+    font-weight:bold;
+}
+
+.review-content{
+    background:#fafafa;
+    border-radius:9px;
+    padding:15px;
+    margin-top:12px;
+    line-height:1.7;
+    color:#555;
+}
+
+
+/* =====================================================
+   ADMIN REPLY BOX
+===================================================== */
+
+.reply-area{
+    margin-top:20px;
+    padding-top:18px;
+    border-top:1px solid #eee;
+}
+
+.reply-title{
+    color:#222222;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+.reply-subtitle{
+    color:#888;
+    font-size:13px;
+    margin-bottom:10px;
+}
+
+.reply-textarea{
+    width:100%;
+    min-height:100px;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    resize:vertical;
+    font-family:Arial,sans-serif;
+    font-size:14px;
+    outline:none;
+}
+
+.reply-textarea:focus{
+    border-color:#b88a2d;
+}
+
+.reply-actions{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-top:10px;
+}
+
+.reply-btn{
+    background:#222222;
+    color:white;
+    border:none;
+    padding:11px 20px;
+    border-radius:7px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.reply-btn:hover{
+    background:#d2a137;
+}
+
+.delete-reply-btn{
+    background:#eee;
+    color:#555;
+    border:none;
+    padding:11px 16px;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+.delete-reply-btn:hover{
+    background:#e5caca;
+    color:#c0392b;
+}
+
+.reply-status{
+    color:#298b45;
+    font-size:13px;
+    font-weight:bold;
+}
+
+
+/* =====================================================
+   EXISTING REPLY PREVIEW
+===================================================== */
+
+.existing-reply{
+    margin-top:15px;
+    padding:14px;
+    background:#f8f4ee;
+    border-left:4px solid #b88a2d;
+    border-radius:8px;
+}
+
+.existing-reply strong{
+    color:#222222;
+    display:block;
+    margin-bottom:6px;
+}
+
+.existing-reply p{
+    color:#555;
+    line-height:1.6;
+}
+
+
+/* =====================================================
+   BOOKING CARD
+===================================================== */
+
+.booking-card{
+    background:white;
+    padding:24px;
+    margin-bottom:20px;
+    border-radius:14px;
+    box-shadow:0 5px 18px rgba(0,0,0,.07);
+    border-left:5px solid #222222;
+}
+
+.booking-card:hover{
+    box-shadow:0 8px 25px rgba(0,0,0,.10);
+}
+
+.booking-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    margin-bottom:18px;
+}
+
+.booking-title{
+    color:#222222;
+    font-size:21px;
+}
+
+.booking-id{
+    background:#f3e5c5;
+    color:#9b701e;
+    padding:6px 11px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.booking-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+.booking-item{
+    background:#fafafa;
+    padding:13px;
+    border-radius:8px;
+}
+
+.booking-item.full{
+    grid-column:1/-1;
+}
+
+.booking-label{
+    display:block;
+    color:#888;
+    font-size:12px;
+    margin-bottom:5px;
+    font-weight:bold;
+    text-transform:uppercase;
+}
+
+.booking-value{
+    color:#333;
+    line-height:1.5;
+    word-break:break-word;
+}
+
+.service-badge{
+    display:inline-block;
+    background:#f3e5c5;
+    color:#9b701e;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:bold;
+}
+
+
+/* =====================================================
+   NO DATA
+===================================================== */
+
+.no-data{
+    background:white;
+    padding:35px;
+    border-radius:12px;
+    text-align:center;
+    color:#777;
+    box-shadow:0 3px 12px rgba(0,0,0,.06);
+}
+
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+.loading{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    text-align:center;
+    color:#777;
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+#toast{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    min-width:280px;
+    max-width:400px;
+    padding:15px 20px;
+    border-radius:9px;
+    color:white;
+    font-weight:bold;
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(20px);
+    transition:.3s;
+    z-index:9999;
+    box-shadow:0 8px 25px rgba(0,0,0,.2);
+}
+
+#toast.show{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+}
+
+#toast.success{
+    background:#298b45;
+}
+
+#toast.error{
+    background:#c0392b;
+}
+
+#toast.info{
+    background:#222222;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:700px){
+
+    .container{
+        width:94%;
+    }
+
+    .header-content{
+        flex-direction:column;
+    }
+
+    .header-text{
+        text-align:center;
+    }
+
+    .back-home-btn{
+        width:100%;
+        max-width:220px;
+    }
+
+    .admin-top{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .tabs{
+        flex-direction:column;
+    }
+
+    .tab-btn{
+        width:100%;
+    }
+
+    .section-heading{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .booking-grid{
+        grid-template-columns:1fr;
+    }
+
+    .booking-item.full{
+        grid-column:auto;
+    }
+
+    .booking-header{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .reply-actions{
+        flex-wrap:wrap;
+    }
+
+    #toast{
+        left:20px;
+        right:20px;
+        min-width:auto;
+    }
+
+}
+
+</style>
+
+<link rel="stylesheet" href="theme.css">
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+    <div class="header-content">
+
+        <div class="header-text">
+
+            <h1>
+                LIVORA ADMIN
+            </h1>
+
+            <p>
+                Review & Booking Management
+            </p>
+
+        </div>
+
+
+        <!-- BACK TO HOME -->
+
+        <button
+            class="back-home-btn"
+            onclick="window.location.href='Home Page.html'"
+        >
+            ← Back to Home
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     LOGIN
+===================================================== -->
+
+<div
+    id="loginBox"
+    class="login-box"
+>
+
+    <h2>
+        Admin Login
+    </h2>
+
+
+    <input
+        type="text"
+        id="username"
+        placeholder="Username"
+    >
+
+
+    <input
+        type="password"
+        id="password"
+        placeholder="Password"
+    >
+
+
+    <button
+        class="login-btn"
+        onclick="login()"
+    >
+        Login
+    </button>
+
+
+    <p
+        id="loginError"
+        class="error"
+    ></p>
+
+</div>
+
+
+<!-- =====================================================
+     ADMIN PANEL
+===================================================== -->
+
+<div id="adminPanel">
+
+    <div class="container">
+
+
+        <!-- ADMIN TOP -->
+
+        <div class="admin-top">
+
+            <div>
+
+                <h2>
+                    Welcome, Admin 👋
+                </h2>
+
+                <p>
+                    Manage customer reviews and bookings
+                    from here.
+                </p>
+
+            </div>
+
+
+            <button
+                class="logout-btn"
+                onclick="logout()"
+            >
+                Logout
+            </button>
+
+        </div>
+
+
+        <!-- TABS -->
+
+        <div class="tabs">
+
+            <button
+                class="tab-btn active"
+                onclick="showSection('reviews',this)"
+            >
+                ⭐ Reviews
+            </button>
+
+
+            <button
+                class="tab-btn"
+                onclick="showSection('bookings',this)"
+            >
+                📅 Bookings
+            </button>
+
+        </div>
+
+
+        <!-- =================================================
+             REVIEWS SECTION
+        ================================================= -->
+
+        <div
+            id="reviews"
+            class="section active"
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h2>
+                        Customer Reviews
+                    </h2>
+
+                    <p style="
+                        color:#777;
+                        margin-top:5px;
+                        font-size:14px;
+                    ">
+                        Read customer reviews and reply as Livora Admin.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="refresh-btn"
+                    onclick="loadReviews()"
+                >
+                    🔄 Refresh Reviews
+                </button>
+
+            </div>
+
+
+            <div
+                id="reviewsContainer"
+            ></div>
+
+        </div>
+
+
+        <!-- =================================================
+             BOOKINGS SECTION
+        ================================================= -->
+
+        <div
+            id="bookings"
+            class="section"
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h2>
+                        Customer Bookings
+                    </h2>
+
+                    <p style="
+                        color:#777;
+                        margin-top:5px;
+                        font-size:14px;
+                    ">
+                        View all interior design consultation bookings.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="refresh-btn"
+                    onclick="loadBookings()"
+                >
+                    🔄 Refresh Bookings
+                </button>
+
+            </div>
+
+
+            <div
+                id="bookingsContainer"
+            ></div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div id="toast"></div>
+
+
+<script>
+
+const HASURA_URL =
+"https://livora.hasura.app/v1/graphql";
+
+const ADMIN_REPLY_STORAGE =
+"livoraAdminReplies";
+
+let toastTimer = null;
+
+
+function showToast(message,type){
+
+    const toast =
+    document.getElementById("toast");
+
+    clearTimeout(toastTimer);
+
+    toast.className = "";
+
+    toast.innerText =
+    message;
+
+    toast.classList.add(type);
+
+    setTimeout(function(){
+
+        toast.classList.add("show");
+
+    },20);
+
+    toastTimer =
+    setTimeout(function(){
+
+        toast.classList.remove("show");
+
+    },3500);
+
+}
+
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
+function login(){
+
+    const username =
+    document.getElementById(
+        "username"
+    ).value.trim();
+
+    const password =
+    document.getElementById(
+        "password"
+    ).value;
+
+    if(
+        username === "admin" &&
+        password === "Livora@2026"
+    ){
+
+        document.getElementById(
+            "loginBox"
+        ).style.display =
+        "none";
+
+        document.getElementById(
+            "adminPanel"
+        ).style.display =
+        "block";
+
+        document.getElementById(
+            "loginError"
+        ).innerText =
+        "";
+
+        loadReviews();
+
+        loadBookings();
+
+    }
+    else{
+
+        document.getElementById(
+            "loginError"
+        ).innerText =
+        "Invalid username or password.";
+
+    }
+
+}
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+function logout(){
+
+    document.getElementById(
+        "adminPanel"
+    ).style.display =
+    "none";
+
+    document.getElementById(
+        "loginBox"
+    ).style.display =
+    "block";
+
+    document.getElementById(
+        "username"
+    ).value =
+    "";
+
+    document.getElementById(
+        "password"
+    ).value =
+    "";
+
+    showToast(
+        "Logged out successfully.",
+        "info"
+    );
+
+}
+
+
+/* =====================================================
+   ENTER KEY LOGIN
+===================================================== */
+
+document.getElementById(
+    "password"
+).addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Enter"){
+
+            login();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   HASURA REQUEST
+===================================================== */
+
+async function hasuraRequest(
+    query,
+    variables = {}
+){
+
+    const response =
+    await fetch(
+        HASURA_URL,
+        {
+            method:"POST",
+
+            headers:{
+                "Content-Type":"application/json",
+                "x-hasura-role":"anonymous"
+            },
+
+            body:JSON.stringify({
+                query:query,
+                variables:variables
+            })
+        }
+    );
+
+    let data;
+
+    try{
+
+        data =
+        await response.json();
+
+    }
+    catch(error){
+
+        throw new Error(
+            "Invalid response from Hasura."
+        );
+
+    }
+
+    return data;
+
+}
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHTML(value){
+
+    if(
+        value === null ||
+        value === undefined
+    ){
+
+        return "";
+
+    }
+
+    return String(value)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/* =====================================================
+   TABS
+===================================================== */
+
+function showSection(
+    section,
+    button
+){
+
+    document
+        .querySelectorAll(".section")
+        .forEach(function(el){
+
+            el.classList.remove("active");
+
+        });
+
+    document
+        .querySelectorAll(".tab-btn")
+        .forEach(function(el){
+
+            el.classList.remove("active");
+
+        });
+
+    document
+        .getElementById(section)
+        .classList.add("active");
+
+    button.classList.add("active");
+
+    if(section === "reviews"){
+
+        loadReviews();
+
+    }
+
+    if(section === "bookings"){
+
+        loadBookings();
+
+    }
+
+}
+
+
+/* =====================================================
+   GET ADMIN REPLIES
+===================================================== */
+
+function getAdminReplies(){
+
+    try{
+
+        return JSON.parse(
+            localStorage.getItem(
+                ADMIN_REPLY_STORAGE
+            )
+        ) || {};
+
+    }
+    catch(error){
+
+        return {};
+
+    }
+
+}
+
+
+/* =====================================================
+   SAVE ADMIN REPLIES
+===================================================== */
+
+function saveAdminReplies(replies){
+
+    localStorage.setItem(
+        ADMIN_REPLY_STORAGE,
+        JSON.stringify(replies)
+    );
+
+}
+
+
+/* =====================================================
+   LOAD REVIEWS
+===================================================== */
+
+async function loadReviews(){
+
+    const container =
+    document.getElementById(
+        "reviewsContainer"
+    );
+
+    container.innerHTML = `
+
+        <div class="loading">
+            Loading customer reviews...
+        </div>
+
+    `;
+
+    const query = `
+
+        query GetReviews{
+
+            reviews(
+                order_by:{
+                    created_at:desc
+                }
+            ){
+
+                review_id
+                name
+                city
+                room_type
+                rating
+                review_text
+                created_at
+
+            }
+
+        }
+
+    `;
+
+    try{
+
+        const result =
+        await hasuraRequest(query);
+
+        if(result.errors){
+
+            container.innerHTML = `
+
+                <div class="no-data">
+
+                    <p class="error">
+                        ${escapeHTML(
+                            result.errors[0].message
+                        )}
+                    </p>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+        const reviews =
+        result.data &&
+        result.data.reviews
+        ?
+        result.data.reviews
+        :
+        [];
+
+        if(reviews.length === 0){
+
+            container.innerHTML = `
+
+                <div class="no-data">
+
+                    <h3>
+                        No Reviews Yet
+                    </h3>
+
+                    <p style="margin-top:8px;">
+                        Customer reviews will appear here.
+                    </p>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+        container.innerHTML = "";
+
+        reviews.forEach(function(review){
+
+            createReviewCard(
+                review,
+                container
+            );
+
+        });
+
+    }
+    catch(error){
+
+        console.error(
+            "Load Reviews Error:",
+            error
+        );
+
+        container.innerHTML = `
+
+            <div class="no-data">
+
+                <p class="error">
+                    Error loading reviews.
+                </p>
+
+                <p style="
+                    margin-top:8px;
+                    color:#777;
+                ">
+                    ${escapeHTML(error.message)}
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =====================================================
+   CREATE REVIEW CARD
+===================================================== */
+
+function createReviewCard(
+    review,
+    container
+){
+
+    const card =
+    document.createElement("div");
+
+    card.className =
+    "card";
+
+    const replies =
+    getAdminReplies();
+
+    const existingReply =
+    replies[String(review.review_id)]
+    ||
+    "";
+
+    let replyPreview = "";
+
+    if(existingReply){
+
+        replyPreview = `
+
+            <div class="existing-reply">
+
+                <strong>
+                    🏠 Current Livora Admin Reply
+                </strong>
+
+                <p>
+                    ${escapeHTML(existingReply)}
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+    card.innerHTML = `
+
+        <h3>
+            ${escapeHTML(review.name || "Customer")}
+        </h3>
+
+        <div class="review-meta">
+
+            <span class="meta-item">
+                📍 ${escapeHTML(review.city || "-")}
+            </span>
+
+            <span class="meta-item">
+                🏠 ${escapeHTML(
+                    review.room_type ||
+                    "Interior Design"
+                )}
+            </span>
+
+            <span class="meta-item rating">
+                ⭐ ${escapeHTML(review.rating || "0")}/5
+            </span>
+
+        </div>
+
+        <p>
+            <span class="label">
+                Customer Review:
+            </span>
+        </p>
+
+        <div class="review-content">
+            ${escapeHTML(
+                review.review_text || "-"
+            )}
+        </div>
+
+        <p style="
+            color:#999;
+            font-size:12px;
+            margin-top:10px;
+        ">
+            ${formatDate(review.created_at)}
+        </p>
+
+        ${replyPreview}
+
+        <div class="reply-area">
+
+            <div class="reply-title">
+                🏠 Reply as Livora Admin
+            </div>
+
+            <div class="reply-subtitle">
+                Your reply will NOT be saved to Hasura.
+            </div>
+
+            <textarea
+                class="reply-textarea"
+                id="reply-${review.review_id}"
+                placeholder="Write your reply to this customer..."
+            >${escapeHTML(existingReply)}</textarea>
+
+            <div class="reply-actions">
+
+                <button
+                    class="reply-btn"
+                    onclick="saveReply('${review.review_id}')"
+                >
+                    💬 ${existingReply
+                        ? "Update Reply"
+                        : "Reply as Admin"}
+                </button>
+
+                ${
+                    existingReply
+                    ?
+                    `
+                    <button
+                        class="delete-reply-btn"
+                        onclick="deleteReply('${review.review_id}')"
+                    >
+                        🗑 Remove Reply
+                    </button>
+                    `
+                    :
+                    ""
+                }
+
+                <span
+                    id="status-${review.review_id}"
+                    class="reply-status"
+                ></span>
+
+            </div>
+
+        </div>
+
+    `;
+
+    container.appendChild(card);
+
+}
+
+
+/* =====================================================
+   SAVE ADMIN REPLY
+===================================================== */
+
+function saveReply(reviewId){
+
+    const textarea =
+    document.getElementById(
+        "reply-" + reviewId
+    );
+
+    if(!textarea){
+
+        return;
+
+    }
+
+    const reply =
+    textarea.value.trim();
+
+    if(!reply){
+
+        showToast(
+            "Please write an admin reply first.",
+            "error"
+        );
+
+        return;
+
+    }
+
+    const replies =
+    getAdminReplies();
+
+    replies[String(reviewId)] =
+    reply;
+
+    saveAdminReplies(replies);
+
+    const status =
+    document.getElementById(
+        "status-" + reviewId
+    );
+
+    if(status){
+
+        status.innerText =
+        "✓ Reply saved";
+
+    }
+
+    showToast(
+        "✓ Admin reply added successfully!",
+        "success"
+    );
+
+}
+
+
+/* =====================================================
+   DELETE ADMIN REPLY
+===================================================== */
+
+function deleteReply(reviewId){
+
+    const confirmDelete =
+    confirm(
+        "Remove this admin reply?"
+    );
+
+    if(!confirmDelete){
+
+        return;
+
+    }
+
+    const replies =
+    getAdminReplies();
+
+    delete replies[String(reviewId)];
+
+    saveAdminReplies(replies);
+
+    showToast(
+        "Admin reply removed.",
+        "success"
+    );
+
+    loadReviews();
+
+}
+
+
+/* =====================================================
+   FORMAT DATE
+===================================================== */
+
+function formatDate(value){
+
+    if(!value){
+
+        return "Date unavailable";
+
+    }
+
+    const date =
+    new Date(value);
+
+    if(isNaN(date)){
+
+        return escapeHTML(value);
+
+    }
+
+    return date.toLocaleDateString(
+        "en-IN",
+        {
+            day:"2-digit",
+            month:"long",
+            year:"numeric"
+        }
+    );
+
+}
+
+
+/* =====================================================
+   LOAD BOOKINGS
+===================================================== */
+
+async function loadBookings(){
+
+    const container =
+    document.getElementById(
+        "bookingsContainer"
+    );
+
+    container.innerHTML = `
+
+        <div class="loading">
+            Loading customer bookings...
+        </div>
+
+    `;
+
+    const query = `
+
+        query GetBookings{
+
+            bookings(
+                order_by:{
+                    created_at:desc
+                }
+            ){
+
+                booking_id
+                name
+                phone
+                email
+                message
+                booking_date
+                selected_service
+                created_at
+
+            }
+
+        }
+
+    `;
+
+    try{
+
+        const result =
+        await hasuraRequest(query);
+
+        if(result.errors){
+
+            container.innerHTML = `
+
+                <div class="no-data">
+
+                    <p class="error">
+                        ${escapeHTML(
+                            result.errors[0].message
+                        )}
+                    </p>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+        const bookings =
+        result.data &&
+        result.data.bookings
+        ?
+        result.data.bookings
+        :
+        [];
+
+        if(bookings.length === 0){
+
+            container.innerHTML = `
+
+                <div class="no-data">
+
+                    <h3>
+                        No Bookings Yet
+                    </h3>
+
+                    <p style="margin-top:8px;">
+                        Customer bookings will appear here.
+                    </p>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+        container.innerHTML = "";
+
+        bookings.forEach(function(booking){
+
+            const card =
+            document.createElement("div");
+
+            card.className =
+            "booking-card";
+
+            card.innerHTML = `
+
+                <div class="booking-header">
+
+                    <h3 class="booking-title">
+                        ${escapeHTML(
+                            booking.name ||
+                            "Customer"
+                        )}
+                    </h3>
+
+                    <span class="booking-id">
+                        Booking #${escapeHTML(
+                            booking.booking_id
+                        )}
+                    </span>
+
+                </div>
+
+                <div class="booking-grid">
+
+                    <div class="booking-item">
+
+                        <span class="booking-label">
+                            Customer Name
+                        </span>
+
+                        <div class="booking-value">
+                            ${escapeHTML(
+                                booking.name || "-"
+                            )}
+                        </div>
+
+                    </div>
+
+                    <div class="booking-item">
+
+                        <span class="booking-label">
+                            Phone
+                        </span>
+
+                        <div class="booking-value">
+                            ${escapeHTML(
+                                booking.phone || "-"
+                            )}
+                        </div>
+
+                    </div>
+
+                    <div class="booking-item">
+
+                        <span class="booking-label">
+                            Email
+                        </span>
+
+                        <div class="booking-value">
+                            ${escapeHTML(
+                                booking.email || "-"
+                            )}
+                        </div>
+
+                    </div>
+
+                    <div class="booking-item">
+
+                        <span class="booking-label">
+                            Booking Date
+                        </span>
+
+                        <div class="booking-value">
+                            ${escapeHTML(
+                                booking.booking_date || "-"
+                            )}
+                        </div>
+
+                    </div>
+
+                    <div class="booking-item full">
+
+                        <span class="booking-label">
+                            Selected Service
+                        </span>
+
+                        <div class="booking-value">
+
+                            <span class="service-badge">
+                                ${escapeHTML(
+                                    booking.selected_service ||
+                                    "Interior Consultation"
+                                )}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="booking-item full">
+
+                        <span class="booking-label">
+                            Customer Details
+                        </span>
+
+                        <div class="booking-value">
+                            ${escapeHTML(
+                                booking.message || "-"
+                            )}
+                        </div>
+
+                    </div>
+
+                    <div class="booking-item full">
+
+                        <span class="booking-label">
+                            Booking Created
+                        </span>
+
+                        <div class="booking-value">
+                            ${formatDate(
+                                booking.created_at
+                            )}
+                        </div>
+
+                    </div>
+
+                </div>
+
+            `;
+
+            container.appendChild(card);
+
+        });
+
+    }
+    catch(error){
+
+        console.error(
+            "Load Bookings Error:",
+            error
+        );
+
+        container.innerHTML = `
+
+            <div class="no-data">
+
+                <p class="error">
+                    Error loading bookings.
+                </p>
+
+                <p style="
+                    margin-top:8px;
+                    color:#777;
+                ">
+                    ${escapeHTML(error.message)}
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+</script>
+
+<!-- SHARED FOOTER (same as Home Page) -->
+<div class="lv-footer" role="contentinfo">
+    <h4>Livora Interior Design</h4>
+    <h6>Creating elegant, functional and luxurious spaces.</h6>
+    <h6>&copy; 2026 Livora. All Rights Reserved.</h6>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,1758 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login - Confirm</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    font-weight:700;
+}
+
+body{
+    background:#fff;
+    margin:0;
+    padding:0;
+    letter-spacing:0.2px;
+}
+
+/* TOP */
+
+.top{
+    text-align:center;
+    padding:16px;
+    background:#fff;
+    border-bottom:2px solid #f0d9a8;
+}
+
+.top h1{
+    font-size:23px;
+    font-weight:900;
+    color:#b88a2d;
+}
+
+/* MAIN */
+
+.main{
+    display:flex;
+    width:100%;
+    max-width:100%;
+    margin:0;
+    background:#fff;
+    min-height:100vh;
+}
+
+/* LEFT */
+
+.left{
+    width:50%;
+    min-width:50%;
+    padding:20px 25px;
+    background:#fff9ec;
+    border-right:2px solid #f5e6c8;
+    margin:0;
+}
+
+.left h2{
+    font-size:19px;
+    font-weight:900;
+    margin-bottom:18px;
+    color:#222;
+}
+
+label{
+    font-size:12px;
+    font-weight:800;
+    margin:14px 0 6px;
+    display:block;
+    color:#222;
+}
+
+input{
+    width:90%;
+    padding:12px;
+    border:2px solid #e5c99a;
+    border-radius:10px;
+    font-size:14px;
+    font-weight:600;
+    outline:none;
+    background:#ffffff;
+}
+
+input::placeholder{
+    color:#999;
+    font-weight:500;
+}
+
+input:focus{
+    border-color:#b88a2d;
+}
+
+.err{
+    color:#ff0000;
+    font-size:11px;
+    font-weight:700;
+    margin-top:4px;
+    display:none;
+    width:90%;
+}
+
+.btn{
+    width:90%;
+    margin-top:24px;
+    background:#d2a137;
+    color:#fff;
+    border:none;
+    padding:14px;
+    border-radius:12px;
+    font-weight:900;
+    cursor:pointer;
+    font-size:15px;
+}
+
+.btn:hover{
+    background:#ad8127;
+}
+
+.btn:disabled{
+    background:#aaa;
+    cursor:not-allowed;
+}
+
+/* RIGHT */
+
+.right{
+    width:50%;
+    min-width:50%;
+    padding:16px;
+    background:#fef8ee;
+    border-left:1px solid #f5e6c8;
+}
+
+.right h2{
+    font-size:15px;
+    font-weight:900;
+    color:#b88a2d;
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:12px;
+}
+
+.badge{
+    background:#d2a137;
+    color:#fff;
+    padding:5px 12px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:800;
+}
+
+/* CARD */
+
+.card{
+    background:#fff;
+    border-radius:12px;
+    padding:10px;
+    margin:9px 0;
+    border:1.8px solid #f0d9a8;
+    display:flex;
+    gap:11px;
+    align-items:center;
+    position:relative;
+}
+
+.card img{
+    width:80px;
+    height:65px;
+    object-fit:cover;
+    border-radius:8px;
+    flex-shrink:0;
+    border:1px solid #eee;
+}
+
+.info h4{
+    font-size:12px;
+    font-weight:900;
+    text-transform:uppercase;
+}
+
+.info .s{
+    font-size:11px;
+    color:#444;
+    font-weight:700;
+}
+
+.info .p{
+    font-size:13px;
+    font-weight:900;
+    color:#b88a2d;
+}
+
+.x{
+    position:absolute;
+    top:6px;
+    right:6px;
+    background:#ff3b30;
+    color:#fff;
+    border:none;
+    width:22px;
+    height:22px;
+    border-radius:50%;
+    font-size:11px;
+    cursor:pointer;
+    font-weight:900;
+}
+
+/* TOTAL */
+
+.total{
+    background:#fff;
+    border-radius:12px;
+    padding:14px;
+    margin-top:12px;
+    border:2px solid #b88a2d;
+}
+
+.row{
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+    font-weight:700;
+    padding:6px 0;
+    border-bottom:1px dashed #eee;
+}
+
+.row.cost{
+    font-size:16px;
+    font-weight:900;
+    color:#b88a2d;
+    border:none;
+    border-top:2.5px solid #b88a2d;
+    padding-top:10px;
+    margin-top:6px;
+}
+
+/* EMPTY */
+
+.no{
+    background:#fff;
+    padding:22px;
+    border-radius:12px;
+    text-align:center;
+    color:#888;
+    border:2px dashed #e5c99a;
+    margin:12px 0;
+    font-weight:600;
+}
+
+/* SERVICES */
+
+.services{
+    margin-top:14px;
+    background:#fff;
+    padding:12px;
+    border-radius:12px;
+    border:1.8px solid #f0d9a8;
+}
+
+.services h3{
+    font-size:11px;
+    text-align:center;
+    color:#b88a2d;
+    margin-bottom:8px;
+    font-weight:900;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:6px;
+}
+
+.sb{
+    border:1.8px solid #b88a2d;
+    color:#b88a2d;
+    padding:7px 2px;
+    border-radius:6px;
+    text-align:center;
+    text-decoration:none;
+    font-size:10px;
+    font-weight:800;
+}
+
+.sb:hover{
+    background:#d2a137;
+    color:#fff;
+}
+
+/* SUCCESS OVERLAY */
+
+.success-overlay{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.68);
+    z-index:9999;
+    align-items:center;
+    justify-content:center;
+    padding:15px;
+}
+
+.success-box{
+    position:relative;
+    background:linear-gradient(
+        135deg,
+        #e8f5e9 0%,
+        #c8e6c9 40%,
+        #a5d6a7 100%
+    );
+    width:850px;
+    max-width:95%;
+    border-radius:24px;
+    text-align:center;
+    padding:45px 35px;
+    box-shadow:0 25px 70px rgba(0,100,0,0.3);
+    border:3.5px solid #2e7d32;
+}
+
+.close-x{
+    position:absolute;
+    top:18px;
+    right:18px;
+    background:#2e7d32;
+    color:white;
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    border:none;
+    font-size:18px;
+    font-weight:900;
+    cursor:pointer;
+}
+
+.tick-circle{
+    width:85px;
+    height:85px;
+    background:#2e7d32;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0 auto 20px;
+    font-size:44px;
+    color:white;
+    font-weight:900;
+}
+
+/* TOAST */
+
+#toast{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    min-width:300px;
+    max-width:430px;
+    padding:16px 20px;
+    border-radius:10px;
+    color:white;
+    font-size:14px;
+    font-weight:800;
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+    transform:translateY(120px);
+    opacity:0;
+    visibility:hidden;
+    transition:.35s;
+    z-index:99999;
+}
+
+#toast.show{
+    transform:translateY(0);
+    opacity:1;
+    visibility:visible;
+}
+
+#toast.success{
+    background:#298b45;
+}
+
+#toast.error{
+    background:#c0392b;
+}
+
+/* BACK BUTTON */
+
+.back-container{
+    text-align:center;
+    margin:40px 0 50px;
+}
+
+.back-btn{
+    background:#d2a137;
+    color:white;
+    border:none;
+    padding:14px 30px;
+    border-radius:8px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s ease;
+}
+
+.back-btn:hover{
+    background:#ad8127;
+    transform:translateY(-3px);
+    box-shadow:0 8px 18px rgba(0,0,0,0.18);
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    .main{
+        flex-direction:column;
+    }
+
+    .left,
+    .right{
+        width:100%;
+        min-width:100%;
+    }
+
+    .success-box{
+        width:96%;
+        padding:35px 22px;
+    }
+}
+
+@media(max-width:600px){
+
+    #toast{
+        left:20px;
+        right:20px;
+        min-width:auto;
+    }
+}
+
+</style>
+
+<link rel="stylesheet" href="theme.css">
+</head>
+
+<body>
+
+<!-- TOP -->
+
+<div class="top">
+
+    <h1>
+        Login and Confirm Book Consultation
+    </h1>
+
+</div>
+
+
+<!-- SUCCESS POPUP -->
+
+<div
+    class="success-overlay"
+    id="successOverlay"
+>
+
+    <div class="success-box">
+
+        <button
+            class="close-x"
+            onclick="closeSuccess()"
+        >
+            ✕
+        </button>
+
+        <div class="tick-circle">
+            ✓
+        </div>
+
+        <h1
+            style="
+                font-size:30px;
+                font-weight:900;
+                color:#1b5e20;
+            "
+        >
+            BOOKING CONFIRMED!
+        </h1>
+
+        <div
+            id="successDesign"
+            style="
+                background:#ffffff;
+                border:2.5px solid #2e7d32;
+                padding:12px 26px;
+                border-radius:35px;
+                margin:16px auto;
+                display:inline-block;
+                font-weight:900;
+                color:#1b5e20;
+                font-size:14px;
+            "
+        >
+        </div>
+
+        <p
+            style="
+                font-size:16px;
+                color:#1b5e20;
+                margin-top:18px;
+                font-weight:800;
+            "
+        >
+            Our team will call or send a mail soon
+        </p>
+
+        <p
+            style="
+                font-size:13px;
+                color:#333;
+                margin-top:8px;
+                font-weight:600;
+            "
+        >
+            We will confirm your consultation shortly.
+            Thank you!
+        </p>
+
+        <button
+            onclick="goHome()"
+            style="
+                background:#2e7d32;
+                color:white;
+                border:none;
+                padding:14px 36px;
+                border-radius:12px;
+                font-weight:900;
+                width:100%;
+                max-width:360px;
+                margin-top:20px;
+                cursor:pointer;
+                font-size:14px;
+            "
+        >
+            CONTINUE TO HOME →
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- MAIN -->
+
+<div class="main">
+
+    <!-- LEFT -->
+
+    <div class="left">
+
+        <h2>
+            LOGIN DETAILS
+        </h2>
+
+        <!-- NAME -->
+
+        <label>
+            FULL NAME *
+        </label>
+
+        <input
+            id="uName"
+            type="text"
+            placeholder="Enter your full name"
+            oninput="clearErr('uName','eName')"
+        >
+
+        <div
+            id="eName"
+            class="err"
+        >
+            ⚠ Full Name is required
+        </div>
+
+
+        <!-- EMAIL -->
+
+        <label>
+            EMAIL ADDRESS *
+        </label>
+
+        <input
+            id="uEmail"
+            type="email"
+            placeholder="Enter your email address"
+            oninput="clearErr('uEmail','eEmail')"
+        >
+
+        <div
+            id="eEmail"
+            class="err"
+        >
+            ⚠ Email is required
+        </div>
+
+
+        <!-- PHONE -->
+
+        <label>
+            PHONE NUMBER *
+        </label>
+
+        <input
+            id="uPhone"
+            type="tel"
+            placeholder="Enter your phone number"
+            oninput="clearErr('uPhone','ePhone')"
+        >
+
+        <div
+            id="ePhone"
+            class="err"
+        >
+            ⚠ Phone Number is required
+        </div>
+
+
+        <!-- LOCATION -->
+
+        <label>
+            LOCATION *
+        </label>
+
+        <input
+            id="uLoc"
+            type="text"
+            placeholder="Enter your location"
+            oninput="clearErr('uLoc','eLoc')"
+        >
+
+        <div
+            id="eLoc"
+            class="err"
+        >
+            ⚠ Location is required
+        </div>
+
+
+        <!-- CONFIRM -->
+
+        <button
+            class="btn"
+            id="confirmBtn"
+            onclick="confirmBooking()"
+        >
+            CONFIRM BOOKING
+        </button>
+
+    </div>
+
+
+    <!-- RIGHT -->
+
+    <div class="right">
+
+        <h2>
+
+            YOUR SELECTED DESIGNS
+
+            <span
+                class="badge"
+                id="badge"
+            >
+                0 Items
+            </span>
+
+        </h2>
+
+
+        <div id="list"></div>
+
+
+        <div
+            id="empty"
+            class="no"
+            style="display:none;"
+        >
+
+            No design selected yet
+
+            <br>
+
+            <span style="font-size:11px;">
+                Select panna odane inga automatic-a varum
+            </span>
+
+        </div>
+
+
+        <!-- TOTAL -->
+
+        <div
+            id="tbox"
+            class="total"
+            style="display:none;"
+        >
+
+            <div class="row">
+
+                <span>
+                    Total Items
+                </span>
+
+                <b id="tc">
+                    0 Designs
+                </b>
+
+            </div>
+
+
+            <div class="row">
+
+                <span>
+                    Total Sqft
+                </span>
+
+                <b id="ts">
+                    0 sqft
+                </b>
+
+            </div>
+
+
+            <div class="row cost">
+
+                <span>
+                    Total Cost
+                </span>
+
+                <span id="tp">
+                    Rs.0
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- SERVICES -->
+
+        <div class="services">
+
+            <h3>
+                ADD MORE - 8 SERVICES
+            </h3>
+
+            <div class="grid">
+
+                <a
+                    href="dining.html"
+                    class="sb"
+                >
+                    DINING
+                </a>
+
+                <a
+                    href="kitchen.html"
+                    class="sb"
+                >
+                    KITCHEN
+                </a>
+
+                <a
+                    href="tv-unit.html"
+                    class="sb"
+                >
+                    TV UNIT
+                </a>
+
+                <a
+                    href="bedroom.html"
+                    class="sb"
+                >
+                    BEDROOM
+                </a>
+
+                <a
+                    href="bathroom.html"
+                    class="sb"
+                >
+                    BATHROOM
+                </a>
+
+                <a
+                    href="floor.html"
+                    class="sb"
+                >
+                    FLOOR
+                </a>
+
+                <a
+                    href="ceiling.html"
+                    class="sb"
+                >
+                    CEILING
+                </a>
+
+                <a
+                    href="kids-bedroom.html"
+                    class="sb"
+                >
+                    KIDS ROOM
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div id="toast"></div>
+
+
+<!-- BACK -->
+
+<div class="back-container">
+
+    <button
+        class="back-btn"
+        onclick="goBackToServices()"
+    >
+        ← Back to Home Page
+    </button>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   HASURA
+===================================================== */
+
+const HASURA_URL =
+"https://livora.hasura.app/v1/graphql";
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+let toastTimer;
+
+function showToast(message,type){
+
+    const toast =
+        document.getElementById("toast");
+
+    clearTimeout(toastTimer);
+
+    toast.className = "";
+
+    toast.innerText =
+        message;
+
+    toast.classList.add(type);
+
+    setTimeout(function(){
+
+        toast.classList.add("show");
+
+    },20);
+
+    toastTimer =
+        setTimeout(function(){
+
+            toast.classList.remove("show");
+
+        },4000);
+}
+
+
+/* =====================================================
+   CLEAR ERROR
+===================================================== */
+
+function clearErr(inputId,errId){
+
+    document
+    .getElementById(inputId)
+    .style.border =
+    "2px solid #e5c99a";
+
+    document
+    .getElementById(errId)
+    .style.display =
+    "none";
+}
+
+
+/* =====================================================
+   GET CART
+===================================================== */
+
+function getCart(){
+
+    try{
+
+        let cart =
+            JSON.parse(
+                localStorage.getItem("designCart") || "[]"
+            );
+
+        if(cart.length === 0){
+
+            let type =
+                localStorage.getItem("selectedType");
+
+            if(type){
+
+                cart = [
+
+                    {
+                        type:type,
+
+                        size:
+                        localStorage.getItem(
+                            "selectedSize"
+                        ) || "100",
+
+                        price:
+                        localStorage.getItem(
+                            "selectedPrice"
+                        ) || "0",
+
+                        image:
+                        localStorage.getItem(
+                            "selectedImage"
+                        ) || "",
+
+                        id:Date.now()
+                    }
+
+                ];
+
+                localStorage.setItem(
+                    "designCart",
+                    JSON.stringify(cart)
+                );
+            }
+        }
+
+        return cart;
+
+    }
+
+    catch(error){
+
+        console.error(
+            "Cart Error:",
+            error
+        );
+
+        return [];
+    }
+}
+
+
+/* =====================================================
+   SHOW CART
+===================================================== */
+
+function show(){
+
+    const cart =
+        getCart();
+
+    const list =
+        document.getElementById("list");
+
+    const empty =
+        document.getElementById("empty");
+
+    const totalBox =
+        document.getElementById("tbox");
+
+    document.getElementById("badge")
+        .innerText =
+        cart.length + " Items";
+
+
+    if(cart.length === 0){
+
+        list.innerHTML = "";
+
+        empty.style.display =
+            "block";
+
+        totalBox.style.display =
+            "none";
+
+        return;
+    }
+
+
+    empty.style.display =
+        "none";
+
+    totalBox.style.display =
+        "block";
+
+
+    let html = "";
+
+    let total = 0;
+
+    let sqft = 0;
+
+
+    cart.forEach(function(item,index){
+
+        const price =
+            Number(item.price) || 0;
+
+        const size =
+            Number(item.size) || 0;
+
+        const rate =
+            size
+            ?
+            Math.round(price / size)
+            :
+            0;
+
+
+        total += price;
+
+        sqft += size;
+
+
+        html += `
+
+            <div class="card">
+
+                <img
+                    src="${item.image || 'https://via.placeholder.com/80'}"
+                    onerror="this.src='https://via.placeholder.com/80'"
+                >
+
+                <div class="info">
+
+                    <h4>
+                        ${item.type || "Interior Design"}
+                    </h4>
+
+                    <div class="s">
+                        Size: ${item.size || 0} sqft
+                    </div>
+
+                    <div class="s">
+                        Rate: Rs.${rate} / sqft
+                    </div>
+
+                    <div class="p">
+                        Rs.${price.toLocaleString("en-IN")}
+                    </div>
+
+                </div>
+
+                <button
+                    class="x"
+                    onclick="del(${index})"
+                >
+                    ✕
+                </button>
+
+            </div>
+
+        `;
+    });
+
+
+    list.innerHTML =
+        html;
+
+
+    document.getElementById("tc")
+        .innerText =
+        cart.length + " Designs";
+
+
+    document.getElementById("ts")
+        .innerText =
+        sqft + " sqft";
+
+
+    document.getElementById("tp")
+        .innerText =
+        "Rs." +
+        total.toLocaleString("en-IN");
+}
+
+
+/* =====================================================
+   DELETE DESIGN
+===================================================== */
+
+function del(index){
+
+    let cart =
+        getCart();
+
+    cart.splice(
+        index,
+        1
+    );
+
+
+    localStorage.setItem(
+        "designCart",
+        JSON.stringify(cart)
+    );
+
+
+    if(cart.length === 0){
+
+        localStorage.removeItem(
+            "selectedType"
+        );
+
+        localStorage.removeItem(
+            "selectedSize"
+        );
+
+        localStorage.removeItem(
+            "selectedPrice"
+        );
+
+        localStorage.removeItem(
+            "selectedImage"
+        );
+    }
+
+
+    show();
+}
+
+
+/* =====================================================
+   SAVE BOOKING TO HASURA
+===================================================== */
+
+async function saveBookingToHasura(){
+
+    const name =
+        document
+        .getElementById("uName")
+        .value
+        .trim();
+
+
+    const email =
+        document
+        .getElementById("uEmail")
+        .value
+        .trim();
+
+
+    const phone =
+        document
+        .getElementById("uPhone")
+        .value
+        .trim();
+
+
+    const location =
+        document
+        .getElementById("uLoc")
+        .value
+        .trim();
+
+
+    const cart =
+        getCart();
+
+
+    /* SELECTED SERVICE */
+
+    let selectedService =
+        "Consultation Booking";
+
+
+    if(cart.length > 0){
+
+        selectedService =
+            cart.map(function(item){
+
+                return (
+                    (item.type || "Interior Design") +
+                    " - " +
+                    (item.size || 0) +
+                    " sqft - Rs." +
+                    Number(
+                        item.price || 0
+                    ).toLocaleString("en-IN")
+                );
+
+            }).join(", ");
+    }
+
+
+    /* TOTAL */
+
+    const total =
+        cart.reduce(
+            function(sum,item){
+
+                return (
+                    sum +
+                    Number(item.price || 0)
+                );
+
+            },
+            0
+        );
+
+
+    /* MESSAGE */
+
+    const message =
+        "Location: " +
+        location +
+        " | Total Amount: Rs." +
+        total.toLocaleString("en-IN");
+
+
+    /* TODAY DATE */
+
+    const bookingDate =
+        new Date()
+        .toISOString()
+        .split("T")[0];
+
+
+    /*
+       IMPORTANT:
+       Using insert_bookings because
+       your Hasura API Explorer shows
+       insert_bookings.
+    */
+
+    const mutation = `
+
+        mutation InsertBookings(
+            $name:String!
+            $phone:String!
+            $email:String!
+            $message:String
+            $booking_date:date
+            $selected_service:String
+        ){
+
+            insert_bookings(
+                objects:[
+
+                    {
+                        name:$name
+                        phone:$phone
+                        email:$email
+                        message:$message
+                        booking_date:$booking_date
+                        selected_service:$selected_service
+                    }
+
+                ]
+            ){
+
+                affected_rows
+
+                returning{
+
+                    booking_id
+                    name
+                    phone
+                    email
+                    message
+                    booking_date
+                    selected_service
+                    created_at
+
+                }
+
+            }
+
+        }
+
+    `;
+
+
+    const response =
+        await fetch(
+            HASURA_URL,
+            {
+
+                method:"POST",
+
+                headers:{
+
+                    "Content-Type":
+                    "application/json",
+
+                    "x-hasura-role":
+                    "anonymous"
+
+                },
+
+                body:JSON.stringify({
+
+                    query:mutation,
+
+                    variables:{
+
+                        name:name,
+
+                        phone:phone,
+
+                        email:email,
+
+                        message:message,
+
+                        booking_date:
+                        bookingDate,
+
+                        selected_service:
+                        selectedService
+
+                    }
+
+                })
+
+            }
+        );
+
+
+    let data;
+
+
+    try{
+
+        data =
+            await response.json();
+
+    }
+
+    catch(error){
+
+        throw new Error(
+            "Invalid response from Hasura."
+        );
+    }
+
+
+    console.log(
+        "Hasura Booking Response:",
+        data
+    );
+
+
+    if(data.errors){
+
+        throw new Error(
+
+            data.errors
+            .map(function(error){
+
+                return error.message;
+
+            })
+            .join("\n")
+
+        );
+    }
+
+
+    if(!response.ok){
+
+        throw new Error(
+
+            "Hasura server error: " +
+            response.status
+
+        );
+    }
+
+
+    if(
+        !data.data ||
+        !data.data.insert_bookings
+    ){
+
+        throw new Error(
+            "Booking was not saved to database."
+        );
+    }
+
+
+    if(
+        data.data.insert_bookings.affected_rows < 1
+    ){
+
+        throw new Error(
+            "Booking was not inserted."
+        );
+    }
+
+
+    return
+        data.data.insert_bookings.returning[0];
+}
+
+
+/* =====================================================
+   CONFIRM BOOKING
+===================================================== */
+
+async function confirmBooking(){
+
+    let isValid =
+        true;
+
+
+    const fields = [
+
+        {
+            input:"uName",
+            err:"eName"
+        },
+
+        {
+            input:"uEmail",
+            err:"eEmail"
+        },
+
+        {
+            input:"uPhone",
+            err:"ePhone"
+        },
+
+        {
+            input:"uLoc",
+            err:"eLoc"
+        }
+
+    ];
+
+
+    /* VALIDATION */
+
+    fields.forEach(function(field){
+
+        const value =
+            document
+            .getElementById(field.input)
+            .value
+            .trim();
+
+
+        if(!value){
+
+            document
+            .getElementById(field.input)
+            .style.border =
+            "2.5px solid red";
+
+
+            document
+            .getElementById(field.err)
+            .style.display =
+            "block";
+
+
+            isValid =
+            false;
+
+        }
+
+        else{
+
+            document
+            .getElementById(field.input)
+            .style.border =
+            "2px solid #e5c99a";
+
+
+            document
+            .getElementById(field.err)
+            .style.display =
+            "none";
+
+        }
+
+    });
+
+
+    if(!isValid){
+
+        return;
+    }
+
+
+    /* EMAIL VALIDATION */
+
+    const email =
+        document
+        .getElementById("uEmail")
+        .value
+        .trim();
+
+
+    const emailPattern =
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+    if(!emailPattern.test(email)){
+
+        document
+        .getElementById("uEmail")
+        .style.border =
+        "2.5px solid red";
+
+
+        showToast(
+            "Please enter a valid email address.",
+            "error"
+        );
+
+
+        return;
+    }
+
+
+    /* PHONE VALIDATION */
+
+    const phone =
+        document
+        .getElementById("uPhone")
+        .value
+        .trim();
+
+
+    if(!/^[0-9]{10}$/.test(phone)){
+
+        document
+        .getElementById("uPhone")
+        .style.border =
+        "2.5px solid red";
+
+
+        showToast(
+            "Please enter a valid 10-digit phone number.",
+            "error"
+        );
+
+
+        return;
+    }
+
+
+    const button =
+        document.getElementById(
+            "confirmBtn"
+        );
+
+
+    button.disabled =
+        true;
+
+
+    button.innerText =
+        "SAVING BOOKING...";
+
+
+    try{
+
+        /* SAVE DATABASE */
+
+        const booking =
+            await saveBookingToHasura();
+
+
+        console.log(
+            "Booking Saved:",
+            booking
+        );
+
+
+        /* CUSTOMER NAME */
+
+        const name =
+            document
+            .getElementById("uName")
+            .value
+            .trim();
+
+
+        /* GET CART */
+
+        const cart =
+            getCart();
+
+
+        /* TOTAL */
+
+        const total =
+            cart.reduce(
+                function(sum,item){
+
+                    return (
+                        sum +
+                        Number(item.price || 0)
+                    );
+
+                },
+                0
+            );
+
+
+        /* SUCCESS MESSAGE */
+
+        const message =
+            cart.length > 0
+            ?
+            cart.length +
+            " Designs - Rs." +
+            total.toLocaleString("en-IN")
+            :
+            "Consultation Booking";
+
+
+        document
+        .getElementById("successDesign")
+        .innerText =
+            message +
+            " - " +
+            name.toUpperCase();
+
+
+        /* SHOW SUCCESS */
+
+        document
+        .getElementById("successOverlay")
+        .style.display =
+        "flex";
+
+
+        showToast(
+            "✓ Booking saved successfully!",
+            "success"
+        );
+
+    }
+
+    catch(error){
+
+        console.error(
+            "Booking Error:",
+            error
+        );
+
+
+        showToast(
+            error.message ||
+            "Booking could not be saved.",
+            "error"
+        );
+
+    }
+
+
+    button.disabled =
+        false;
+
+
+    button.innerText =
+        "CONFIRM BOOKING";
+}
+
+
+/* =====================================================
+   CLOSE SUCCESS
+===================================================== */
+
+function closeSuccess(){
+
+    document
+    .getElementById("successOverlay")
+    .style.display =
+    "none";
+}
+
+
+/* =====================================================
+   GO HOME
+===================================================== */
+
+function goHome(){
+
+    localStorage.clear();
+
+    window.location.href =
+        "Home Page.html";
+}
+
+
+/* =====================================================
+   BACK TO HOME
+===================================================== */
+
+function goBackToServices(){
+
+    window.location.href =
+        "Home Page.html";
+}
+
+
+/* =====================================================
+   INITIAL LOAD
+===================================================== */
+
+show();
+
+
+/* CHECK CART EVERY 500ms */
+
+setInterval(
+    show,
+    500
+);
+
+</script>
+
+</body>
+
+</html>

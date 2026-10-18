@@ -1,0 +1,1878 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Try New Bedroom Designs</title>
+
+<style>
+
+/* =========================
+   BASIC RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+body{
+    background:#f4f4f4;
+    padding:30px;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+    max-width:1300px;
+    margin:auto;
+}
+
+
+/* =========================
+   HEADING
+========================= */
+
+.heading{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.heading h1{
+    font-size:55px;
+    color:#222;
+}
+
+.heading span{
+    color:#b88a2d;
+}
+
+.heading p{
+    font-size:20px;
+    margin-top:10px;
+    color:#666;
+}
+
+
+/* =========================
+   MAIN BEDROOM PREVIEW
+========================= */
+
+.preview{
+    position:relative;
+    overflow:hidden;
+    border-radius:20px;
+    height:650px;
+    background:#ddd;
+}
+
+.preview img{
+    width:100%;
+    height:650px;
+    object-fit:cover;
+    display:block;
+    transition:0.5s;
+}
+
+
+/* =========================
+   BEDROOM LABEL
+========================= */
+
+.label{
+    position:absolute;
+
+    bottom:25px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    background:rgba(0,0,0,0.85);
+
+    color:white;
+
+    padding:15px 45px;
+
+    border-radius:8px;
+
+    font-size:24px;
+
+    font-weight:bold;
+
+    white-space:nowrap;
+}
+
+
+/* =========================
+   BEDROOM CARDS
+========================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    margin-top:30px;
+}
+
+
+.card{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+}
+
+
+.card:hover{
+    transform:translateY(-7px);
+}
+
+
+.card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    display:block;
+}
+
+
+.card h3{
+    text-align:center;
+    padding:16px;
+    color:#333;
+    font-size:18px;
+}
+
+
+/* =========================
+   ACTIVE CARD
+========================= */
+
+.active{
+    border:4px solid #b88a2d;
+}
+
+
+/* =========================
+   SIZE + PRICE
+========================= */
+
+.size-price{
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:25px 30px;
+
+    margin-top:30px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+
+    text-align:center;
+}
+
+
+.size-price label{
+
+    font-size:18px;
+
+    margin-right:15px;
+
+    font-weight:bold;
+}
+
+
+.size-price select{
+
+    padding:10px 20px;
+
+    font-size:16px;
+
+    border-radius:8px;
+
+    border:1px solid #ccc;
+
+    cursor:pointer;
+}
+
+
+.price-display{
+
+    margin-top:15px;
+
+    font-size:23px;
+
+    font-weight:bold;
+
+    color:#b88a2d;
+
+    min-height:30px;
+}
+
+
+.required-msg{
+
+    display:none;
+
+    color:#ff0000;
+
+    background:#ffe6e6;
+
+    border:1px solid #ff0000;
+
+    padding:10px 15px;
+
+    border-radius:6px;
+
+    margin-top:15px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    text-align:center;
+
+}
+
+
+/* =========================
+   DETAILS
+========================= */
+
+.details{
+
+    margin-top:30px;
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:15px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+
+    text-align:center;
+}
+
+
+.details h2{
+
+    color:#b88a2d;
+
+    margin-bottom:10px;
+}
+
+
+.details p{
+
+    color:#666;
+
+    font-size:17px;
+}
+
+
+/* =========================
+   MAIN BOOK BUTTON
+========================= */
+
+.book-btn-wrap{
+
+    text-align:center;
+
+    margin-top:35px;
+}
+
+
+.book-btn{
+
+    background:#d2a137;
+
+    color:white;
+
+    border:none;
+
+    padding:16px 60px;
+
+    font-size:20px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+
+.book-btn:hover{
+
+    background:#ad8127;
+
+    transform:scale(1.05);
+}
+
+
+/* =================================================
+   SUGGEST YOUR OWN DESIGN
+================================================= */
+
+.suggest-section{
+
+    margin-top:45px;
+
+    text-align:center;
+}
+
+
+/* =========================
+   SUGGEST BUTTON
+========================= */
+
+.suggest-btn{
+
+    background:white;
+
+    color:#b88a2d;
+
+    border:1px solid #b88a2d;
+
+    padding:12px 30px;
+
+    border-radius:6px;
+
+    font-size:14px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+
+.suggest-btn:hover{
+
+    background:#d2a137;
+
+    color:white;
+}
+
+
+/* =========================
+   SUGGESTION BOX
+========================= */
+
+.suggestion-box{
+
+    display:none;
+
+    width:100%;
+
+    max-width:500px;
+
+    margin:12px auto 0;
+
+    padding:20px;
+
+    background:white;
+
+    border-radius:12px;
+
+    box-shadow:0 5px 18px rgba(0,0,0,0.12);
+
+    text-align:left;
+}
+
+
+/* =========================
+   DESIGN NAME
+========================= */
+
+#designName{
+
+    width:100%;
+
+    padding:11px;
+
+    border:1px solid #ccc;
+
+    border-radius:5px;
+
+    font-size:12px;
+
+    margin-bottom:10px;
+
+    outline:none;
+}
+
+
+#designName:focus{
+
+    border-color:#b88a2d;
+}
+
+
+/* =========================
+   IMAGE UPLOAD
+========================= */
+
+.upload-box{
+
+    width:100%;
+
+    height:45px;
+
+    border:1px dashed #b88a2d;
+
+    border-radius:5px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:12px;
+
+    color:#b88a2d;
+
+    cursor:pointer;
+
+    margin-bottom:10px;
+}
+
+
+.upload-box:hover{
+
+    background:#fff8f0;
+}
+
+
+/* Hide original file input */
+
+#customImage{
+
+    display:none;
+}
+
+
+/* =========================
+   SELECT ROOM SIZE
+========================= */
+
+.room-size-label{
+
+    display:block;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    color:#444;
+
+    margin-bottom:5px;
+}
+
+
+#customSize{
+
+    width:100%;
+
+    padding:10px;
+
+    font-size:13px;
+
+    border:1px solid #ccc;
+
+    border-radius:5px;
+
+    cursor:pointer;
+
+    outline:none;
+}
+
+
+#customSize:focus{
+
+    border-color:#b88a2d;
+}
+
+
+/* =========================
+   CUSTOM PRICE
+========================= */
+
+.custom-price{
+
+    margin-top:12px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    color:#b88a2d;
+
+    text-align:center;
+
+    min-height:25px;
+}
+
+
+/* =========================
+   IMAGE PREVIEW
+========================= */
+
+.custom-preview{
+
+    display:none;
+
+    margin-top:18px;
+
+    text-align:center;
+}
+
+
+.custom-preview img{
+
+    width:100%;
+
+    max-height:350px;
+
+    object-fit:cover;
+
+    border-radius:10px;
+
+    border:1px solid #ddd;
+
+    display:block;
+}
+
+
+.custom-preview h3{
+
+    margin-top:10px;
+
+    color:#b88a2d;
+
+    font-size:18px;
+}
+
+
+/* =========================
+   CUSTOM BOOK BUTTON
+========================= */
+
+.custom-book-wrap{
+
+    text-align:center;
+
+    margin-top:18px;
+}
+
+
+.custom-book{
+
+    background:#d2a137;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 50px;
+
+    border-radius:6px;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+
+.custom-book:hover{
+
+    background:#ad8127;
+
+    transform:scale(1.03);
+}
+
+
+/* =========================
+   POPUP (same pattern as kitchen.html / floor.html / dining.html)
+   so the selected bedroom design also lands in the shared cart
+========================= */
+
+.green-corner-popup{
+
+    display:none;
+
+    position:fixed;
+
+    top:20px;
+
+    right:20px;
+
+    background:#d4edda;
+
+    border:2px solid #28a745;
+
+    border-left:8px solid #28a745;
+
+    color:#155724;
+
+    padding:30px;
+
+    border-radius:14px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
+
+    z-index:9999;
+
+    max-width:430px;
+
+    width:90%;
+
+}
+
+
+.green-corner-popup h3{
+
+    font-size:26px;
+
+    font-weight:800;
+
+    margin-bottom:12px;
+
+}
+
+
+.green-corner-popup p{
+
+    font-size:20px;
+
+    font-weight:600;
+
+    line-height:1.5;
+
+    margin:8px 0;
+
+}
+
+
+.green-corner-popup #popupDesignName{
+
+    font-size:22px;
+
+    font-weight:800;
+
+    color:#0f5132;
+
+}
+
+
+.extra-msg{
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:#333;
+
+    margin-top:14px;
+
+    border-top:1px dashed #28a745;
+
+    padding-top:12px;
+
+}
+
+
+.red-close-corner{
+
+    position:absolute;
+
+    top:-10px;
+
+    right:-10px;
+
+    background:#ff0000;
+
+    color:white;
+
+    border:2px solid white;
+
+    width:34px;
+
+    height:34px;
+
+    border-radius:50%;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1000px){
+
+    .cards{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    body{
+
+        padding:15px;
+
+    }
+
+
+    .heading h1{
+
+        font-size:35px;
+
+    }
+
+
+    .heading p{
+
+        font-size:16px;
+
+    }
+
+
+    .preview{
+
+        height:400px;
+
+    }
+
+
+    .preview img{
+
+        height:400px;
+
+    }
+
+
+    .label{
+
+        font-size:17px;
+
+        padding:12px 20px;
+
+    }
+
+
+    .cards{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .size-price label{
+
+        display:block;
+
+        margin-bottom:10px;
+
+    }
+
+
+    .suggestion-box{
+
+        width:100%;
+
+    }
+
+}
+.back-container {
+    text-align: center;
+    margin: 40px 0 50px;
+}
+
+.back-btn {
+    background: #d2a137;
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #ad8127;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+}
+
+</style>
+
+<link rel="stylesheet" href="theme.css">
+</head>
+
+
+<body>
+
+<!-- popup shown after adding a bedroom design to the shared cart -->
+<div class="green-corner-popup" id="greenPopup">
+<button class="red-close-corner" onclick="closePopup()">✕</button>
+<h3>✅ Your design is selected</h3>
+<p><strong id="popupDesignName">MODERN BEDROOM</strong> selected</p>
+<div class="extra-msg">Go to Home and 👉 Tap Book Consultation to confirm your booking</div>
+</div>
+
+
+<div class="container">
+
+
+<!-- =================================================
+     HEADING
+================================================= -->
+
+<div class="heading">
+
+    <h1>
+        TRY NEW <span>BEDROOM DESIGNS</span>
+    </h1>
+
+    <p>
+        Select a bedroom style to preview
+    </p>
+
+</div>
+
+
+<!-- =================================================
+     MAIN BEDROOM PREVIEW
+================================================= -->
+
+<div class="preview">
+
+    <img
+        id="bedroomImage"
+        src="modern.jpeg"
+        alt="Modern Bedroom"
+    >
+
+    <div
+        class="label"
+        id="bedroomName"
+    >
+        MODERN BEDROOM
+    </div>
+
+</div>
+
+
+<!-- =================================================
+     BEDROOM CARDS
+================================================= -->
+
+<div class="cards">
+
+
+    <!-- MODERN -->
+
+    <div
+        class="card active"
+        onclick="changeBedroom(
+            'modern.jpeg',
+            'MODERN BEDROOM',
+            'Modern Bedroom',
+            this
+        )"
+    >
+
+        <img
+            src="modern.jpeg"
+            alt="Modern Bedroom"
+        >
+
+        <h3>
+            MODERN BEDROOM
+        </h3>
+
+    </div>
+
+
+    <!-- CLASSIC -->
+
+    <div
+        class="card"
+        onclick="changeBedroom(
+            'classic.jpeg',
+            'CLASSIC BEDROOM',
+            'Classic Bedroom',
+            this
+        )"
+    >
+
+        <img
+            src="classic.jpeg"
+            alt="Classic Bedroom"
+        >
+
+        <h3>
+            CLASSIC BEDROOM
+        </h3>
+
+    </div>
+
+
+    <!-- LUXURY -->
+
+    <div
+        class="card"
+        onclick="changeBedroom(
+            'luxury1.jpeg',
+            'LUXURY BEDROOM',
+            'Luxury Bedroom',
+            this
+        )"
+    >
+
+        <img
+            src="luxury1.jpeg"
+            alt="Luxury Bedroom"
+        >
+
+        <h3>
+            LUXURY BEDROOM
+        </h3>
+
+    </div>
+
+
+    <!-- MINIMAL -->
+
+    <div
+        class="card"
+        onclick="changeBedroom(
+            'minimal.jpeg',
+            'MINIMAL BEDROOM',
+            'Minimal Bedroom',
+            this
+        )"
+    >
+
+        <img
+            src="minimal.jpeg"
+            alt="Minimal Bedroom"
+        >
+
+        <h3>
+            MINIMAL BEDROOM
+        </h3>
+
+    </div>
+
+
+    <!-- ROYAL -->
+
+    <div
+        class="card"
+        onclick="changeBedroom(
+            'royal.jpeg',
+            'ROYAL BEDROOM',
+            'Royal Bedroom',
+            this
+        )"
+    >
+
+        <img
+            src="royal.jpeg"
+            alt="Royal Bedroom"
+        >
+
+        <h3>
+            ROYAL BEDROOM
+        </h3>
+
+    </div>
+
+
+    <!-- BOHO -->
+
+    <div
+        class="card"
+        onclick="changeBedroom(
+            'boho.jpeg',
+            'BOHO BEDROOM',
+            'Boho Bedroom',
+            this
+        )"
+    >
+
+        <img
+            src="boho.jpeg"
+            alt="Boho Bedroom"
+        >
+
+        <h3>
+            BOHO BEDROOM
+        </h3>
+
+    </div>
+
+
+    <!-- CONTEMPORARY -->
+
+    <div
+        class="card"
+        onclick="changeBedroom(
+            'contemporary.jpeg',
+            'CONTEMPORARY BEDROOM',
+            'Contemporary Bedroom',
+            this
+        )"
+    >
+
+        <img
+            src="contemporary.jpeg"
+            alt="Contemporary Bedroom"
+        >
+
+        <h3>
+            CONTEMPORARY BEDROOM
+        </h3>
+
+    </div>
+
+
+    <!-- SCANDINAVIAN -->
+
+    <div
+        class="card"
+        onclick="changeBedroom(
+            'scandinavian.jpeg',
+            'SCANDINAVIAN BEDROOM',
+            'Scandinavian Bedroom',
+            this
+        )"
+    >
+
+        <img
+            src="scandinavian.jpeg"
+            alt="Scandinavian Bedroom"
+        >
+
+        <h3>
+            SCANDINAVIAN BEDROOM
+        </h3>
+
+    </div>
+
+</div>
+
+
+<!-- =================================================
+     NORMAL BEDROOM SIZE + PRICE
+================================================= -->
+
+<div class="size-price">
+
+    <label for="sqft">
+        Select Bedroom Size:
+    </label>
+
+    <select
+        id="sqft"
+        onchange="calculatePrice()"
+    >
+
+        <option value="">
+            -- Select Size --
+        </option>
+
+        <option value="100">
+            100 sqft
+        </option>
+
+        <option value="150">
+            150 sqft
+        </option>
+
+        <option value="200">
+            200 sqft
+        </option>
+
+        <option value="250">
+            250 sqft
+        </option>
+
+        <option value="300">
+            300 sqft
+        </option>
+
+        <option value="400">
+            400 sqft
+        </option>
+
+    </select>
+
+
+    <div
+        class="price-display"
+        id="priceDisplay"
+    ></div>
+
+    <div class="required-msg" id="requiredMsg">⚠️ Please select bedroom size required</div>
+
+</div>
+
+
+<!-- =================================================
+     DETAILS
+================================================= -->
+
+<div class="details">
+
+    <h2 id="detailTitle">
+        Modern Bedroom
+    </h2>
+
+    <p id="detailText">
+        A stylish and comfortable modern bedroom
+        with a clean and elegant interior.
+    </p>
+
+</div>
+
+
+<!-- =================================================
+     NORMAL BOOK BUTTON
+================================================= -->
+
+<div class="book-btn-wrap">
+
+    <button
+        class="book-btn"
+        onclick="bookBedroom()"
+    >
+        SELECT BEDROOM DESIGN
+    </button>
+
+</div>
+
+
+<!-- =================================================
+     SUGGEST YOUR OWN DESIGN
+================================================= -->
+
+<div class="suggest-section">
+
+
+    <button
+        class="suggest-btn"
+        onclick="openSuggestion()"
+    >
+
+        ✎ Suggest Your Own Design
+
+    </button>
+
+
+    <!-- =================================================
+         SUGGESTION BOX
+    ================================================= -->
+
+    <div
+        class="suggestion-box"
+        id="suggestionBox"
+    >
+
+
+        <!-- DESIGN NAME -->
+
+        <input
+            type="text"
+            id="designName"
+            placeholder="Enter Design Name (e.g. My Dream Bedroom)"
+            autocomplete="off"
+        >
+
+
+        <!-- IMAGE UPLOAD -->
+
+        <label
+            for="customImage"
+            class="upload-box"
+        >
+
+            🖼️ Click to Upload Your Bedroom Image
+
+        </label>
+
+
+        <input
+            type="file"
+            id="customImage"
+            accept="image/*"
+            onchange="showCustomImage()"
+        >
+
+
+        <!-- ROOM SIZE -->
+
+        <label
+            class="room-size-label"
+            for="customSize"
+        >
+            Select Room Size
+        </label>
+
+
+        <select
+            id="customSize"
+            onchange="calculateCustomPrice()"
+        >
+
+            <option value="">
+                -- Select Room Size --
+            </option>
+
+            <option value="100">
+                100 sqft
+            </option>
+
+            <option value="150">
+                150 sqft
+            </option>
+
+            <option value="200">
+                200 sqft
+            </option>
+
+            <option value="250">
+                250 sqft
+            </option>
+
+            <option value="300">
+                300 sqft
+            </option>
+
+            <option value="400">
+                400 sqft
+            </option>
+
+        </select>
+
+
+        <!-- PRICE -->
+
+        <div
+            class="custom-price"
+            id="customPrice"
+        ></div>
+
+        <div class="required-msg" id="customRequiredMsg">⚠️ Please fill design name, image and size</div>
+
+
+        <!-- =================================================
+             UPLOADED IMAGE PREVIEW
+        ================================================= -->
+
+        <div
+            class="custom-preview"
+            id="customPreview"
+        >
+
+            <img
+                id="customImagePreview"
+                src=""
+                alt="Custom Bedroom Design"
+            >
+
+            <h3
+                id="customDesignTitle"
+            >
+                My Bedroom Design
+            </h3>
+
+        </div>
+
+
+        <!-- =================================================
+             BOOK BUTTON
+        ================================================= -->
+
+        <div class="custom-book-wrap">
+
+            <button
+                type="button"
+                class="custom-book"
+                onclick="bookCustomBedroom()"
+            >
+
+                BOOK
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</div>
+
+
+
+<script>
+
+/* =================================================
+   CURRENT BEDROOM
+================================================= */
+
+var currentBedroom = "MODERN BEDROOM";
+
+
+/* =================================================
+   BEDROOM PRICE PER SQFT
+================================================= */
+
+var bedroomRates = {
+
+    "MODERN BEDROOM":450,
+
+    "CLASSIC BEDROOM":500,
+
+    "LUXURY BEDROOM":750,
+
+    "MINIMAL BEDROOM":400,
+
+    "ROYAL BEDROOM":850,
+
+    "BOHO BEDROOM":550,
+
+    "CONTEMPORARY BEDROOM":650,
+
+    "SCANDINAVIAN BEDROOM":600
+
+};
+
+
+/* =================================================
+   DESCRIPTIONS
+================================================= */
+
+var bedroomDescriptions = {
+
+    "MODERN BEDROOM":
+    "A stylish and comfortable modern bedroom with a clean and elegant interior.",
+
+    "CLASSIC BEDROOM":
+    "A timeless bedroom design with classic furniture, warm colours and elegant details.",
+
+    "LUXURY BEDROOM":
+    "A premium bedroom design with luxurious furniture, lighting and sophisticated finishes.",
+
+    "MINIMAL BEDROOM":
+    "A simple and peaceful bedroom with minimal furniture and a clean appearance.",
+
+    "ROYAL BEDROOM":
+    "A grand bedroom design with rich furniture, decorative elements and royal styling.",
+
+    "BOHO BEDROOM":
+    "A creative and relaxing bedroom with natural textures, patterns and warm decoration.",
+
+    "CONTEMPORARY BEDROOM":
+    "A modern contemporary bedroom combining stylish furniture, lighting and elegant colours.",
+
+    "SCANDINAVIAN BEDROOM":
+    "A bright and comfortable Scandinavian bedroom with simple furniture and natural tones."
+
+};
+
+
+/* =================================================
+   CHANGE BEDROOM
+================================================= */
+
+function changeBedroom(
+    image,
+    title,
+    detail,
+    card
+){
+
+    document.getElementById(
+        "bedroomImage"
+    ).src = image;
+
+
+    document.getElementById(
+        "bedroomName"
+    ).innerHTML = title;
+
+
+    document.querySelectorAll(
+        ".card"
+    ).forEach(function(item){
+
+        item.classList.remove("active");
+
+    });
+
+
+    card.classList.add("active");
+
+
+    currentBedroom = title;
+
+
+    document.getElementById(
+        "detailTitle"
+    ).innerHTML = detail;
+
+
+    document.getElementById(
+        "detailText"
+    ).innerHTML =
+        bedroomDescriptions[title];
+
+
+    calculatePrice();
+
+}
+
+
+/* =================================================
+   NORMAL BEDROOM PRICE
+================================================= */
+
+function calculatePrice(){
+
+    var sqft =
+        document.getElementById("sqft").value;
+
+
+    var priceDisplay =
+        document.getElementById("priceDisplay");
+
+    var req =
+        document.getElementById("requiredMsg");
+
+
+    if(!sqft){
+
+        priceDisplay.innerHTML = "";
+
+        req.style.display = "none";
+
+        return;
+
+    }
+
+
+    var rate =
+        bedroomRates[currentBedroom];
+
+
+    var total =
+        rate * Number(sqft);
+
+
+    priceDisplay.innerHTML =
+
+        currentBedroom +
+
+        " (" +
+
+        sqft +
+
+        " sqft) = ₹" +
+
+        total.toLocaleString("en-IN");
+
+    req.style.display = "none";
+
+}
+
+
+/* =================================================
+   SHARED CART (same "designCart" key used by
+   kitchen.html, floor.html and dining.html) so every
+   selected design shows up together on login.html
+================================================= */
+
+function addToDesignCart(item){
+
+    var cart = JSON.parse(localStorage.getItem("designCart") || "[]");
+
+    if(cart.length >= 10){
+
+        document.getElementById("popupDesignName").innerHTML = "MAX 10 DESIGNS ONLY!";
+        document.getElementById("greenPopup").style.display = "block";
+        return false;
+
+    }
+
+    item.id = Date.now();
+    cart.push(item);
+    localStorage.setItem("designCart", JSON.stringify(cart));
+
+    /* keep the single "last selected" keys too, same pattern as the other pages */
+    localStorage.setItem("selectedType", item.type);
+    localStorage.setItem("selectedSize", item.size);
+    localStorage.setItem("selectedPrice", item.price);
+    localStorage.setItem("selectedImage", item.image);
+
+    document.getElementById("popupDesignName").innerHTML = item.type + " (" + cart.length + "/10)";
+    document.getElementById("greenPopup").style.display = "block";
+    return true;
+
+}
+
+
+function closePopup(){
+
+    document.getElementById("greenPopup").style.display = "none";
+
+}
+
+
+/* =================================================
+   NORMAL BEDROOM BOOK
+================================================= */
+
+function bookBedroom(){
+
+    var sqft =
+        document.getElementById("sqft").value;
+
+    var req =
+        document.getElementById("requiredMsg");
+
+
+    if(!sqft){
+
+        req.style.display = "block";
+        document.getElementById("sqft").style.border = "2px solid red";
+        setTimeout(function(){ req.style.display = "none"; }, 3000);
+        return;
+
+    }
+
+    req.style.display = "none";
+    document.getElementById("sqft").style.border = "1px solid #ccc";
+
+
+    var rate =
+        bedroomRates[currentBedroom];
+
+
+    var total =
+        rate * Number(sqft);
+
+
+    addToDesignCart({
+
+        type: currentBedroom,
+        size: sqft,
+        price: total,
+        image: document.getElementById("bedroomImage").src
+
+    });
+
+}
+
+
+/* =================================================
+   OPEN / CLOSE SUGGESTION BOX
+================================================= */
+
+function openSuggestion(){
+
+    var box =
+        document.getElementById(
+            "suggestionBox"
+        );
+
+
+    if(
+        box.style.display === "block"
+    ){
+
+        box.style.display = "none";
+
+    }
+    else{
+
+        box.style.display = "block";
+
+    }
+
+}
+
+
+/* =================================================
+   CUSTOM BEDROOM IMAGE
+================================================= */
+
+var uploadedImageData = "";
+
+
+function showCustomImage(){
+
+    var file =
+        document.getElementById(
+            "customImage"
+        ).files[0];
+
+
+    var preview =
+        document.getElementById(
+            "customPreview"
+        );
+
+
+    var image =
+        document.getElementById(
+            "customImagePreview"
+        );
+
+
+    if(!file){
+
+        uploadedImageData = "";
+
+        preview.style.display = "none";
+
+        return;
+
+    }
+
+
+    /* Check image */
+
+    if(!file.type.startsWith("image/")){
+
+        alert(
+            "Please select an image file."
+        );
+
+        document.getElementById(
+            "customImage"
+        ).value = "";
+
+        return;
+
+    }
+
+
+    var reader =
+        new FileReader();
+
+
+    reader.onload = function(event){
+
+        uploadedImageData =
+            event.target.result;
+
+
+        image.src =
+            uploadedImageData;
+
+
+        preview.style.display =
+            "block";
+
+
+        updateDesignName();
+
+    };
+
+
+    reader.readAsDataURL(file);
+
+}
+
+
+/* =================================================
+   DESIGN NAME
+================================================= */
+
+document.getElementById(
+    "designName"
+).addEventListener(
+    "input",
+    updateDesignName
+);
+
+
+function updateDesignName(){
+
+    var name =
+        document.getElementById(
+            "designName"
+        ).value;
+
+
+    var title =
+        document.getElementById(
+            "customDesignTitle"
+        );
+
+
+    if(name.trim() !== ""){
+
+        title.innerHTML =
+            name;
+
+    }
+    else{
+
+        title.innerHTML =
+            "My Bedroom Design";
+
+    }
+
+}
+
+
+/* =================================================
+   CUSTOM ROOM PRICE
+================================================= */
+
+var customRate = 450;
+
+
+function calculateCustomPrice(){
+
+    var size =
+        document.getElementById(
+            "customSize"
+        ).value;
+
+
+    var price =
+        document.getElementById(
+            "customPrice"
+        );
+
+    var req =
+        document.getElementById("customRequiredMsg");
+
+
+    if(!size){
+
+        price.innerHTML = "";
+
+        return;
+
+    }
+
+
+    var total =
+        Number(size) * customRate;
+
+
+    price.innerHTML =
+
+        "Room Price: ₹" +
+
+        total.toLocaleString("en-IN");
+
+    req.style.display = "none";
+
+}
+
+
+/* =================================================
+   CUSTOM BEDROOM BOOK
+================================================= */
+
+function bookCustomBedroom(){
+
+    var name =
+        document.getElementById(
+            "designName"
+        ).value.trim();
+
+
+    var size =
+        document.getElementById(
+            "customSize"
+        ).value;
+
+    var req =
+        document.getElementById("customRequiredMsg");
+
+
+    /* Check Design Name / Image / Room Size together */
+
+    if(name === "" || uploadedImageData === "" || size === ""){
+
+        req.style.display = "block";
+        setTimeout(function(){ req.style.display = "none"; }, 3000);
+        return;
+
+    }
+
+    req.style.display = "none";
+
+
+    /* Calculate Price */
+
+    var total =
+        Number(size) * customRate;
+
+
+    addToDesignCart({
+
+        type: name + " (Custom Bedroom)",
+        size: size,
+        price: total,
+        image: uploadedImageData
+
+    });
+
+}
+function goBackToServices() {
+    window.location.href = "Services.html";
+}
+
+</script>
+
+<div class="back-container">
+    <button class="back-btn" onclick="goBackToServices()">
+        ← Back to Services
+    </button>
+</div>
+</body>
+
+</html>

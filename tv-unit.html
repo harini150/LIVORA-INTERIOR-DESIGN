@@ -1,0 +1,1054 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New TV Unit Designs</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f4f4f4;
+    padding:20px;
+}
+
+.container{
+    width:100%;
+    max-width:1300px;
+    margin:auto;
+}
+
+.heading{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.heading h1{
+    font-size:55px;
+    color:#222;
+}
+
+.heading span{
+    color:#b88a2d;
+}
+
+.heading p{
+    font-size:20px;
+    margin-top:10px;
+    color:#666;
+}
+
+.preview{
+    position:relative;
+    overflow:hidden;
+    border-radius:20px;
+    background:#fff;
+    width:100%;
+    height:950px;
+}
+
+.preview img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.label{
+    position:absolute;
+    bottom:25px;
+    left:50%;
+    transform:translateX(-50%);
+    background:rgba(0,0,0,0.85);
+    color:white;
+    padding:15px 45px;
+    border-radius:8px;
+    font-size:24px;
+    font-weight:bold;
+    white-space:nowrap;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    margin-top:30px;
+}
+
+.card{
+    width:100%;
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+}
+
+.card:hover{
+    transform:translateY(-7px);
+}
+
+.card img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+    display:block;
+}
+
+.card h3{
+    text-align:center;
+    padding:16px;
+    color:#333;
+    font-size:18px;
+}
+
+.active{
+    border:4px solid #b88a2d;
+}
+
+.size-price{
+    background:white;
+    border-radius:15px;
+    padding:25px 30px;
+    margin-top:30px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    text-align:center;
+}
+
+.size-price label{
+    display:block;
+    font-size:23px;
+    font-weight:bold;
+    margin-bottom:12px;
+}
+
+#sqft,#customSize{
+    width:100%;
+    max-width:400px;
+    padding:14px;
+    border:2px solid #b88a2d;
+    border-radius:8px;
+    font-size:19px;
+    font-weight:bold;
+    background:white;
+}
+
+.price-display{
+    margin-top:15px;
+    font-size:23px;
+    font-weight:bold;
+    color:#b88a2d;
+    min-height:30px;
+}
+
+.required-msg{
+    display:none;
+    color:#b00000;
+    background:#ffe6e6;
+    border:1px solid red;
+    padding:10px 15px;
+    border-radius:6px;
+    margin-top:15px;
+    font-size:16px;
+    font-weight:bold;
+}
+
+.details{
+    margin-top:30px;
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    text-align:center;
+}
+
+.details h2{
+    color:#b88a2d;
+    margin-bottom:10px;
+}
+
+.details p{
+    font-size:18px;
+}
+
+.book-btn-wrap{
+    text-align:center;
+    margin-top:35px;
+}
+
+.book-btn{
+    background:#d2a137;
+    color:white;
+    border:none;
+    padding:16px 60px;
+    font-size:20px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.suggest-section{
+    margin-top:45px;
+    text-align:center;
+}
+
+.suggest-btn{
+    background:white;
+    color:#b88a2d;
+    border:1px solid #b88a2d;
+    padding:12px 30px;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:17px;
+    font-weight:bold;
+}
+
+.suggestion-box{
+    display:none;
+    max-width:700px;
+    margin:15px auto 0;
+    padding:20px;
+    background:white;
+    border-radius:12px;
+    box-shadow:0 5px 18px rgba(0,0,0,0.12);
+    text-align:left;
+}
+
+#designName{
+    width:100%;
+    padding:13px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    margin-bottom:10px;
+    font-size:16px;
+}
+
+.upload-box{
+    width:100%;
+    height:50px;
+    border:2px dashed #b88a2d;
+    border-radius:6px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#b88a2d;
+    cursor:pointer;
+    margin-bottom:10px;
+    font-size:16px;
+    font-weight:bold;
+}
+
+#customImage{
+    display:none;
+}
+
+#customSize{
+    max-width:100%;
+}
+
+.custom-preview{
+    display:none;
+    margin-top:15px;
+    text-align:center;
+    position:relative;
+    background:white;
+    padding:10px;
+    border-radius:10px;
+}
+
+.custom-preview img{
+    width:100%;
+    height:auto;
+    object-fit:contain;
+    border-radius:10px;
+    border:1px solid #ddd;
+    display:block;
+}
+
+.remove-btn{
+    width:100%;
+    margin-top:10px;
+    background:#ffe4e4;
+    color:#c0392b;
+    border:none;
+    padding:10px;
+    border-radius:6px;
+    font-weight:bold;
+    cursor:pointer;
+    display:none;
+}
+
+.close-x{
+    position:absolute;
+    top:15px;
+    right:15px;
+    background:red;
+    color:white;
+    border:none;
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    cursor:pointer;
+    z-index:10;
+}
+
+.green-corner-popup{
+    display:none;
+    position:fixed;
+    top:20px;
+    right:20px;
+    background:#d4edda;
+    border:2px solid #28a745;
+    border-left:8px solid #28a745;
+    color:#155724;
+    padding:30px;
+    border-radius:14px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    z-index:9999;
+    max-width:430px;
+    width:90%;
+}
+
+.green-corner-popup h3{
+    font-size:25px;
+    margin-bottom:12px;
+}
+
+.green-corner-popup p{
+    font-size:20px;
+    line-height:1.5;
+}
+
+#popupDesignName{
+    font-size:22px;
+    font-weight:bold;
+    color:#0f5132;
+}
+
+.extra-msg{
+    font-size:18px;
+    font-weight:bold;
+    color:#333;
+    margin-top:15px;
+    border-top:1px dashed #28a745;
+    padding-top:12px;
+}
+
+.extra-msg span{
+    display:block;
+    margin-top:8px;
+    color:#b88a2d;
+    font-size:19px;
+}
+
+.red-close-corner{
+    position:absolute;
+    top:-10px;
+    right:-10px;
+    background:red;
+    color:white;
+    border:2px solid white;
+    width:34px;
+    height:34px;
+    border-radius:50%;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+@media(max-width:900px){
+    .cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .heading h1{
+        font-size:32px;
+    }
+
+    .preview{
+        height:450px;
+    }
+
+    .card img{
+        height:220px;
+    }
+}
+
+@media(max-width:600px){
+    body{
+        padding:10px;
+    }
+
+    .preview{
+        height:350px;
+        border-radius:12px;
+    }
+
+    .cards{
+        grid-template-columns:1fr 1fr;
+        gap:10px;
+    }
+
+    .card img{
+        height:130px;
+    }
+
+    .card h3{
+        font-size:12px;
+        padding:10px;
+    }
+
+    .label{
+        font-size:14px;
+        padding:10px 20px;
+    }
+
+    .book-btn{
+        padding:13px 30px;
+        font-size:16px;
+    }
+}
+.back-container {
+    text-align: center;
+    margin: 40px 0 50px;
+}
+
+.back-btn {
+    background: #d2a137;
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #ad8127;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+}
+</style>
+<link rel="stylesheet" href="theme.css">
+</head>
+
+<body>
+
+<!-- GREEN SUCCESS POPUP -->
+
+<div class="green-corner-popup" id="greenPopup">
+
+<button class="red-close-corner" onclick="closePopup()">✕</button>
+
+<h3>✅ Your design is selected</h3>
+
+<p>
+<strong id="popupDesignName">TV UNIT DESIGN</strong> selected
+</p>
+
+<div class="extra-msg">
+Go to Home and
+<span>👉 Tap Book Consultation</span>
+to confirm your booking
+</div>
+
+</div>
+
+<div class="container">
+
+<div class="heading">
+<h1>TRY NEW <span>TV UNIT DESIGNS</span></h1>
+<p>Select a TV unit style to preview</p>
+</div>
+
+<!-- MAIN PREVIEW -->
+
+<div class="preview">
+
+<img id="tvUnitImage" src="floor mounted tv.jpeg" alt="TV Unit Image">
+
+<div class="label" id="tvUnitName">
+FLOOR MOUNTED TV UNIT
+</div>
+
+</div>
+
+<!-- DESIGN CARDS -->
+
+<div class="cards">
+
+<div class="card active"
+onclick="changeTVUnit('floor mounted tv.jpeg','FLOOR MOUNTED TV UNIT','Floor Mounted TV Unit',this)">
+<img src="floor mounted tv.jpeg">
+<h3>FLOOR MOUNTED TV UNIT</h3>
+</div>
+
+<div class="card"
+onclick="changeTVUnit('marble tv unit.jpeg','MARBLE TV UNIT','Marble TV Unit',this)">
+<img src="marble tv unit.jpeg">
+<h3>MARBLE TV UNIT</h3>
+</div>
+
+<div class="card"
+onclick="changeTVUnit('arches tv unit.jpeg','ARCHES TV UNIT','Arches TV Unit',this)">
+<img src="arches tv unit.jpeg">
+<h3>ARCHES TV UNIT</h3>
+</div>
+
+<div class="card"
+onclick="changeTVUnit('panelled tv unit.jpeg','PANELLED TV UNIT','Panelled TV Unit',this)">
+<img src="panelled tv unit.jpeg">
+<h3>PANELLED TV UNIT</h3>
+</div>
+
+<div class="card"
+onclick="changeTVUnit('minimal tv unit.jpeg','MINIMAL TV UNIT','Minimal TV Unit',this)">
+<img src="minimal tv unit.jpeg">
+<h3>MINIMAL TV UNIT</h3>
+</div>
+
+<div class="card"
+onclick="changeTVUnit('grey modern tv.jpeg','GREY MODERN TV UNIT','Grey Modern TV Unit',this)">
+<img src="grey modern tv.jpeg">
+<h3>GREY MODERN TV UNIT</h3>
+</div>
+
+<div class="card"
+onclick="changeTVUnit('geometric tv unit.jpeg','GEOMETRIC MODEL TV UNIT','Geometric Model TV Unit',this)">
+<img src="geometric tv unit.jpeg">
+<h3>GEOMETRIC MODEL TV UNIT</h3>
+</div>
+
+<div class="card"
+onclick="changeTVUnit('transitional tv unit.jpeg','TRANSITIONAL TV UNIT','Transitional TV Unit',this)">
+<img src="transitional tv unit.jpeg">
+<h3>TRANSITIONAL TV UNIT</h3>
+</div>
+
+</div>
+
+<!-- SIZE AND PRICE -->
+
+<div class="size-price">
+
+<label>Select TV Unit Size:</label>
+
+<select id="sqft" onchange="calculatePrice()">
+
+<option value="">-- Select Size --</option>
+<option value="10">10 sqft</option>
+<option value="15">15 sqft</option>
+<option value="20">20 sqft</option>
+<option value="25">25 sqft</option>
+
+</select>
+
+<div class="price-display" id="priceDisplay"></div>
+
+<div class="required-msg" id="requiredMsg">
+⚠️ Please select TV unit size
+</div>
+
+</div>
+
+<!-- DETAILS -->
+
+<div class="details">
+
+<h2 id="detailTitle">Floor Mounted TV Unit</h2>
+
+<p id="detailText">
+Stylish floor mounted TV unit with a clean and modern look.
+</p>
+
+</div>
+
+<!-- BOOK TV UNIT -->
+
+<div class="book-btn-wrap">
+
+<button class="book-btn" onclick="bookTVUnit()">
+SELECT TV UNIT DESIG
+</button>
+
+</div>
+
+<!-- CUSTOM DESIGN -->
+
+<div class="suggest-section">
+
+<button class="suggest-btn" onclick="openSuggestion()">
+✎ Suggest Your Own Design
+</button>
+
+<div class="suggestion-box" id="suggestionBox">
+
+<input
+type="text"
+id="designName"
+placeholder="Enter Design Name"
+oninput="updateDesignName()"
+>
+
+<label for="customImage" class="upload-box">
+🖼️ Click to Upload Your TV Unit Image
+</label>
+
+<input
+type="file"
+id="customImage"
+accept="image/*"
+onchange="showCustomImage()"
+>
+
+<label style="font-size:20px;font-weight:bold;">
+Select TV Unit Size
+</label>
+
+<select id="customSize" onchange="calculateCustomPrice()">
+
+<option value="">-- Select Size --</option>
+<option value="10">10 sqft</option>
+<option value="15">15 sqft</option>
+<option value="20">20 sqft</option>
+<option value="25">25 sqft</option>
+
+</select>
+
+<div
+style="text-align:center;margin-top:10px;color:#b88a2d;font-weight:bold;font-size:20px;"
+id="customPrice">
+</div>
+
+<div class="required-msg" id="customRequiredMsg"></div>
+
+<div class="custom-preview" id="customPreview">
+
+<button class="close-x" onclick="removeCustomImage()">
+✕
+</button>
+
+<img id="customImagePreview" src="">
+
+<h3 id="customDesignTitle" style="margin-top:10px;">
+My TV Unit Design
+</h3>
+
+</div>
+
+<button
+class="remove-btn"
+id="removeBtn"
+onclick="removeCustomImage()">
+
+🗑️ Remove Image
+
+</button>
+
+<div style="text-align:center;margin-top:15px;">
+
+<button
+class="book-btn"
+style="padding:10px 40px;"
+onclick="bookCustomTVUnit()">
+
+BOOK
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+var currentTVUnit="FLOOR MOUNTED TV UNIT";
+
+var uploadedImageData="";
+
+var tvUnitRates={
+
+"FLOOR MOUNTED TV UNIT":1200,
+"MARBLE TV UNIT":1300,
+"ARCHES TV UNIT":1300,
+"PANELLED TV UNIT":1300,
+"MINIMAL TV UNIT":1300,
+"GREY MODERN TV UNIT":1300,
+"GEOMETRIC MODEL TV UNIT":1300,
+"TRANSITIONAL TV UNIT":1300
+
+};
+
+var tvUnitDescriptions={
+
+"FLOOR MOUNTED TV UNIT":
+"Stylish floor mounted TV unit with a clean and modern look.",
+
+"MARBLE TV UNIT":
+"Elegant marble-finish TV unit designed for a luxurious and premium living-room look.",
+
+"ARCHES TV UNIT":
+"A soft architectural TV unit with elegant arches and a balanced decorative finish.",
+
+"PANELLED TV UNIT":
+"A contemporary panelled TV unit that creates a neat and structured feature wall.",
+
+"MINIMAL TV UNIT":
+"A simple and clutter-free TV unit with a clean modern appearance.",
+
+"GREY MODERN TV UNIT":
+"A modern grey TV unit with a sophisticated neutral finish and practical storage.",
+
+"GEOMETRIC MODEL TV UNIT":
+"A creative geometric TV unit that adds visual interest and a contemporary character.",
+
+"TRANSITIONAL TV UNIT":
+"A balanced transitional TV unit combining classic details with a modern interior style."
+
+};
+
+function changeTVUnit(image,title,detail,card){
+
+document.getElementById("tvUnitImage").src=image;
+
+document.getElementById("tvUnitName").innerHTML=title;
+
+document.querySelectorAll(".card").forEach(function(item){
+
+item.classList.remove("active");
+
+});
+
+card.classList.add("active");
+
+currentTVUnit=title;
+
+document.getElementById("detailTitle").innerHTML=detail;
+
+document.getElementById("detailText").innerHTML=
+tvUnitDescriptions[title];
+
+calculatePrice();
+
+}
+
+function calculatePrice(){
+
+var sqft=document.getElementById("sqft").value;
+
+var pd=document.getElementById("priceDisplay");
+
+var msg=document.getElementById("requiredMsg");
+
+var box=document.getElementById("sqft");
+
+if(!sqft){
+
+pd.innerHTML="";
+
+msg.style.display="none";
+
+box.style.border="2px solid #b88a2d";
+
+return;
+
+}
+
+var price=tvUnitRates[currentTVUnit]*Number(sqft);
+
+pd.innerHTML=currentTVUnit+" ("+sqft+" sqft) = ₹"+
+price.toLocaleString("en-IN");
+
+msg.style.display="none";
+
+box.style.border="2px solid #b88a2d";
+
+}
+
+function openSuggestion(){
+
+var box=document.getElementById("suggestionBox");
+
+box.style.display=
+box.style.display==="block"?"none":"block";
+
+}
+
+function showCustomImage(){
+
+var file=document.getElementById("customImage").files[0];
+
+if(!file || !file.type.startsWith("image/")){
+
+alert("Please select image");
+
+return;
+
+}
+
+var reader=new FileReader();
+
+reader.onload=function(e){
+
+uploadedImageData=e.target.result;
+
+document.getElementById("customImagePreview").src=
+uploadedImageData;
+
+document.getElementById("customPreview").style.display=
+"block";
+
+document.getElementById("removeBtn").style.display=
+"block";
+
+updateDesignName();
+
+};
+
+reader.readAsDataURL(file);
+
+}
+
+function updateDesignName(){
+
+var name=document.getElementById("designName").value;
+
+document.getElementById("customDesignTitle").innerHTML=
+name.trim()?name:"My TV Unit Design";
+
+}
+
+function calculateCustomPrice(){
+
+var size=document.getElementById("customSize").value;
+
+var priceBox=document.getElementById("customPrice");
+
+var msg=document.getElementById("customRequiredMsg");
+
+if(!size){
+
+priceBox.innerHTML="";
+
+msg.style.display="none";
+
+return;
+
+}
+
+priceBox.innerHTML="Price: ₹"+
+(Number(size)*1300).toLocaleString("en-IN");
+
+msg.style.display="none";
+
+}
+
+function removeCustomImage(){
+
+uploadedImageData="";
+
+document.getElementById("customImage").value="";
+
+document.getElementById("customImagePreview").src="";
+
+document.getElementById("customPreview").style.display="none";
+
+document.getElementById("removeBtn").style.display="none";
+
+document.getElementById("customPrice").innerHTML="";
+
+document.getElementById("customRequiredMsg").style.display="none";
+
+}
+
+function saveDesignToCart(type,size,price,image){
+
+var cart=[];
+
+try{
+
+cart=JSON.parse(localStorage.getItem("designCart")||"[]");
+
+if(!Array.isArray(cart)){
+
+cart=[];
+
+}
+
+}catch(error){
+
+cart=[];
+
+}
+
+if(cart.length>=10){
+
+document.getElementById("popupDesignName").innerHTML=
+"MAX 10 DESIGNS ONLY!";
+
+document.getElementById("greenPopup").style.display=
+"block";
+
+return false;
+
+}
+
+cart.push({
+
+type:type,
+size:size,
+price:price,
+image:image,
+id:Date.now()
+
+});
+
+localStorage.setItem("designCart",JSON.stringify(cart));
+
+localStorage.setItem("selectedType",type);
+
+localStorage.setItem("selectedSize",size);
+
+localStorage.setItem("selectedPrice",price);
+
+localStorage.setItem("selectedImage",image);
+
+document.getElementById("popupDesignName").innerHTML=
+type+" ("+cart.length+"/10)";
+
+document.getElementById("greenPopup").style.display=
+"block";
+
+return true;
+
+}
+
+function bookTVUnit(){
+
+var sqft=document.getElementById("sqft").value;
+
+var msg=document.getElementById("requiredMsg");
+
+var box=document.getElementById("sqft");
+
+if(!sqft){
+
+msg.innerHTML="⚠️ Please select TV unit size";
+
+msg.style.display="block";
+
+box.style.border="2px solid red";
+
+return;
+
+}
+
+var price=tvUnitRates[currentTVUnit]*Number(sqft);
+
+var image=document.getElementById("tvUnitImage").src;
+
+var saved=saveDesignToCart(
+currentTVUnit,
+sqft,
+price,
+image
+);
+
+if(!saved){
+
+return;
+
+}
+
+localStorage.setItem("bookingType","TV UNIT");
+
+}
+
+function bookCustomTVUnit(){
+
+var name=document.getElementById("designName").value.trim();
+
+var size=document.getElementById("customSize").value;
+
+var msg=document.getElementById("customRequiredMsg");
+
+if(!name){
+
+msg.innerHTML="⚠️ Please enter design name";
+
+msg.style.display="block";
+
+return;
+
+}
+
+if(uploadedImageData===""){
+
+msg.innerHTML="⚠️ Please upload your TV unit image";
+
+msg.style.display="block";
+
+return;
+
+}
+
+if(!size){
+
+msg.innerHTML="⚠️ Please select TV unit size";
+
+msg.style.display="block";
+
+return;
+
+}
+
+var price=Number(size)*1300;
+
+var saved=saveDesignToCart(
+name,
+size,
+price,
+uploadedImageData
+);
+
+if(!saved){
+
+return;
+
+}
+
+localStorage.setItem("bookingType","CUSTOM TV UNIT");
+
+}
+
+function closePopup(){
+
+document.getElementById("greenPopup").style.display=
+"none";
+
+}
+function goBackToServices() {
+    window.location.href = "services.html";
+}
+
+</script>
+<div class="back-container">
+    <button class="back-btn" onclick="goBackToServices()">
+        ← Back to Services
+    </button>
+</div>
+</body>
+</html>

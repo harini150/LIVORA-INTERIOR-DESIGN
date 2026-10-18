@@ -1,0 +1,387 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kids Room Designs</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#f4f4f4;padding:30px}
+.container{max-width:1300px;margin:auto}
+.heading{text-align:center;margin-bottom:30px}
+.heading h1{font-size:55px;color:#222}
+.heading span{color:#b88a2d}
+.heading p{font-size:20px;margin-top:10px;color:#666}
+.preview{position:relative;overflow:hidden;border-radius:20px;height:650px;background:#ddd}
+.preview img{width:100%;height:650px;object-fit:cover}
+.label{position:absolute;bottom:25px;left:50%;transform:translateX(-50%);background:#000d;color:white;padding:15px 45px;border-radius:8px;font-size:24px;font-weight:bold;white-space:nowrap}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:30px}
+.card{background:white;border-radius:15px;overflow:hidden;cursor:pointer;transition:.3s;box-shadow:0 5px 15px #0002}
+.card:hover{transform:translateY(-7px)}
+.card img{width:100%;height:200px;object-fit:cover}
+.card h3{text-align:center;padding:16px;color:#333;font-size:18px}
+.active{border:4px solid #b88a2d}
+.size-price,.details{background:white;border-radius:15px;padding:30px;margin-top:30px;box-shadow:0 5px 15px #0001;text-align:center}
+.size-price label{font-size:24px;font-weight:bold;display:block;margin-bottom:12px}
+select,input{width:100%;padding:14px;border:2px solid #b88a2d;border-radius:8px;font-size:19px}
+#sqft{max-width:400px}
+.price-display,.custom-price{margin-top:18px;font-size:25px;font-weight:bold;color:#b88a2d}
+.details h2{color:#b88a2d;margin-bottom:10px}
+.details p{font-size:18px;color:#666}
+.book-btn-wrap{text-align:center;margin-top:35px}
+.book-btn{background:#d2a137;color:white;border:0;padding:16px 60px;font-size:20px;border-radius:8px;cursor:pointer}
+.suggest-section{text-align:center;margin-top:45px}
+.suggest-btn{background:white;color:#b88a2d;border:1px solid #b88a2d;padding:12px 30px;border-radius:6px;font-size:17px;cursor:pointer}
+.suggestion-box{display:none;max-width:700px;margin:15px auto;padding:20px;background:white;border-radius:12px;text-align:left}
+.upload-box{display:flex;align-items:center;justify-content:center;height:50px;border:2px dashed #b88a2d;color:#b88a2d;margin:10px 0;cursor:pointer}
+#customImage{display:none}
+.custom-preview{display:none;margin-top:15px;text-align:center;position:relative}
+.custom-preview img{width:100%;max-height:350px;object-fit:cover;border-radius:10px}
+.remove-btn{display:none;width:100%;margin-top:10px;padding:10px;background:#ffe4e4;color:#c0392b;border:0;border-radius:6px}
+.required-msg{display:none;color:red;background:#ffe6e6;padding:10px;margin-top:15px;text-align:center}
+.green-corner-popup{display:none;position:fixed;top:20px;right:20px;background:#d4edda;border:2px solid #28a745;border-left:8px solid #28a745;color:#155724;padding:30px;border-radius:14px;z-index:9999;max-width:430px;width:90%}
+.green-corner-popup h3{font-size:25px;margin-bottom:12px}
+.extra-msg{font-size:18px;font-weight:bold;margin-top:14px;border-top:1px dashed #28a745;padding-top:12px}
+.extra-msg span{display:block;color:#b88a2d;margin-top:6px}
+.red-close-corner{position:absolute;top:-10px;right:-10px;background:red;color:white;border:2px solid white;width:34px;height:34px;border-radius:50%;cursor:pointer}
+@media(max-width:1000px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){body{padding:15px}.heading h1{font-size:35px}.preview,.preview img{height:400px}.cards{grid-template-columns:1fr}.label{font-size:17px;padding:12px 20px}}
+.back-container {
+    text-align: center;
+    margin: 40px 0 50px;
+}
+
+.back-btn {
+    background: #d2a137;
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #ad8127;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+}
+</style>
+<link rel="stylesheet" href="theme.css">
+</head>
+
+<body>
+
+<div class="green-corner-popup" id="greenPopup">
+<button class="red-close-corner" onclick="closePopup()">✕</button>
+<h3>✅ Your design is selected</h3>
+<p><strong id="popupDesignName">UNICORN THEME</strong> selected</p>
+<div class="extra-msg">
+Go to Home and
+<span>👉 Tap Book Consultation</span>
+to confirm your booking
+</div>
+</div>
+
+<div class="container">
+
+<div class="heading">
+<h1>TRY NEW <span>KIDS ROOM DESIGNS</span></h1>
+<p>Select a kids room theme to preview</p>
+</div>
+
+<div class="preview">
+<img id="bedroomImage" src="Unicorn Theme.jpeg">
+<div class="label" id="bedroomName">UNICORN THEME</div>
+</div>
+
+<div class="cards">
+
+<div class="card active" onclick="changeBedroom('Unicorn Theme.jpeg','UNICORN THEME','Unicorn Theme Kids Room',this)">
+<img src="Unicorn Theme.jpeg"><h3>UNICORN THEME</h3>
+</div>
+
+<div class="card" onclick="changeBedroom('Sports Theme.jpeg','SPORTS THEME','Sports Theme Kids Room',this)">
+<img src="Sports Theme.jpeg"><h3>SPORTS THEME</h3>
+</div>
+
+<div class="card" onclick="changeBedroom('Ocean Theme.jpeg','OCEAN THEME','Ocean Theme Kids Room',this)">
+<img src="Ocean Theme.jpeg"><h3>OCEAN THEME</h3>
+</div>
+
+<div class="card" onclick="changeBedroom('Jungle Theme.jpeg','JUNGLE THEME','Jungle Theme Kids Room',this)">
+<img src="Jungle Theme.jpeg"><h3>JUNGLE THEME</h3>
+</div>
+
+<div class="card" onclick="changeBedroom('minimalist theme.jpeg','MINIMALIST THEME','Minimalist Theme Kids Room',this)">
+<img src="minimalist theme.jpeg"><h3>MINIMALIST THEME</h3>
+</div>
+
+<div class="card" onclick="changeBedroom('princess theme.png','PRINCESS THEME','Princess Theme Kids Room',this)">
+<img src="princess theme.png"><h3>PRINCESS THEME</h3>
+</div>
+
+<div class="card" onclick="changeBedroom('Space theme.png','SPACE THEME','Space Theme Kids Room',this)">
+<img src="Space theme.png"><h3>SPACE THEME</h3>
+</div>
+
+<div class="card" onclick="changeBedroom('rainbow theme.png','RAINBOW THEME','Rainbow Theme Kids Room',this)">
+<img src="rainbow theme.png"><h3>RAINBOW THEME</h3>
+</div>
+
+</div>
+
+<div class="size-price">
+<label>Select Room Size:</label>
+<select id="sqft" onchange="calculatePrice()">
+<option value="">-- Select Size --</option>
+<option value="100">100 sqft</option>
+<option value="150">150 sqft</option>
+<option value="200">200 sqft</option>
+<option value="250">250 sqft</option>
+<option value="300">300 sqft</option>
+<option value="400">400 sqft</option>
+</select>
+<div class="price-display" id="priceDisplay"></div>
+<div class="required-msg" id="requiredMsg">⚠️ Please select room size required</div>
+</div>
+
+<div class="details">
+<h2 id="detailTitle">Unicorn Theme Kids Room</h2>
+<p id="detailText">A magical kids room with pastel colours, unicorn details, clouds and a dreamy playful atmosphere.</p>
+</div>
+
+<div class="book-btn-wrap">
+<button class="book-btn" onclick="bookBedroom()">SELECT KIDS ROOM</button>
+</div>
+
+<div class="suggest-section">
+<button class="suggest-btn" onclick="openSuggestion()">✎ Suggest Your Own Design</button>
+
+<div class="suggestion-box" id="suggestionBox">
+
+<input type="text" id="designName" placeholder="Enter Design Name" oninput="updateDesignName()">
+
+<label for="customImage" class="upload-box">🖼️ Click to Upload Your Kids Room Image</label>
+<input type="file" id="customImage" accept="image/*" onchange="showCustomImage()">
+
+<label style="display:block;font-size:22px;font-weight:bold;margin:15px 0 8px">Select Room Size</label>
+
+<select id="customSize" onchange="calculateCustomPrice()">
+<option value="">-- Select Size --</option>
+<option value="100">100 sqft</option>
+<option value="150">150 sqft</option>
+<option value="200">200 sqft</option>
+<option value="250">250 sqft</option>
+<option value="300">300 sqft</option>
+<option value="400">400 sqft</option>
+</select>
+
+<div class="custom-price" id="customPrice"></div>
+<div class="required-msg" id="customRequiredMsg">⚠️ Please select room size required</div>
+
+<div class="custom-preview" id="customPreview">
+<img id="customImagePreview">
+<h3 id="customDesignTitle">My Kids Room Design</h3>
+</div>
+
+<button class="remove-btn" id="removeBtn" onclick="removeCustomImage()">🗑️ Remove Image</button>
+
+<div style="text-align:center;margin-top:15px">
+<button class="book-btn" style="padding:10px 40px" onclick="bookCustomBedroom()">BOOK</button>
+</div>
+
+</div>
+</div>
+</div>
+
+<script>
+var currentBedroom="UNICORN THEME";
+var customRate=450;
+var uploadedImageData="";
+
+var bedroomRates={
+"UNICORN THEME":650,
+"SPORTS THEME":600,
+"OCEAN THEME":625,
+"JUNGLE THEME":600,
+"MINIMALIST THEME":500,
+"PRINCESS THEME":700,
+"SPACE THEME":650,
+"RAINBOW THEME":575
+};
+
+var bedroomDescriptions={
+"UNICORN THEME":"A magical kids room with pastel colours, unicorn details, clouds and a dreamy playful atmosphere.",
+"SPORTS THEME":"An energetic kids room inspired by sports with bold accents and fun decor.",
+"OCEAN THEME":"A refreshing ocean-inspired kids room with blue tones and sea elements.",
+"JUNGLE THEME":"A playful jungle-themed kids room with leafy patterns and animal elements.",
+"MINIMALIST THEME":"A clean and peaceful kids room with simple furniture and soft colours.",
+"PRINCESS THEME":"A charming princess room with elegant details and fairy-tale accents.",
+"SPACE THEME":"An adventurous space-themed kids room with planets, stars and rockets.",
+"RAINBOW THEME":"A cheerful rainbow-themed kids room with colourful accents and playful decor."
+};
+
+function changeBedroom(image,title,detail,card){
+document.getElementById("bedroomImage").src=image;
+document.getElementById("bedroomName").innerHTML=title;
+document.querySelectorAll(".card").forEach(function(item){item.classList.remove("active")});
+card.classList.add("active");
+currentBedroom=title;
+document.getElementById("detailTitle").innerHTML=detail;
+document.getElementById("detailText").innerHTML=bedroomDescriptions[title];
+calculatePrice();
+}
+
+function calculatePrice(){
+var size=document.getElementById("sqft").value;
+if(!size){document.getElementById("priceDisplay").innerHTML="";return}
+var total=bedroomRates[currentBedroom]*Number(size);
+document.getElementById("priceDisplay").innerHTML=currentBedroom+" ("+size+" sqft) = ₹"+total.toLocaleString("en-IN");
+}
+
+function openSuggestion(){
+var box=document.getElementById("suggestionBox");
+box.style.display=box.style.display==="block"?"none":"block";
+}
+
+function showCustomImage(){
+var file=document.getElementById("customImage").files[0];
+if(!file)return;
+var reader=new FileReader();
+reader.onload=function(e){
+uploadedImageData=e.target.result;
+document.getElementById("customImagePreview").src=uploadedImageData;
+document.getElementById("customPreview").style.display="block";
+document.getElementById("removeBtn").style.display="block";
+updateDesignName();
+};
+reader.readAsDataURL(file);
+}
+
+function updateDesignName(){
+var name=document.getElementById("designName").value;
+document.getElementById("customDesignTitle").innerHTML=name.trim()?name:"My Kids Room Design";
+}
+
+function calculateCustomPrice(){
+var size=document.getElementById("customSize").value;
+if(!size){document.getElementById("customPrice").innerHTML="";return}
+document.getElementById("customPrice").innerHTML="Price: ₹"+(Number(size)*customRate).toLocaleString("en-IN");
+}
+
+function removeCustomImage(){
+uploadedImageData="";
+document.getElementById("customImage").value="";
+document.getElementById("customImagePreview").src="";
+document.getElementById("customPreview").style.display="none";
+document.getElementById("removeBtn").style.display="none";
+}
+
+function bookBedroom(){
+var size=document.getElementById("sqft").value;
+var msg=document.getElementById("requiredMsg");
+
+if(!size){
+msg.style.display="block";
+setTimeout(function(){msg.style.display="none"},3000);
+return;
+}
+
+var total=bedroomRates[currentBedroom]*Number(size);
+var cart=JSON.parse(localStorage.getItem("designCart")||"[]");
+
+if(cart.length>=10){
+document.getElementById("popupDesignName").innerHTML="MAX 10 DESIGNS ONLY!";
+document.getElementById("greenPopup").style.display="block";
+return;
+}
+
+cart.push({
+type:currentBedroom,
+size:size,
+price:total,
+image:document.getElementById("bedroomImage").src,
+id:Date.now()
+});
+
+localStorage.setItem("designCart",JSON.stringify(cart));
+localStorage.setItem("selectedType",currentBedroom);
+localStorage.setItem("selectedSize",size);
+localStorage.setItem("selectedPrice",total);
+localStorage.setItem("selectedImage",document.getElementById("bedroomImage").src);
+localStorage.setItem("bookingType","KIDS ROOM");
+
+document.getElementById("popupDesignName").innerHTML=currentBedroom+" ("+cart.length+"/10)";
+document.getElementById("greenPopup").style.display="block";
+}
+
+function bookCustomBedroom(){
+var name=document.getElementById("designName").value.trim();
+var size=document.getElementById("customSize").value;
+var msg=document.getElementById("customRequiredMsg");
+
+if(!name){
+msg.innerHTML="⚠️ Please enter design name required";
+msg.style.display="block";
+return;
+}
+
+if(!uploadedImageData){
+msg.innerHTML="⚠️ Please upload image required";
+msg.style.display="block";
+return;
+}
+
+if(!size){
+msg.innerHTML="⚠️ Please select room size required";
+msg.style.display="block";
+return;
+}
+
+var total=Number(size)*customRate;
+var cart=JSON.parse(localStorage.getItem("designCart")||"[]");
+
+if(cart.length>=10){
+document.getElementById("popupDesignName").innerHTML="MAX 10 DESIGNS ONLY!";
+document.getElementById("greenPopup").style.display="block";
+return;
+}
+
+cart.push({
+type:name,
+size:size,
+price:total,
+image:uploadedImageData,
+id:Date.now()
+});
+
+localStorage.setItem("designCart",JSON.stringify(cart));
+localStorage.setItem("selectedType",name);
+localStorage.setItem("selectedSize",size);
+localStorage.setItem("selectedPrice",total);
+localStorage.setItem("selectedImage",uploadedImageData);
+localStorage.setItem("bookingType","CUSTOM KIDS ROOM");
+
+document.getElementById("popupDesignName").innerHTML=name+" ("+cart.length+"/10)";
+document.getElementById("greenPopup").style.display="block";
+}
+
+function closePopup(){
+document.getElementById("greenPopup").style.display="none";
+}
+function goBackToServices() {
+    window.location.href = "services.html";
+}
+</script>
+<div class="back-container">
+    <button class="back-btn" onclick="goBackToServices()">
+        ← Back to Services
+    </button>
+</div>
+</body>
+</html>

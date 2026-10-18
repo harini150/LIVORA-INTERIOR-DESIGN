@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Livora Interior Design</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f3f1ed;
+    color:#222;
+}
+
+/* HEADER */
+header{
+    height:75px;
+    background:#222222;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 7%;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    color:#b88a2d;
+    font-size:25px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+nav{
+    display:flex;
+    gap:30px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-size:15px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#b88a2d;
+}
+
+/* HERO */
+.hero{
+    min-height:430px;
+    background:
+    linear-gradient(rgba(0,0,0,.48),rgba(0,0,0,.48)),
+    url("https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1600&q=80");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+}
+
+.hero-content{
+    max-width:750px;
+}
+
+.hero h1{
+    font-size:48px;
+    margin-bottom:15px;
+    letter-spacing:1px;
+}
+
+.hero p{
+    font-size:18px;
+    line-height:1.7;
+    color:#eee;
+}
+
+.hero-btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:13px 30px;
+    background:#d2a137;
+    color:white;
+    text-decoration:none;
+    border-radius:4px;
+    font-weight:bold;
+}
+
+/* SERVICES */
+.services{
+    padding:70px 7%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.section-title h2{
+    font-size:34px;
+    color:#252525;
+}
+
+.section-title span{
+    display:block;
+    width:55px;
+    height:3px;
+    background:#d2a137;
+    margin:14px auto;
+}
+
+.section-title p{
+    color:#777;
+    font-size:15px;
+}
+
+/* GRID */
+.service-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+/* CARD */
+.service-card{
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    cursor:pointer;
+    transition:.4s;
+}
+
+.service-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 15px 30px rgba(0,0,0,.15);
+}
+
+.image-box{
+    height:230px;
+    overflow:hidden;
+    position:relative;
+}
+
+.image-box img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.service-card:hover .image-box img{
+    transform:scale(1.08);
+}
+
+.number{
+    position:absolute;
+    top:15px;
+    left:15px;
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    background:#d2a137;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+}
+
+.card-content{
+    padding:22px;
+}
+
+.card-content h3{
+    font-size:19px;
+    margin-bottom:9px;
+}
+
+.card-content p{
+    color:#777;
+    font-size:14px;
+    line-height:1.6;
+}
+
+.view-btn{
+    margin-top:15px;
+    display:inline-block;
+    color:#b88a2d;
+    font-size:14px;
+    font-weight:bold;
+}
+
+/* FEATURE STRIP */
+.feature{
+    background:#222222;
+    color:white;
+    padding:55px 7%;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+    text-align:center;
+}
+
+.feature-box{
+    padding:15px;
+}
+
+.feature-box h3{
+    color:#b88a2d;
+    margin-bottom:10px;
+}
+
+.feature-box p{
+    color:#ccc;
+    font-size:14px;
+    line-height:1.6;
+}
+
+/* FOOTER */
+footer{
+    background:#222222;
+    color:#aaa;
+    text-align:center;
+    padding:25px;
+    font-size:14px;
+}
+
+/* RESPONSIVE */
+@media(max-width:1000px){
+    .service-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:650px){
+
+    header{
+        padding:0 20px;
+    }
+
+    nav{
+        gap:12px;
+    }
+
+    nav a{
+        font-size:12px;
+    }
+
+    .hero h1{
+        font-size:34px;
+    }
+
+    .hero p{
+        font-size:15px;
+        padding:0 20px;
+    }
+
+    .services{
+        padding:50px 20px;
+    }
+
+    .service-grid{
+        grid-template-columns:1fr;
+    }
+
+    .feature{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+<link rel="stylesheet" href="theme.css">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<!-- SHARED HEADER (same as Home Page) -->
+<div class="lv-header" role="banner">
+    <div class="lv-logo"><img src="logo.png" alt="Livora Interior Design Logo"></div>
+    <nav class="lv-nav" aria-label="Main navigation">
+        <a href="Home Page.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="Services.html">Services</a>
+        <a href="Reviews.html">Reviews</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <a href="loginn.html" class="lv-btn">Book Consultation</a>
+</div>
+
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h1>Design Your Dream Space</h1>
+
+        <p>
+            Discover elegant and modern interior solutions
+            designed to transform every corner of your home.
+        </p>
+
+        <a href="#services" class="hero-btn">
+            Explore Services
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- SERVICES -->
+<section class="services" id="services">
+
+    <div class="section-title">
+
+        <h2>Our Interior Services</h2>
+
+        <span></span>
+
+        <p>
+            Choose the perfect design service for your home
+        </p>
+
+    </div>
+
+
+    <div class="service-grid">
+
+
+        <!-- 1 BEDROOM -->
+        <div class="service-card"
+             onclick="openService('bedroom.html')">
+
+            <div class="image-box">
+
+                <img src="Bedroom Design.jpg"
+                     alt="Bedroom Design">
+
+                <div class="number">01</div>
+
+            </div>
+
+            <div class="card-content">
+
+                <h3>Bedroom Design</h3>
+
+                <p>
+                    Create a comfortable and stylish bedroom
+                    with personalized interior concepts.
+                </p>
+
+                <div class="view-btn">
+                    Explore Design →
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- 2 FLOOR -->
+        <div class="service-card"
+             onclick="openService('floor.html')">
+
+            <div class="image-box">
+
+                <img src="floor.jpg"
+                     alt="Floor Design">
+
+                <div class="number">02</div>
+
+            </div>
+
+            <div class="card-content">
+
+                <h3>Floor Design</h3>
+
+                <p>
+                    Explore wooden, marble, luxury and modern
+                    flooring styles for every room.
+                </p>
+
+                <div class="view-btn">
+                    Explore Design →
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- 3 KITCHEN -->
+        <div class="service-card"
+             onclick="openService('kitchen.html')">
+
+            <div class="image-box">
+
+                <img src="kitchen.jpg"
+                     alt="Kitchen Design">
+
+                <div class="number">03</div>
+
+            </div>
+
+            <div class="card-content">
+
+                <h3>Kitchen Design</h3>
+
+                <p>
+                    Functional and beautiful kitchens designed
+                    around your lifestyle and space.
+                </p>
+
+                <div class="view-btn">
+                    Explore Design →
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- 4 DINING -->
+        <div class="service-card"
+             onclick="openService('dining.html')">
+
+            <div class="image-box">
+
+                <img src="dining.jpg"
+                     alt="Dining Room">
+
+                <div class="number">04</div>
+
+            </div>
+
+            <div class="card-content">
+
+                <h3>Dining Room</h3>
+
+                <p>
+                    Elegant dining spaces created for
+                    comfortable family moments and gatherings.
+                </p>
+
+                <div class="view-btn">
+                    Explore Design →
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- 5 BATHROOM -->
+        <div class="service-card"
+             onclick="openService('bathroom.html')">
+
+            <div class="image-box">
+
+                <img src="bathroom.jpg"
+                     alt="Bathroom Design">
+
+                <div class="number">05</div>
+
+            </div>
+
+            <div class="card-content">
+
+                <h3>Bathroom</h3>
+
+                <p>
+                    Transform your bathroom with modern,
+                    luxurious and practical interior styles.
+                </p>
+
+                <div class="view-btn">
+                    Explore Design →
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- 6 FALSE CEILING -->
+        <div class="service-card"
+             onclick="openService('ceiling.html')">
+
+            <div class="image-box">
+
+                <img src="False Ceiling.jpg"
+                     alt="False Ceiling">
+
+                <div class="number">06</div>
+
+            </div>
+
+            <div class="card-content">
+
+                <h3>False Ceiling</h3>
+
+                <p>
+                    Add depth, lighting and character with
+                    contemporary false ceiling designs.
+                </p>
+
+                <div class="view-btn">
+                    Explore Design →
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- 7 KIDS BEDROOM -->
+        <div class="service-card"
+             onclick="openService('kids-bedroom.html')">
+
+            <div class="image-box">
+
+                <img src="kids.jpg"
+                     alt="Kids Bedroom Design">
+
+                <div class="number">07</div>
+
+            </div>
+
+            <div class="card-content">
+
+                <h3>Kids Bedroom Design</h3>
+
+                <p>
+                    Fun and creative rooms with playful themes
+                    designed specially for children.
+                </p>
+
+                <div class="view-btn">
+                    Explore Design →
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- 8 TV UNIT -->
+        <div class="service-card"
+             onclick="openService('tv-unit.html')">
+
+            <div class="image-box">
+
+                <img src="tv.jpg"
+                     alt="TV Unit Design">
+
+                <div class="number">08</div>
+
+            </div>
+
+            <div class="card-content">
+
+                <h3>TV Unit Design</h3>
+
+                <p>
+                    Modern TV units combining storage,
+                    aesthetics and smart space utilization.
+                </p>
+
+                <div class="view-btn">
+                    Explore Design →
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- FEATURES -->
+<section class="feature" id="about">
+
+    <div class="feature-box">
+
+        <h3>Modern Concepts</h3>
+
+        <p>
+            Contemporary designs created to match
+            modern homes and lifestyles.
+        </p>
+
+    </div>
+
+
+    <div class="feature-box">
+
+        <h3>Personalized Design</h3>
+
+        <p>
+            Choose designs based on your room,
+            style preference and requirements.
+        </p>
+
+    </div>
+
+
+    <div class="feature-box">
+
+        <h3>Complete Home Solution</h3>
+
+        <p>
+            From bedrooms to TV units, design
+            every important space in your home.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<!-- SHARED FOOTER (same as Home Page) -->
+<div class="lv-footer" role="contentinfo">
+    <h4>Livora Interior Design</h4>
+    <h6>Creating elegant, functional and luxurious spaces.</h6>
+    <h6>&copy; 2026 Livora. All Rights Reserved.</h6>
+</div>
+
+
+
+<script>
+
+function openService(page){
+    window.location.href = page;
+}
+
+</script>
+
+</body>
+</html>

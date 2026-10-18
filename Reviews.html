@@ -1,0 +1,2063 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Livora Interior Design - Reviews</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f8f4ee;
+    color:#222;
+}
+
+/* NAVBAR */
+
+.navbar{
+    background:#222222;
+    min-height:75px;
+    padding:0 7%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    color:#b88a2d;
+    font-size:30px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.nav-links{
+    display:flex;
+    gap:30px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:white;
+    font-size:16px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#b88a2d;
+}
+
+
+/* HERO */
+
+.hero{
+    text-align:center;
+    padding:70px 20px 45px;
+}
+
+.hero h1{
+    font-family:Georgia,serif;
+    font-size:48px;
+    color:#222222;
+    margin-bottom:15px;
+}
+
+.hero h1 span{
+    color:#b88a2d;
+}
+
+.hero p{
+    color:#666;
+    font-size:17px;
+    max-width:700px;
+    margin:auto;
+    line-height:1.6;
+}
+
+
+/* RATING */
+
+.rating-box{
+    width:85%;
+    max-width:1100px;
+    margin:10px auto 55px;
+    background:white;
+    border-radius:18px;
+    padding:35px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:80px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.rating-left{
+    text-align:center;
+}
+
+.rating-left h2{
+    font-size:55px;
+    color:#b88a2d;
+}
+
+.rating-stars{
+    color:#f2b01e;
+    font-size:27px;
+    margin:8px 0;
+}
+
+.rating-left p{
+    color:#777;
+}
+
+
+/* REVIEW HEADING */
+
+.review-heading{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.review-heading h2{
+    font-family:Georgia,serif;
+    font-size:35px;
+    color:#222222;
+}
+
+.review-heading h2 span{
+    color:#b88a2d;
+}
+
+.review-heading p{
+    color:#777;
+    margin-top:10px;
+}
+
+
+/* REVIEW GRID */
+
+.reviews-container{
+    width:90%;
+    max-width:1250px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+}
+
+
+/* REVIEW CARD */
+
+.review-card{
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.review-card:hover{
+    transform:translateY(-7px);
+}
+
+.review-content{
+    padding:22px;
+}
+
+.customer{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:15px;
+}
+
+.customer-avatar{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background:#d2a137;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.customer h3{
+    font-size:18px;
+    color:#222222;
+}
+
+.customer small{
+    color:#888;
+}
+
+.verified{
+    color:#298b45;
+    font-size:12px;
+    margin-top:3px;
+}
+
+.room-type{
+    display:inline-block;
+    background:#f3e5c5;
+    color:#9b701e;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+    margin-bottom:12px;
+}
+
+.stars{
+    color:#f2b01e;
+    font-size:20px;
+    margin-bottom:12px;
+    letter-spacing:2px;
+}
+
+.review-text{
+    color:#555;
+    line-height:1.7;
+    font-size:15px;
+}
+
+.review-date{
+    color:#999;
+    font-size:12px;
+    margin-top:15px;
+}
+
+
+/* ADMIN REPLY - DISPLAY ONLY */
+
+.admin-reply{
+    margin-top:18px;
+    padding:15px;
+    background:#f8f4ee;
+    border-left:4px solid #b88a2d;
+    border-radius:8px;
+}
+
+.admin-reply-title{
+    color:#222222;
+    font-weight:bold;
+    font-size:14px;
+    margin-bottom:8px;
+}
+
+.admin-reply-text{
+    color:#555;
+    font-size:14px;
+    line-height:1.6;
+}
+
+
+/* HELPFUL */
+
+.helpful{
+    border-top:1px solid #eee;
+    margin-top:15px;
+    padding-top:12px;
+}
+
+.helpful button{
+    border:none;
+    background:none;
+    cursor:pointer;
+    color:#666;
+    font-size:14px;
+}
+
+.helpful button:hover{
+    color:#b88a2d;
+}
+
+
+/* ADD REVIEW */
+
+.add-review{
+    width:90%;
+    max-width:850px;
+    margin:70px auto;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,.09);
+}
+
+.add-review h2{
+    text-align:center;
+    font-family:Georgia,serif;
+    font-size:32px;
+    color:#222222;
+    margin-bottom:10px;
+}
+
+.add-review h2 span{
+    color:#b88a2d;
+}
+
+.add-review > p{
+    text-align:center;
+    color:#777;
+    margin-bottom:30px;
+}
+
+.form-group{
+    margin-bottom:20px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:bold;
+    color:#333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    padding:13px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    font-size:15px;
+    outline:none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    border-color:#b88a2d;
+}
+
+.form-group textarea{
+    height:120px;
+    resize:none;
+}
+
+
+/* STAR */
+
+.star-rating{
+    display:flex;
+    flex-direction:row-reverse;
+    justify-content:flex-end;
+    gap:5px;
+}
+
+.star-rating input{
+    display:none;
+}
+
+.star-rating label{
+    font-size:38px;
+    color:#ccc;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label{
+    color:#f2b01e;
+}
+
+.star-rating input:checked ~ label{
+    color:#f2b01e;
+}
+
+
+/* IMAGE */
+
+#preview{
+    width:180px;
+    height:120px;
+    object-fit:cover;
+    margin-top:10px;
+    border-radius:10px;
+    display:none;
+}
+
+
+/* BUTTON */
+
+.submit-btn{
+    width:100%;
+    padding:15px;
+    background:#d2a137;
+    border:none;
+    border-radius:8px;
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.submit-btn:hover{
+    background:#a97c25;
+}
+
+.submit-btn:disabled{
+    background:#aaa;
+    cursor:not-allowed;
+}
+
+
+/* TOAST */
+
+#toast{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    min-width:300px;
+    max-width:420px;
+    padding:17px 22px;
+    border-radius:10px;
+    color:white;
+    font-size:15px;
+    font-weight:bold;
+    box-shadow:0 8px 25px rgba(0,0,0,.25);
+    transform:translateY(120px);
+    opacity:0;
+    visibility:hidden;
+    transition:.35s;
+    z-index:99999;
+}
+
+#toast.show{
+    transform:translateY(0);
+    opacity:1;
+    visibility:visible;
+}
+
+#toast.success{
+    background:#298b45;
+}
+
+#toast.error{
+    background:#c0392b;
+}
+
+#toast.info{
+    background:#222222;
+}
+
+
+/* FOOTER */
+
+footer{
+    background:#222222;
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:70px;
+}
+
+footer span{
+    color:#b88a2d;
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:950px){
+
+    .reviews-container{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:650px){
+
+    .navbar{
+        padding:20px;
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .nav-links{
+        gap:15px;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero h1{
+        font-size:35px;
+    }
+
+    .rating-box{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .reviews-container{
+        grid-template-columns:1fr;
+    }
+
+    .add-review{
+        padding:25px;
+    }
+
+    #toast{
+        left:20px;
+        right:20px;
+        min-width:auto;
+    }
+
+}
+
+</style>
+
+<link rel="stylesheet" href="theme.css">
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<!-- SHARED HEADER (same as Home Page) -->
+<div class="lv-header" role="banner">
+    <div class="lv-logo"><img src="logo.png" alt="Livora Interior Design Logo"></div>
+    <nav class="lv-nav" aria-label="Main navigation">
+        <a href="Home Page.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="Services.html">Services</a>
+        <a href="Reviews.html">Reviews</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <a href="loginn.html" class="lv-btn">Book Consultation</a>
+</div>
+
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <h1>
+        Client <span>Reviews</span>
+    </h1>
+
+    <p>
+        Hear from homeowners who transformed their
+        living spaces with Livora Interior Design.
+        From room planning and furniture selection
+        to lighting, flooring and complete interiors.
+    </p>
+
+</section>
+
+
+<!-- RATING -->
+
+<section class="rating-box">
+
+    <div class="rating-left">
+
+        <h2 id="averageRating">
+            0.0
+        </h2>
+
+        <div
+            class="rating-stars"
+            id="averageStars"
+        >
+            ☆☆☆☆☆
+        </div>
+
+        <p>
+            Customer Experience Rating
+        </p>
+
+        <p
+            id="reviewCount"
+            style="margin-top:8px;"
+        >
+            0 Reviews
+        </p>
+
+    </div>
+
+
+    <div>
+
+        <p>
+            <b>Interior Design</b>
+            &nbsp; • &nbsp;
+            Living Room
+        </p>
+
+        <p style="margin-top:12px;">
+            <b>Bedroom Design</b>
+            &nbsp; • &nbsp;
+            Kitchen Design
+        </p>
+
+        <p style="margin-top:12px;">
+            <b>Flooring</b>
+            &nbsp; • &nbsp;
+            Complete Home Interiors
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- REVIEWS -->
+
+<section>
+
+    <div class="review-heading">
+
+        <h2>
+            What Our <span>Clients Say</span>
+        </h2>
+
+        <p>
+            Real experiences from Livora interior design projects
+        </p>
+
+    </div>
+
+
+    <div
+        class="reviews-container"
+        id="reviewsContainer"
+    >
+
+        <p
+            style="
+                grid-column:1/-1;
+                text-align:center;
+                color:#777;
+            "
+        >
+            Loading reviews...
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ADD REVIEW -->
+
+<section class="add-review">
+
+    <h2>
+        Share Your <span>Interior Experience</span>
+    </h2>
+
+    <p>
+        Tell us about your Livora interior design project.
+    </p>
+
+
+    <form id="reviewForm">
+
+
+        <!-- NAME -->
+
+        <div class="form-group">
+
+            <label>
+                Customer Name
+            </label>
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Enter your name"
+                required
+            >
+
+        </div>
+
+
+        <!-- CITY -->
+
+        <div class="form-group">
+
+            <label>
+                City
+            </label>
+
+            <input
+                type="text"
+                id="city"
+                placeholder="Enter your city"
+                required
+            >
+
+        </div>
+
+
+        <!-- SERVICE -->
+
+        <div class="form-group">
+
+            <label>
+                Interior Service
+            </label>
+
+            <select
+                id="roomType"
+                required
+            >
+
+                <option value="">
+                    Select Interior Service
+                </option>
+
+                <option value="Living Room Design">
+                    Living Room Design
+                </option>
+
+                <option value="Bedroom Design">
+                    Bedroom Design
+                </option>
+
+                 <option value="False Ceiling Design">
+                    False Ceiling  Design
+                </option>
+
+                <option value="Kitchen Interior">
+                    Kitchen Interior
+                </option>
+
+                <option value="Dining Room Design">
+                    Dining Room Design
+                </option>
+
+                <option value="Flooring Design">
+                    Flooring Design
+                </option>
+
+                <option value="Full Home Interior">
+                    Full Home Interior
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- RATING -->
+
+        <div class="form-group">
+
+            <label>
+                Your Rating
+            </label>
+
+
+            <div class="star-rating">
+
+                <input
+                    type="radio"
+                    name="rating"
+                    id="rating5"
+                    value="5"
+                >
+
+                <label for="rating5">
+                    ★
+                </label>
+
+
+                <input
+                    type="radio"
+                    name="rating"
+                    id="rating4"
+                    value="4"
+                >
+
+                <label for="rating4">
+                    ★
+                </label>
+
+
+                <input
+                    type="radio"
+                    name="rating"
+                    id="rating3"
+                    value="3"
+                >
+
+                <label for="rating3">
+                    ★
+                </label>
+
+
+                <input
+                    type="radio"
+                    name="rating"
+                    id="rating2"
+                    value="2"
+                >
+
+                <label for="rating2">
+                    ★
+                </label>
+
+
+                <input
+                    type="radio"
+                    name="rating"
+                    id="rating1"
+                    value="1"
+                >
+
+                <label for="rating1">
+                    ★
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <!-- REVIEW -->
+
+        <div class="form-group">
+
+            <label>
+                Your Review
+            </label>
+
+            <textarea
+                id="review"
+                placeholder="Tell us about your interior design experience..."
+                required
+            ></textarea>
+
+        </div>
+
+
+        <!-- IMAGE -->
+
+        <div class="form-group">
+
+            <label>
+                Upload Your Interior Image
+            </label>
+
+            <input
+                type="file"
+                id="image"
+                accept="image/*"
+            >
+
+            <img
+                id="preview"
+                alt="Interior Preview"
+            >
+
+        </div>
+
+
+        <button
+            type="submit"
+            class="submit-btn"
+            id="submitBtn"
+        >
+            ⭐ Submit Review
+        </button>
+
+    </form>
+
+</section>
+
+
+<!-- TOAST -->
+
+<div id="toast"></div>
+
+
+<!-- FOOTER -->
+
+<!-- SHARED FOOTER (same as Home Page) -->
+<div class="lv-footer" role="contentinfo">
+    <h4>Livora Interior Design</h4>
+    <h6>Creating elegant, functional and luxurious spaces.</h6>
+    <h6>&copy; 2026 Livora. All Rights Reserved.</h6>
+</div>
+
+
+
+<script>
+
+/* =====================================================
+   HASURA
+===================================================== */
+
+const HASURA_URL =
+"https://livora.hasura.app/v1/graphql";
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+let toastTimer = null;
+
+function showToast(message,type){
+
+    const toast =
+    document.getElementById("toast");
+
+    clearTimeout(toastTimer);
+
+    toast.className = "";
+
+    toast.innerText = message;
+
+    toast.classList.add(type);
+
+    setTimeout(function(){
+
+        toast.classList.add("show");
+
+    },20);
+
+    toastTimer =
+    setTimeout(function(){
+
+        toast.classList.remove("show");
+
+    },4000);
+
+}
+
+
+/* =====================================================
+   HASURA REQUEST
+===================================================== */
+
+async function hasuraRequest(
+    query,
+    variables = {}
+){
+
+    const response =
+    await fetch(
+        HASURA_URL,
+        {
+            method:"POST",
+
+            headers:{
+                "Content-Type":"application/json",
+                "x-hasura-role":"anonymous"
+            },
+
+            body:JSON.stringify({
+
+                query:query,
+                variables:variables
+
+            })
+        }
+    );
+
+
+    let data;
+
+    try{
+
+        data =
+        await response.json();
+
+    }
+
+    catch(error){
+
+        throw new Error(
+            "Invalid response from Hasura."
+        );
+
+    }
+
+
+    console.log(
+        "Hasura Response:",
+        data
+    );
+
+
+    if(
+        data.errors &&
+        data.errors.length
+    ){
+
+        throw new Error(
+            data.errors
+            .map(function(error){
+
+                return error.message;
+
+            })
+            .join("\n")
+        );
+
+    }
+
+
+    if(!response.ok){
+
+        throw new Error(
+            "Hasura server error: " +
+            response.status
+        );
+
+    }
+
+
+    if(!data.data){
+
+        throw new Error(
+            "No data returned from Hasura."
+        );
+
+    }
+
+
+    return data.data;
+
+}
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHTML(value){
+
+    if(
+        value === null ||
+        value === undefined
+    ){
+
+        return "";
+
+    }
+
+
+    return String(value)
+
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/* =====================================================
+   CREATE STARS
+===================================================== */
+
+function createStars(rating){
+
+    let result = "";
+
+    for(
+        let i = 1;
+        i <= 5;
+        i++
+    ){
+
+        if(i <= rating){
+
+            result += "★";
+
+        }
+        else{
+
+            result += "☆";
+
+        }
+
+    }
+
+    return result;
+
+}
+
+
+/* =====================================================
+   IMAGE PREVIEW
+===================================================== */
+
+const imageInput =
+document.getElementById("image");
+
+const preview =
+document.getElementById("preview");
+
+
+imageInput.addEventListener(
+    "change",
+    function(){
+
+        const file =
+        this.files[0];
+
+
+        if(!file){
+
+            preview.src = "";
+            preview.style.display = "none";
+
+            return;
+
+        }
+
+
+        if(
+            !file.type.startsWith("image/")
+        ){
+
+            showToast(
+                "Please select an image file.",
+                "error"
+            );
+
+            this.value = "";
+
+            return;
+
+        }
+
+
+        const reader =
+        new FileReader();
+
+
+        reader.onload =
+        function(event){
+
+            preview.src =
+            event.target.result;
+
+            preview.style.display =
+            "block";
+
+        };
+
+
+        reader.readAsDataURL(file);
+
+    }
+);
+
+
+/* =====================================================
+   ADMIN REPLIES
+   DISPLAY ONLY
+   ===================================================== */
+
+function getAdminReplies(){
+
+    try{
+
+        return JSON.parse(
+            localStorage.getItem(
+                "livoraAdminReplies"
+            )
+        ) || {};
+
+    }
+
+    catch(error){
+
+        return {};
+
+    }
+
+}
+
+
+/* =====================================================
+   GET ADMIN REPLY
+===================================================== */
+
+function getAdminReplyHTML(reviewId){
+
+    const replies =
+    getAdminReplies();
+
+    const reply =
+    replies[String(reviewId)] || "";
+
+
+    /*
+       IMPORTANT:
+
+       Customer side-la admin reply
+       illa na edhuvum show aagadhu.
+
+       Reply irundha mattum show aagum.
+    */
+
+    if(!reply){
+
+        return "";
+
+    }
+
+
+    return `
+
+        <div class="admin-reply">
+
+            <div class="admin-reply-title">
+                🏠 Livora Admin Reply
+            </div>
+
+            <div class="admin-reply-text">
+                ${escapeHTML(reply)}
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =====================================================
+   LOAD REVIEWS
+===================================================== */
+
+async function loadReviews(){
+
+    const query = `
+
+        query GetReviews {
+
+            reviews(
+                order_by:{
+                    created_at:desc
+                }
+            ){
+
+                review_id
+                name
+                city
+                room_type
+                rating
+                review_text
+                created_at
+
+            }
+
+        }
+
+    `;
+
+
+    try{
+
+        const data =
+        await hasuraRequest(query);
+
+
+        const reviews =
+        data.reviews || [];
+
+
+        displayReviews(reviews);
+
+
+        return reviews;
+
+    }
+
+    catch(error){
+
+        console.error(
+            "Load Reviews Error:",
+            error
+        );
+
+
+        document.getElementById(
+            "reviewsContainer"
+        ).innerHTML = `
+
+            <p style="
+                grid-column:1/-1;
+                text-align:center;
+                color:#777;
+            ">
+                Reviews are currently unavailable.
+            </p>
+
+        `;
+
+
+        return [];
+
+    }
+
+}
+
+
+/* =====================================================
+   DISPLAY REVIEWS
+===================================================== */
+
+function displayReviews(reviews){
+
+    const container =
+    document.getElementById(
+        "reviewsContainer"
+    );
+
+
+    container.innerHTML = "";
+
+
+    if(
+        !reviews ||
+        reviews.length === 0
+    ){
+
+        container.innerHTML = `
+
+            <p style="
+                grid-column:1/-1;
+                text-align:center;
+                color:#777;
+            ">
+                No reviews yet.
+                Be the first to review Livora!
+            </p>
+
+        `;
+
+
+        updateRating([]);
+
+        return;
+
+    }
+
+
+    reviews.forEach(
+        function(review){
+
+            addReviewCard(review);
+
+        }
+    );
+
+
+    updateRating(reviews);
+
+}
+
+
+/* =====================================================
+   REVIEW CARD
+===================================================== */
+
+function addReviewCard(review){
+
+    const container =
+    document.getElementById(
+        "reviewsContainer"
+    );
+
+
+    const card =
+    document.createElement("div");
+
+
+    card.className =
+    "review-card";
+
+
+    const name =
+    escapeHTML(review.name);
+
+
+    const city =
+    escapeHTML(
+        review.city || ""
+    );
+
+
+    const room =
+    escapeHTML(
+        review.room_type ||
+        "Interior Design"
+    );
+
+
+    const text =
+    escapeHTML(
+        review.review_text || ""
+    );
+
+
+    const rating =
+    Number(review.rating) || 0;
+
+
+    let dateText =
+    "Recently";
+
+
+    if(review.created_at){
+
+        const date =
+        new Date(review.created_at);
+
+
+        if(!isNaN(date)){
+
+            dateText =
+            date.toLocaleDateString(
+                "en-IN",
+                {
+                    day:"2-digit",
+                    month:"long",
+                    year:"numeric"
+                }
+            );
+
+        }
+
+    }
+
+
+    const firstLetter =
+    name
+    ?
+    name.charAt(0).toUpperCase()
+    :
+    "L";
+
+
+    card.innerHTML = `
+
+        <div style="
+            height:8px;
+            background:#d2a137;
+        "></div>
+
+
+        <div class="review-content">
+
+
+            <div class="customer">
+
+                <div class="customer-avatar">
+                    ${firstLetter}
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        ${name}
+                    </h3>
+
+
+                    <small>
+                        ${city}
+                    </small>
+
+
+                    <div class="verified">
+                        ✔ Verified Client
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <span class="room-type">
+                ${room}
+            </span>
+
+
+            <div class="stars">
+                ${createStars(rating)}
+            </div>
+
+
+            <p class="review-text">
+                ${text}
+            </p>
+
+
+            <p class="review-date">
+                ${dateText}
+            </p>
+
+
+            <!--
+                ADMIN REPLY
+                Only existing admin reply is displayed.
+                No textarea.
+                No reply button.
+            -->
+
+            ${getAdminReplyHTML(review.review_id)}
+
+
+            <!-- HELPFUL -->
+
+            <div class="helpful">
+
+                <button
+                    type="button"
+                    onclick="helpful(this)"
+                >
+
+                    👍 Helpful
+                    <span>0</span>
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+    `;
+
+
+    container.appendChild(card);
+
+}
+
+
+/* =====================================================
+   HELPFUL
+===================================================== */
+
+function helpful(button){
+
+    const span =
+    button.querySelector("span");
+
+
+    let count =
+    Number(span.innerText) || 0;
+
+
+    count++;
+
+
+    span.innerText =
+    count;
+
+
+    button.style.color =
+    "#b88a2d";
+
+}
+
+
+/* =====================================================
+   UPDATE RATING
+===================================================== */
+
+function updateRating(reviews){
+
+    const averageElement =
+    document.getElementById(
+        "averageRating"
+    );
+
+
+    const starsElement =
+    document.getElementById(
+        "averageStars"
+    );
+
+
+    const countElement =
+    document.getElementById(
+        "reviewCount"
+    );
+
+
+    if(!reviews.length){
+
+        averageElement.innerText =
+        "0.0";
+
+
+        starsElement.innerText =
+        "☆☆☆☆☆";
+
+
+        countElement.innerText =
+        "0 Reviews";
+
+
+        return;
+
+    }
+
+
+    let total = 0;
+
+
+    reviews.forEach(
+        function(review){
+
+            total +=
+            Number(review.rating) || 0;
+
+        }
+    );
+
+
+    const average =
+    total / reviews.length;
+
+
+    averageElement.innerText =
+    average.toFixed(1);
+
+
+    starsElement.innerText =
+    createStars(
+        Math.round(average)
+    );
+
+
+    countElement.innerText =
+    reviews.length +
+    (
+        reviews.length === 1
+        ?
+        " Review"
+        :
+        " Reviews"
+    );
+
+}
+
+
+/* =====================================================
+   SAVE REVIEW TO HASURA
+===================================================== */
+
+async function saveReviewToHasura(){
+
+    const name =
+    document.getElementById(
+        "name"
+    ).value.trim();
+
+
+    const city =
+    document.getElementById(
+        "city"
+    ).value.trim();
+
+
+    const roomType =
+    document.getElementById(
+        "roomType"
+    ).value;
+
+
+    const reviewText =
+    document.getElementById(
+        "review"
+    ).value.trim();
+
+
+    const selectedRating =
+    document.querySelector(
+        'input[name="rating"]:checked'
+    );
+
+
+    if(!name){
+
+        throw new Error(
+            "Please enter your name."
+        );
+
+    }
+
+
+    if(!city){
+
+        throw new Error(
+            "Please enter your city."
+        );
+
+    }
+
+
+    if(!roomType){
+
+        throw new Error(
+            "Please select an interior service."
+        );
+
+    }
+
+
+    if(!selectedRating){
+
+        throw new Error(
+            "Please select your star rating."
+        );
+
+    }
+
+
+    if(!reviewText){
+
+        throw new Error(
+            "Please enter your review."
+        );
+
+    }
+
+
+    const rating =
+    Number(selectedRating.value);
+
+
+    const mutation = `
+
+        mutation InsertReview(
+
+            $name:String!
+            $city:String
+            $room_type:String
+            $rating:Int!
+            $review_text:String
+
+        ){
+
+            insert_reviews_one(
+
+                object:{
+
+                    name:$name
+                    city:$city
+                    room_type:$room_type
+                    rating:$rating
+                    review_text:$review_text
+
+                }
+
+            ){
+
+                review_id
+                name
+                city
+                room_type
+                rating
+                review_text
+                created_at
+
+            }
+
+        }
+
+    `;
+
+
+    const data =
+    await hasuraRequest(
+        mutation,
+        {
+            name:name,
+            city:city,
+            room_type:roomType,
+            rating:rating,
+            review_text:reviewText
+        }
+    );
+
+
+    if(
+        !data ||
+        !data.insert_reviews_one
+    ){
+
+        throw new Error(
+            "Review was not inserted."
+        );
+
+    }
+
+
+    return data.insert_reviews_one;
+
+}
+
+
+/* =====================================================
+   FORM SUBMIT
+===================================================== */
+
+const form =
+document.getElementById(
+    "reviewForm"
+);
+
+
+form.addEventListener(
+    "submit",
+    async function(event){
+
+        event.preventDefault();
+
+
+        const button =
+        document.getElementById(
+            "submitBtn"
+        );
+
+
+        button.disabled =
+        true;
+
+
+        button.innerText =
+        "Saving Review...";
+
+
+        try{
+
+            await saveReviewToHasura();
+
+
+            form.reset();
+
+
+            preview.src = "";
+
+
+            preview.style.display =
+            "none";
+
+
+            await loadReviews();
+
+
+            showToast(
+                "✓ Review submitted successfully!",
+                "success"
+            );
+
+        }
+
+
+        catch(error){
+
+            console.error(
+                "Review Error:",
+                error
+            );
+
+
+            showToast(
+                error.message ||
+                "Review could not be saved.",
+                "error"
+            );
+
+        }
+
+
+        button.disabled =
+        false;
+
+
+        button.innerText =
+        "⭐ Submit Review";
+
+    }
+);
+
+
+/* =====================================================
+   REALTIME REVIEW REFRESH
+===================================================== */
+
+let lastReviewSignature =
+"";
+
+
+async function realtimeReviews(){
+
+    try{
+
+        const query = `
+
+            query GetReviews {
+
+                reviews(
+                    order_by:{
+                        created_at:desc
+                    }
+                ){
+
+                    review_id
+                    name
+                    city
+                    room_type
+                    rating
+                    review_text
+                    created_at
+
+                }
+
+            }
+
+        `;
+
+
+        const data =
+        await hasuraRequest(query);
+
+
+        const reviews =
+        data.reviews || [];
+
+
+        const signature =
+        JSON.stringify(
+
+            reviews.map(
+                function(review){
+
+                    return {
+
+                        id:
+                        review.review_id,
+
+                        date:
+                        review.created_at,
+
+                        rating:
+                        review.rating,
+
+                        text:
+                        review.review_text
+
+                    };
+
+                }
+            )
+
+        );
+
+
+        if(
+            signature !==
+            lastReviewSignature
+        ){
+
+            lastReviewSignature =
+            signature;
+
+
+            displayReviews(reviews);
+
+        }
+
+    }
+
+    catch(error){
+
+        console.error(
+            "Realtime check:",
+            error
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   FIRST LOAD
+===================================================== */
+
+async function startReviews(){
+
+    const reviews =
+    await loadReviews();
+
+
+    lastReviewSignature =
+    JSON.stringify(
+
+        reviews.map(
+            function(review){
+
+                return {
+
+                    id:
+                    review.review_id,
+
+                    date:
+                    review.created_at,
+
+                    rating:
+                    review.rating,
+
+                    text:
+                    review.review_text
+
+                };
+
+            }
+        )
+
+    );
+
+}
+
+
+startReviews();
+
+
+/* =====================================================
+   CHECK EVERY 3 SECONDS
+===================================================== */
+
+setInterval(
+    realtimeReviews,
+    3000
+);
+
+</script>
+
+</body>
+
+</html>
