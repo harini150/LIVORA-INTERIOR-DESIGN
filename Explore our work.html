@@ -10,1094 +10,347 @@
 
 <style>
 
-/* =========================
-   RESET
-========================= */
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;}
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+body{font-family:Georgia,serif;background:#f8f4ee;color:#222;}
 
-body{
-    font-family:Georgia,serif;
-    background:#f8f4ee;
-    color:#222;
-}
 
+/* NAVBAR */
+.navbar{width:100%;height:70px;background:#dfb982;display:flex;align-items:center;justify-content:space-between;padding:0 7%;position:sticky;top:0;z-index:1000;}
+.logo{font-size:28px;font-weight:bold;color:#1e2a3a;letter-spacing:2px;}
+.nav-links{display:flex;gap:30px;}
+.nav-links a{color:#222;text-decoration:none;font-size:15px;transition:0.3s;}
+.nav-links a:hover{color:white;}
+.book-btn{background:#d29b2d;color:white !important;padding:10px 20px;border-radius:4px;font-weight:bold;}
 
-/* =========================
-   NAVBAR
-========================= */
 
-.navbar{
-    width:100%;
-    height:70px;
+/* HERO */
+.hero{text-align:center;padding:75px 20px 55px;background:#f8f4ee;}
+.hero h1{font-size:48px;color:#1e2a3a;margin-bottom:15px;}
+.hero h1 span{color:#c79a39;font-style:italic;}
+.hero p{max-width:750px;margin:auto;color:#666;font-size:17px;line-height:1.7;}
 
-    background:#dfb982;
 
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+/* CATEGORY BUTTONS */
+.categories{text-align:center;margin-bottom:40px;}
+.category-btn{border:1px solid #c79a39;background:white;color:#765820;padding:10px 20px;margin:5px;border-radius:25px;cursor:pointer;font-family:Georgia,serif;transition:0.3s;}
+.category-btn:hover,.category-btn.active{background:#c79a39;color:white;}
 
-    padding:0 7%;
 
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
+/* PROJECT GRID */
+.projects{width:90%;max-width:1250px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:30px;padding-bottom:70px;}
 
-.logo{
-    font-size:28px;
-    font-weight:bold;
-    color:#222222;
-    letter-spacing:2px;
-}
 
-.nav-links{
-    display:flex;
-    gap:30px;
-}
+/* PROJECT CARD */
+.project-card{background:white;border-radius:12px;overflow:hidden;box-shadow:0 8px 25px rgba(0,0,0,0.08);transition:0.3s;cursor:pointer;}
+.project-card:hover{transform:translateY(-8px);box-shadow:0 15px 35px rgba(0,0,0,0.15);}
+.project-image{width:100%;height:250px;object-fit:cover;display:block;background:#eadfc9;}
+.project-content{padding:22px;}
+.project-content h3{font-size:23px;color:#1e2a3a;margin-bottom:8px;}
+.project-content p{color:#666;font-size:14px;line-height:1.6;margin-bottom:15px;}
+.project-type{display:inline-block;background:#f1e2c4;color:#987027;padding:6px 12px;border-radius:20px;font-size:12px;margin-bottom:10px;}
+.view-project{color:#c18b27;font-weight:bold;font-size:14px;}
 
-.nav-links a{
-    color:#222;
-    text-decoration:none;
-    font-size:15px;
-    transition:0.3s;
-}
 
-.nav-links a:hover{
-    color:white;
-}
+/* MODAL */
+.modal{display:none;position:fixed;z-index:2000;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.75);justify-content:center;align-items:center;padding:20px;}
+.modal-box{width:90%;max-width:850px;background:white;border-radius:15px;overflow:hidden;position:relative;animation:popup 0.3s ease;}
+@keyframes popup{from{transform:scale(0.8);opacity:0;}to{transform:scale(1);opacity:1;}}
+.modal-image{width:100%;height:400px;object-fit:cover;display:block;}
+.modal-content{padding:25px;}
+.modal-content h2{color:#1e2a3a;margin-bottom:10px;font-size:30px;}
+.modal-content p{color:#666;line-height:1.7;}
+.close{position:absolute;top:15px;right:20px;width:38px;height:38px;background:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:25px;cursor:pointer;color:#333;}
 
-.book-btn{
-    background:#d29b2d;
-    color:white !important;
 
-    padding:10px 20px;
+/* CTA */
+.cta{background:#1e2a3a;text-align:center;padding:65px 20px;}
+.cta h2{color:white;font-size:35px;margin-bottom:15px;}
+.cta h2 span{color:#d4a24c;}
+.cta p{color:#ddd;}
 
-    border-radius:4px;
 
-    font-weight:bold;
-}
+/* FOOTER */
+footer{background:#111a25;color:white;text-align:center;padding:25px;}
+footer span{color:#d4a24c;}
 
 
-/* =========================
-   HERO
-========================= */
-
-.hero{
-    text-align:center;
-
-    padding:75px 20px 55px;
-
-    background:#f8f4ee;
-}
-
-.hero h1{
-    font-size:48px;
-
-    color:#222222;
-
-    margin-bottom:15px;
-}
-
-.hero h1 span{
-    color:#b88a2d;
-    font-style:italic;
-}
-
-.hero p{
-    max-width:750px;
-
-    margin:auto;
-
-    color:#666;
-
-    font-size:17px;
-
-    line-height:1.7;
-}
-
-
-/* =========================
-   CATEGORY BUTTONS
-========================= */
-
-.categories{
-    text-align:center;
-
-    margin-bottom:40px;
-}
-
-.category-btn{
-    border:1px solid #b88a2d;
-
-    background:white;
-
-    color:#765820;
-
-    padding:10px 20px;
-
-    margin:5px;
-
-    border-radius:25px;
-
-    cursor:pointer;
-
-    font-family:Georgia,serif;
-
-    transition:0.3s;
-}
-
-.category-btn:hover,
-.category-btn.active{
-    background:#d2a137;
-    color:white;
-}
-
-
-/* =========================
-   PROJECT GRID
-========================= */
-
-.projects{
-    width:90%;
-    max-width:1250px;
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(3,1fr);
-
-    gap:30px;
-
-    padding-bottom:70px;
-}
-
-
-/* =========================
-   PROJECT CARD
-========================= */
-
-.project-card{
-    background:white;
-
-    border-radius:12px;
-
-    overflow:hidden;
-
-    box-shadow:
-    0 8px 25px rgba(0,0,0,0.08);
-
-    transition:0.3s;
-
-    cursor:pointer;
-}
-
-.project-card:hover{
-    transform:translateY(-8px);
-
-    box-shadow:
-    0 15px 35px rgba(0,0,0,0.15);
-}
-
-
-/* IMAGE */
-
-.project-image{
-    width:100%;
-    height:250px;
-
-    object-fit:cover;
-
-    display:block;
-}
-
-
-/* CONTENT */
-
-.project-content{
-    padding:22px;
-}
-
-.project-content h3{
-    font-size:23px;
-
-    color:#222222;
-
-    margin-bottom:8px;
-}
-
-.project-content p{
-    color:#666;
-
-    font-size:14px;
-
-    line-height:1.6;
-
-    margin-bottom:15px;
-}
-
-.project-type{
-    display:inline-block;
-
-    background:#f1e2c4;
-
-    color:#987027;
-
-    padding:6px 12px;
-
-    border-radius:20px;
-
-    font-size:12px;
-
-    margin-bottom:10px;
-}
-
-.view-project{
-    color:#c18b27;
-
-    font-weight:bold;
-
-    font-size:14px;
-}
-
-
-/* =========================
-   NO PROJECT
-========================= */
-
-.no-project{
-    display:none;
-
-    text-align:center;
-
-    padding:50px;
-
-    color:#777;
-}
-
-
-/* =========================
-   MODAL
-========================= */
-
-.modal{
-    display:none;
-
-    position:fixed;
-
-    z-index:2000;
-
-    left:0;
-    top:0;
-
-    width:100%;
-    height:100%;
-
-    background:rgba(0,0,0,0.75);
-
-    justify-content:center;
-    align-items:center;
-
-    padding:20px;
-}
-
-.modal-box{
-    width:90%;
-    max-width:850px;
-
-    background:white;
-
-    border-radius:15px;
-
-    overflow:hidden;
-
-    position:relative;
-
-    animation:popup 0.3s ease;
-}
-
-@keyframes popup{
-
-    from{
-        transform:scale(0.8);
-        opacity:0;
-    }
-
-    to{
-        transform:scale(1);
-        opacity:1;
-    }
-
-}
-
-.modal-image{
-    width:100%;
-    height:400px;
-
-    object-fit:cover;
-}
-
-.modal-content{
-    padding:25px;
-}
-
-.modal-content h2{
-    color:#222222;
-
-    margin-bottom:10px;
-
-    font-size:30px;
-}
-
-.modal-content p{
-    color:#666;
-
-    line-height:1.7;
-}
-
-.close{
-    position:absolute;
-
-    top:15px;
-    right:20px;
-
-    width:38px;
-    height:38px;
-
-    background:white;
-
-    border-radius:50%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:25px;
-
-    cursor:pointer;
-
-    color:#333;
-}
-
-
-/* =========================
-   CTA
-========================= */
-
-.cta{
-    background:#222222;
-
-    text-align:center;
-
-    padding:65px 20px;
-}
-
-.cta h2{
-    color:white;
-
-    font-size:35px;
-
-    margin-bottom:15px;
-}
-
-.cta h2 span{
-    color:#b88a2d;
-}
-
-.cta p{
-    color:#ddd;
-
-    margin-bottom:0;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-    background:#222222;
-
-    color:white;
-
-    text-align:center;
-
-    padding:25px;
-}
-
-footer span{
-    color:#b88a2d;
-}
-
-
-/* =========================
-   RESPONSIVE
-========================= */
-
+/* RESPONSIVE */
 @media(max-width:900px){
-
-    .projects{
-        grid-template-columns:
-        repeat(2,1fr);
-    }
-
+    .projects{grid-template-columns:repeat(2,1fr);}
 }
 
 @media(max-width:600px){
-
-    .navbar{
-        height:auto;
-
-        padding:15px;
-
-        flex-direction:column;
-
-        gap:15px;
-    }
-
-    .nav-links{
-        flex-wrap:wrap;
-
-        justify-content:center;
-
-        gap:15px;
-    }
-
-    .hero h1{
-        font-size:35px;
-    }
-
-    .projects{
-        grid-template-columns:1fr;
-    }
-
-    .modal-image{
-        height:250px;
-    }
-
+    .navbar{height:auto;padding:15px;flex-direction:column;gap:15px;}
+    .nav-links{flex-wrap:wrap;justify-content:center;gap:15px;}
+    .hero h1{font-size:35px;}
+    .projects{grid-template-columns:1fr;}
+    .modal-image{height:250px;}
 }
 
 </style>
 
-<link rel="stylesheet" href="theme.css">
 </head>
 
 
 <body>
 
-
-<!-- =========================
-     NAVBAR
-========================= -->
-
-<!-- SHARED HEADER (same as Home Page) -->
-<div class="lv-header" role="banner">
-    <div class="lv-logo"><img src="logo.png" alt="Livora Interior Design Logo"></div>
-    <nav class="lv-nav" aria-label="Main navigation">
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">LIVORA</div>
+    <div class="nav-links">
         <a href="Home Page.html">Home</a>
         <a href="about.html">About</a>
         <a href="Services.html">Services</a>
-        <a href="Reviews.html">Reviews</a>
         <a href="contact.html">Contact</a>
-    </nav>
-    <a href="loginn.html" class="lv-btn">Book Consultation</a>
-</div>
+        <a href="contact.html" class="book-btn">Book Consultation</a>
+    </div>
+</nav>
 
 
-
-
-<!-- =========================
-     HERO
-========================= -->
-
+<!-- HERO -->
 <section class="hero">
-
-    <h1>
-        Explore Our <span>Work</span>
-    </h1>
-
+    <h1>Explore Our <span>Work</span></h1>
     <p>
         Discover our thoughtfully designed interiors,
         where elegance, functionality and personal
         style come together to create beautiful spaces.
     </p>
-
 </section>
 
 
-
-<!-- =========================
-     CATEGORY FILTER
-========================= -->
-
+<!-- CATEGORY FILTER -->
 <div class="categories">
-
-    <button
-        class="category-btn active"
-        onclick="filterProjects('all',this)">
-
-        All Projects
-
-    </button>
-
-
-    <button
-        class="category-btn"
-        onclick="filterProjects('living',this)">
-
-        Living Room
-
-    </button>
-
-
-    <button
-        class="category-btn"
-        onclick="filterProjects('bedroom',this)">
-
-        Bedroom
-
-    </button>
-
-
-    <button
-        class="category-btn"
-        onclick="filterProjects('kitchen',this)">
-
-        Kitchen
-
-    </button>
-
-
-    <button
-        class="category-btn"
-        onclick="filterProjects('dining',this)">
-
-        Dining Room
-
-    </button>
-
-
-    <button
-        class="category-btn"
-        onclick="filterProjects('flooring',this)">
-
-        Flooring
-
-    </button>
-
+    <button class="category-btn active" onclick="filterProjects('all',this)">All Projects</button>
+    <button class="category-btn" onclick="filterProjects('ceiling',this)">False Ceiling</button>
+    <button class="category-btn" onclick="filterProjects('bedroom',this)">Bedroom</button>
+    <button class="category-btn" onclick="filterProjects('kitchen',this)">Kitchen</button>
+    <button class="category-btn" onclick="filterProjects('dining',this)">Dining Room</button>
+    <button class="category-btn" onclick="filterProjects('flooring',this)">Flooring</button>
+    <button class="category-btn" onclick="filterProjects('fullhome',this)">Full Home</button>
 </div>
 
 
+<!-- PROJECTS -->
+<section class="projects" id="projects">
 
-<!-- =========================
-     PROJECTS
-========================= -->
+    <!-- FALSE CEILING -->
+    <div class="project-card" data-category="ceiling"
+         data-title="Modern False Ceiling"
+         data-type="False Ceiling Design"
+         data-desc="A modern false ceiling with layered gypsum design, hidden cove lighting and recessed spot lights that add depth, elegance and a warm glow to the room."
+         data-img="https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?auto=format&fit=crop&w=1200&q=80"
+         onclick="openProject(this)">
 
-<section class="projects"
-         id="projects">
-
-
-    <!-- LIVING ROOM -->
-
-    <div class="project-card"
-         data-category="living"
-         onclick="openProject(
-         'Modern Living Room',
-         'Living Room',
-         'A warm and elegant living room designed with comfortable seating, premium wall panelling, stylish lighting and a beautiful centre table.',
-         'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80'
-         )">
-
-        <img
-            class="project-image"
-            src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80"
-            alt="Modern Living Room">
+        <img class="project-image"
+             src="https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?auto=format&fit=crop&w=1200&q=80"
+             alt="Modern False Ceiling">
 
         <div class="project-content">
-
-            <span class="project-type">
-                Living Room
-            </span>
-
-            <h3>
-                Modern Living Room
-            </h3>
-
-            <p>
-                Elegant living space with
-                premium furniture and warm lighting.
-            </p>
-
-            <div class="view-project">
-                View Project →
-            </div>
-
+            <span class="project-type">False Ceiling</span>
+            <h3>Modern False Ceiling</h3>
+            <p>Layered ceiling design with cove lighting and recessed spot lights.</p>
+            <div class="view-project">View Project →</div>
         </div>
-
     </div>
-
 
 
     <!-- BEDROOM -->
+    <div class="project-card" data-category="bedroom"
+         data-title="Luxury Bedroom"
+         data-type="Bedroom Design"
+         data-desc="A sophisticated bedroom with a modern bed, custom wardrobe, elegant curtains, warm lighting and carefully selected flooring."
+         data-img="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1200&q=80"
+         onclick="openProject(this)">
 
-    <div class="project-card"
-         data-category="bedroom"
-         onclick="openProject(
-         'Luxury Bedroom',
-         'Bedroom Design',
-         'A sophisticated bedroom with a modern bed, custom wardrobe, elegant curtains, warm lighting and carefully selected flooring.',
-         'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80'
-         )">
-
-        <img
-            class="project-image"
-            src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80"
-            alt="Luxury Bedroom">
+        <img class="project-image"
+             src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1200&q=80"
+             alt="Luxury Bedroom">
 
         <div class="project-content">
-
-            <span class="project-type">
-                Bedroom
-            </span>
-
-            <h3>
-                Luxury Bedroom
-            </h3>
-
-            <p>
-                Calm and luxurious bedroom
-                designed for comfort and relaxation.
-            </p>
-
-            <div class="view-project">
-                View Project →
-            </div>
-
+            <span class="project-type">Bedroom</span>
+            <h3>Luxury Bedroom</h3>
+            <p>Calm and luxurious bedroom designed for comfort and relaxation.</p>
+            <div class="view-project">View Project →</div>
         </div>
-
     </div>
-
 
 
     <!-- KITCHEN -->
+    <div class="project-card" data-category="kitchen"
+         data-title="Modern Kitchen"
+         data-type="Kitchen Interior"
+         data-desc="A practical modular kitchen with organised storage, elegant cabinets, premium countertop and functional workspace."
+         data-img="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1200&q=80"
+         onclick="openProject(this)">
 
-    <div class="project-card"
-         data-category="kitchen"
-         onclick="openProject(
-         'Modern Kitchen',
-         'Kitchen Interior',
-         'A practical modular kitchen with organised storage, elegant cabinets, premium countertop and functional workspace.',
-         'https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1200&q=80'
-         )">
-
-        <img
-            class="project-image"
-            src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1200&q=80"
-            alt="Modern Kitchen">
+        <img class="project-image"
+             src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1200&q=80"
+             alt="Modern Kitchen">
 
         <div class="project-content">
-
-            <span class="project-type">
-                Kitchen
-            </span>
-
-            <h3>
-                Modern Kitchen
-            </h3>
-
-            <p>
-                Clean modular kitchen with
-                smart storage and elegant finishes.
-            </p>
-
-            <div class="view-project">
-                View Project →
-            </div>
-
+            <span class="project-type">Kitchen</span>
+            <h3>Modern Kitchen</h3>
+            <p>Clean modular kitchen with smart storage and elegant finishes.</p>
+            <div class="view-project">View Project →</div>
         </div>
-
     </div>
-
 
 
     <!-- DINING -->
+    <div class="project-card" data-category="dining"
+         data-title="Elegant Dining Room"
+         data-type="Dining Room"
+         data-desc="An elegant dining area featuring a stylish dining table, comfortable seating, decorative wall elements and statement lighting."
+         data-img="https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=1200&q=80"
+         onclick="openProject(this)">
 
-    <div class="project-card"
-         data-category="dining"
-         onclick="openProject(
-         'Elegant Dining Room',
-         'Dining Room',
-         'An elegant dining area featuring a stylish dining table, comfortable seating, decorative wall elements and statement lighting.',
-         'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=80'
-         )">
-
-        <img
-            class="project-image"
-            src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=80"
-            alt="Dining Room">
+        <img class="project-image"
+             src="https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=1200&q=80"
+             alt="Dining Room">
 
         <div class="project-content">
-
-            <span class="project-type">
-                Dining Room
-            </span>
-
-            <h3>
-                Elegant Dining Room
-            </h3>
-
-            <p>
-                A welcoming dining space
-                designed for family gatherings.
-            </p>
-
-            <div class="view-project">
-                View Project →
-            </div>
-
+            <span class="project-type">Dining Room</span>
+            <h3>Elegant Dining Room</h3>
+            <p>A welcoming dining space designed for family gatherings.</p>
+            <div class="view-project">View Project →</div>
         </div>
-
     </div>
-
 
 
     <!-- FLOORING -->
+    <div class="project-card" data-category="flooring"
+         data-title="Premium Wooden Flooring"
+         data-type="Flooring Design"
+         data-desc="Premium wooden flooring selected to complement the furniture, wall colours and overall interior theme."
+         data-img="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=1200&q=80"
+         onclick="openProject(this)">
 
-    <div class="project-card"
-         data-category="flooring"
-         onclick="openProject(
-         'Premium Wooden Flooring',
-         'Flooring Design',
-         'Premium wooden flooring selected to complement the furniture, wall colours and overall interior theme.',
-         'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=80'
-         )">
-
-        <img
-            class="project-image"
-            src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=80"
-            alt="Wooden Flooring">
+        <img class="project-image"
+             src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=1200&q=80"
+             alt="Wooden Flooring">
 
         <div class="project-content">
-
-            <span class="project-type">
-                Flooring
-            </span>
-
-            <h3>
-                Premium Flooring
-            </h3>
-
-            <p>
-                Carefully selected flooring
-                for a warm and luxurious interior.
-            </p>
-
-            <div class="view-project">
-                View Project →
-            </div>
-
+            <span class="project-type">Flooring</span>
+            <h3>Premium Flooring</h3>
+            <p>Carefully selected flooring for a warm and luxurious interior.</p>
+            <div class="view-project">View Project →</div>
         </div>
-
     </div>
-
 
 
     <!-- FULL HOME -->
+    <div class="project-card" data-category="fullhome"
+         data-title="Complete Home Interior"
+         data-type="Full Home Interior"
+         data-desc="A complete interior concept connecting the living room, bedroom, dining area and kitchen through a consistent design language."
+         data-img="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=80"
+         onclick="openProject(this)">
 
-    <div class="project-card"
-         data-category="living"
-         onclick="openProject(
-         'Complete Home Interior',
-         'Full Home Interior',
-         'A complete interior concept connecting the living room, bedroom, dining area and kitchen through a consistent design language.',
-         'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=80'
-         )">
-
-        <img
-            class="project-image"
-            src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=80"
-            alt="Complete Home Interior">
+        <img class="project-image"
+             src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=80"
+             alt="Complete Home Interior">
 
         <div class="project-content">
-
-            <span class="project-type">
-                Full Home
-            </span>
-
-            <h3>
-                Complete Home Interior
-            </h3>
-
-            <p>
-                A complete home designed
-                with a consistent luxury theme.
-            </p>
-
-            <div class="view-project">
-                View Project →
-            </div>
-
+            <span class="project-type">Full Home</span>
+            <h3>Complete Home Interior</h3>
+            <p>A complete home designed with a consistent luxury theme.</p>
+            <div class="view-project">View Project →</div>
         </div>
-
     </div>
-
 
 </section>
 
 
-
-<!-- =========================
-     MODAL
-========================= -->
-
-<div class="modal"
-     id="projectModal">
-
+<!-- MODAL -->
+<div class="modal" id="projectModal">
     <div class="modal-box">
-
-        <div class="close"
-             onclick="closeProject()">
-
-            ×
-
-        </div>
-
-
-        <img
-            id="modalImage"
-            class="modal-image"
-            src=""
-            alt="Project">
-
-
+        <div class="close" onclick="closeProject()">×</div>
+        <img id="modalImage" class="modal-image" src="" alt="Project">
         <div class="modal-content">
-
-            <h2 id="modalTitle">
-                Project
-            </h2>
-
-            <p
-                id="modalType"
-                style="
-                color:#b88a2d;
-                font-weight:bold;
-                margin-bottom:10px;
-                ">
-            </p>
-
-            <p id="modalDescription">
-            </p>
-
+            <h2 id="modalTitle">Project</h2>
+            <p id="modalType" style="color:#c79a39;font-weight:bold;margin-bottom:10px;"></p>
+            <p id="modalDescription"></p>
         </div>
-
     </div>
-
 </div>
 
 
-
-<!-- =========================
-     CTA
-========================= -->
-
+<!-- CTA -->
 <section class="cta">
-
-    <h2>
-        Ready to Create Your
-        <span>Dream Interior?</span>
-    </h2>
-
-    <p>
-        Let's transform your space into
-        something beautiful and functional.
-    </p>
-
+    <h2>Ready to Create Your <span>Dream Interior?</span></h2>
+    <p>Let's transform your space into something beautiful and functional.</p>
 </section>
 
 
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<!-- SHARED FOOTER (same as Home Page) -->
-<div class="lv-footer" role="contentinfo">
-    <h4>Livora Interior Design</h4>
-    <h6>Creating elegant, functional and luxurious spaces.</h6>
-    <h6>&copy; 2026 Livora. All Rights Reserved.</h6>
-</div>
-
-
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 <span>Livora Interior Design</span>. All Rights Reserved.</p>
+</footer>
 
 
 <script>
 
-/* =========================
-   FILTER PROJECTS
-========================= */
+/* FILTER PROJECTS */
+function filterProjects(category, button){
 
-function filterProjects(category,button){
-
-    const cards =
-    document.querySelectorAll(
-        ".project-card"
-    );
-
-    const buttons =
-    document.querySelectorAll(
-        ".category-btn"
-    );
-
+    const cards = document.querySelectorAll(".project-card");
+    const buttons = document.querySelectorAll(".category-btn");
 
     buttons.forEach(function(btn){
-
-        btn.classList.remove(
-            "active"
-        );
-
+        btn.classList.remove("active");
     });
 
-
-    button.classList.add(
-        "active"
-    );
-
+    button.classList.add("active");
 
     cards.forEach(function(card){
+        const cardCategory = card.getAttribute("data-category");
 
-        const cardCategory =
-        card.getAttribute(
-            "data-category"
-        );
-
-
-        if(
-            category === "all" ||
-            cardCategory === category
-        ){
-
-            card.style.display =
-            "block";
-
+        if(category === "all" || cardCategory === category){
+            card.style.display = "block";
         }else{
-
-            card.style.display =
-            "none";
-
+            card.style.display = "none";
         }
-
     });
-
 }
 
 
+/* OPEN PROJECT (reads data from the clicked card) */
+function openProject(card){
 
-/* =========================
-   OPEN PROJECT
-========================= */
+    document.getElementById("modalTitle").innerText = card.dataset.title;
+    document.getElementById("modalType").innerText = card.dataset.type;
+    document.getElementById("modalDescription").innerText = card.dataset.desc;
+    document.getElementById("modalImage").src = card.dataset.img;
 
-function openProject(
-    title,
-    type,
-    description,
-    image
-){
-
-    document.getElementById(
-        "modalTitle"
-    ).innerText = title;
-
-
-    document.getElementById(
-        "modalType"
-    ).innerText = type;
-
-
-    document.getElementById(
-        "modalDescription"
-    ).innerText = description;
-
-
-    document.getElementById(
-        "modalImage"
-    ).src = image;
-
-
-    document.getElementById(
-        "projectModal"
-    ).style.display =
-    "flex";
-
+    document.getElementById("projectModal").style.display = "flex";
 }
 
 
-
-/* =========================
-   CLOSE PROJECT
-========================= */
-
+/* CLOSE PROJECT */
 function closeProject(){
-
-    document.getElementById(
-        "projectModal"
-    ).style.display =
-    "none";
-
+    document.getElementById("projectModal").style.display = "none";
 }
 
 
-
-/* =========================
-   CLOSE WHEN CLICK OUTSIDE
-========================= */
-
-window.addEventListener(
-    "click",
-    function(event){
-
-        const modal =
-        document.getElementById(
-            "projectModal"
-        );
-
-
-        if(event.target === modal){
-
-            modal.style.display =
-            "none";
-
-        }
-
+/* CLOSE WHEN CLICK OUTSIDE */
+window.addEventListener("click", function(event){
+    const modal = document.getElementById("projectModal");
+    if(event.target === modal){
+        modal.style.display = "none";
     }
-);
+});
 
 
-
-/* =========================
-   ESC KEY
-========================= */
-
-document.addEventListener(
-    "keydown",
-    function(event){
-
-        if(event.key === "Escape"){
-
-            closeProject();
-
-        }
-
+/* ESC KEY */
+document.addEventListener("keydown", function(event){
+    if(event.key === "Escape"){
+        closeProject();
     }
-);
+});
 
 </script>
-
 
 </body>
 </html>
